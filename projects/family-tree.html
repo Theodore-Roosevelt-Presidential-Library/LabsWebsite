@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Tree — TRPL Labs</title>
+<meta name="description" content="Forty-six Roosevelts across six generations, every name opening a sourced biography.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/family-tree.html">
+<meta property="og:title" content="Family Tree — TRPL Labs">
+<meta property="og:description" content="Forty-six Roosevelts across six generations, every name opening a sourced biography.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/family-tree.html">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../index.html">TRPL Labs</a> &nbsp;/&nbsp; Interactive Media</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Interactive Media</p>
+    <h1>Family Tree</h1>
+    <p class="tag">Forty-six Roosevelts across six generations, every name opening a sourced biography.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://familytree.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://familytree.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      
+
+      <h2>What it does</h2>
+      <p>Parents, siblings, both wives, six children, their spouses, and all seventeen grandchildren — with two lines carried down to present-day Library Trustees. Every person is a button; every button opens a biography drawn from published works in the Library's collection.</p>
+<p>The layout is computed at runtime, so adding a person re-flows the tree instead of forcing anyone to bookkeep coordinates. Dates were checked independently against the Theodore Roosevelt Center, the National Park Service, and contemporary obituaries. That pass corrected two errors in the published books and surfaced a grandchild the sources never named.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>46 people across six generations, laid out automatically</li>
+<li>Biography dialog for every person, closing on Escape</li>
+<li>Two published URLs — a branded standalone page and a bare <code>embed.html</code> for iframing</li>
+<li>JavaScript API: <code>mount()</code>, <code>open(id)</code>, <code>fit()</code>, <code>home()</code></li>
+<li>Shadow DOM isolation with graceful font fallbacks</li>
+<li>CI renders the whole tree headlessly and refuses to deploy if nodes overlap</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/FamilyTree.git
+cd FamilyTree</div>
+      <ol class="steps">
+<li>Fork the repo. Everything published lives in <code>site/</code>.</li>
+<li>Replace the <code>PEOPLE</code> and <code>FAMILIES</code> objects at the top of <code>site/tr-family-tree.js</code> with your own records. The layout re-flows when you add someone.</li>
+<li>Rewrite the biography text in the same file, and document your sourcing in <code>docs/SOURCES.md</code>.</li>
+<li>Swap the masthead and wordmark in <code>site/index.html</code>, committing your own SVG into <code>site/</code> rather than hotlinking it.</li>
+<li>Update <code>site/CNAME</code> and point DNS at GitHub Pages. The workflow verifies, then publishes on push to <code>main</code>.</li>
+<li>Embed by iframing <code>embed.html</code> at an explicit height (700–820px), or drop the script into a page with <code>&lt;div id="tr-family-tree" data-height="780"&gt;</code>.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Single self-contained vanilla JS file</span></li><li><span class="tech">Shadow DOM</span></li><li><span class="tech">GitHub Actions with headless verification</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://familytree.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>familytree.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="tr-timeline.html">&larr; Previous<b>TR Timeline</b></a><a href="photo-gallery.html" style="text-align:right">Next &rarr;<b>Photo Gallery</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

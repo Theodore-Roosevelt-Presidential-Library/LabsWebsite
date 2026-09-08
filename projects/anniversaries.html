@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anniversaries — TRPL Labs</title>
+<meta name="description" content="Shows which milestones hit a round anniversary this year and the next five.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/anniversaries.html">
+<meta property="og:title" content="Anniversaries — TRPL Labs">
+<meta property="og:description" content="Shows which milestones hit a round anniversary this year and the next five.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/anniversaries.html">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../index.html">TRPL Labs</a> &nbsp;/&nbsp; Content Tool</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Content Tool</p>
+    <h1>Anniversaries</h1>
+    <p class="tag">Shows which milestones hit a round anniversary this year and the next five.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://anniversaries.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://anniversaries.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      
+
+      <h2>What it does</h2>
+      <p>A small static page that reads a curated list of dated events and surfaces those whose anniversary in a given year lands on a multiple of five. Tabs cover the current year plus five ahead, each entry showing the original date, the anniversary number, and a sentence or two of context.</p>
+<p>It exists because commemoration planning happens a year out, not a week out. Any institution with a founder, a building, or a collection has the same problem — replace one JSON file and it is your chronology.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Tabbed view across six years, current year first</li>
+<li>Automatic five-year-multiple anniversary calculation</li>
+<li>Month-and-day sorting, with undated entries falling to the bottom</li>
+<li>The whole dataset editable as one plain JSON file, no build step</li>
+<li>Deploys on every push to <code>main</code></li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/TRAnniversaries.git
+cd TRAnniversaries</div>
+      <ol class="steps">
+<li>Fork the repo and set Settings → Pages → Source to GitHub Actions.</li>
+<li>Replace <code>events.json</code> with your own events. Each object takes a year, optional month and day, a title, and a description.</li>
+<li>Swap the logo and edit the headings, colors, and copy in <code>index.html</code>.</li>
+<li>Add a <code>CNAME</code> file and matching DNS record if you want a custom hostname.</li>
+<li>Preview locally with <code>python3 -m http.server 8000</code> — the page fetches its JSON, so a <code>file://</code> URL will not work.</li>
+<li>Verify every date against a primary source before publishing.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Static HTML</span></li><li><span class="tech">Vanilla JavaScript</span></li><li><span class="tech">Plain JSON</span></li><li><span class="tech">GitHub Actions</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://anniversaries.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>anniversaries.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="reviews.html">&larr; Previous<b>Reviews</b></a><a href="campus-map.html" style="text-align:right">Next &rarr;<b>Campus Map</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

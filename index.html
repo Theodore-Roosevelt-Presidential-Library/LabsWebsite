@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRPL Labs — Open source from the Theodore Roosevelt Presidential Library</title>
+<meta name="description" content="Open source tools built by the Theodore Roosevelt Presidential Library and released for other museums and nonprofits to fork, rebrand, and run themselves.">
+<link rel="canonical" href="https://labs.trlibrary.com/">
+<meta property="og:title" content="TRPL Labs — Open source from the Theodore Roosevelt Presidential Library">
+<meta property="og:description" content="Open source tools built by the Theodore Roosevelt Presidential Library and released for other museums and nonprofits to fork, rebrand, and run themselves.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="index.html">
+      <img src="assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="shell">
+    <h1>Built here.<br>Yours to fork.</h1>
+    <p class="lede">The Theodore Roosevelt Presidential Library builds a lot of its own software &mdash;
+      ticketing widgets, embeddable timelines, a link checker, a 3D campus map, a night-sky
+      explorer. <strong>All of it is public, all of it is MIT licensed, and most of it runs on
+      nothing but GitHub Pages.</strong> A small museum with no engineering staff can fork any of
+      these, swap one data file, and have it live on their own domain the same afternoon.</p>
+    <div class="hero-stats">
+      <div><b>21</b><span>Public projects</span></div>
+      <div><b>21</b><span>Live demos</span></div>
+      <div><b>MIT</b><span>Every repository</span></div>
+      <div><b>$0</b><span>Hosting, in most cases</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="shell">
+    <div class="search" id="searchWrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+      <label for="q" class="skip">Search projects</label>
+      <input id="q" type="search" placeholder="Search projects, capabilities, or tech&hellip;"
+             autocomplete="off" spellcheck="false">
+      <button class="clear" id="clearQ" aria-label="Clear search">&times;</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by category"><button class="chip" data-cat="all" aria-pressed="true">All</button><button class="chip" data-cat="Embeddable Widget" aria-pressed="false">Embeddable Widget</button><button class="chip" data-cat="Visitor Experience" aria-pressed="false">Visitor Experience</button><button class="chip" data-cat="Interactive Media" aria-pressed="false">Interactive Media</button><button class="chip" data-cat="Dashboard" aria-pressed="false">Dashboard</button><button class="chip" data-cat="Content Tool" aria-pressed="false">Content Tool</button><button class="chip" data-cat="Data &amp; Automation" aria-pressed="false">Data &amp; Automation</button></div>
+    <p class="count" id="count" aria-live="polite">21 projects</p>
+  </div>
+</div>
+
+<main id="main">
+  <div class="shell" id="projects">
+    <ul class="grid" id="grid">
+    <li class="card" data-cat="Embeddable Widget" data-search="trc search widget trc-widget instant autocomplete across 139,714 theodore roosevelt center archival items, in one script tag. embeddable widget vanilla js web components node 18+ esbuild d3-force wordpress rest api github actions github pages  &amp;lt;trc-search&amp;gt;  autocomplete with live result counts, 6.9 kb gzipped  &amp;lt;trc-graph&amp;gt;  interactive network map of 1,592 people or 1,600 subjects  &amp;lt;trc-topic&amp;gt;  subject breakdown by format, deep-linked into the archive shadow-dom isolation — host page css cannot reach in, widget styles cannot leak out every color exposed as a css custom property; three themes ship in the box weekly github action harvest with sanity checks that gate the deploy">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">TS</span><span class="kicker">Embeddable Widget</span><span class="nm">TRC Search Widget</span></div><button class="shade" data-live="https://trc.labs.trlibrary.com/" aria-label="Load a live preview of TRC Search Widget"></button><button class="live-btn" data-live="https://trc.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Embeddable Widget</p>
+        <h2><a href="projects/trc-widget.html">TRC Search Widget</a></h2>
+        <p class="tag">Instant autocomplete across 139,714 Theodore Roosevelt Center archival items, in one script tag.</p>
+      </div>
+      <div class="stackline"><span class="tech">Vanilla JS web components</span><span class="tech">Node 18+</span><span class="tech">esbuild</span><span class="tech">d3-force</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/trc-widget.html">Details</a>
+        <a class="btn sm quiet" href="https://trc.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRC-Widget" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Interactive Media" data-search="tr timeline trtimelinewidget a single-file timeline that sets one life against the history happening around it. interactive media vanilla js, zero dependencies shadow dom plain json data github actions github pages date-driven windows via  data-start  and  data-end  — year, month, or exact day named presets: full, earlylife, badlands, risetopower, presidency, postpresidency weight-based label density that re-fits itself on resize hover or tap for exact dates; click to pin an event in the readout full-screen vertical timeline with chapter dividers optional explore buttons linking any point to a page on your own site">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">TT</span><span class="kicker">Interactive Media</span><span class="nm">TR Timeline</span></div><button class="shade" data-live="https://timeline.labs.trlibrary.com/" aria-label="Load a live preview of TR Timeline"></button><button class="live-btn" data-live="https://timeline.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Interactive Media</p>
+        <h2><a href="projects/tr-timeline.html">TR Timeline</a></h2>
+        <p class="tag">A single-file timeline that sets one life against the history happening around it.</p>
+      </div>
+      <div class="stackline"><span class="tech">Vanilla JS, zero dependencies</span><span class="tech">Shadow DOM</span><span class="tech">Plain JSON data</span><span class="tech">GitHub Actions</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/tr-timeline.html">Details</a>
+        <a class="btn sm quiet" href="https://timeline.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRTimelineWidget" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Interactive Media" data-search="family tree familytree forty-six roosevelts across six generations, every name opening a sourced biography. interactive media single self-contained vanilla js file shadow dom github actions with headless verification github pages 46 people across six generations, laid out automatically biography dialog for every person, closing on escape two published urls — a branded standalone page and a bare  embed.html  for iframing javascript api:  mount() ,  open(id) ,  fit() ,  home()  shadow dom isolation with graceful font fallbacks ci renders the whole tree headlessly and refuses to deploy if nodes overlap">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">FT</span><span class="kicker">Interactive Media</span><span class="nm">Family Tree</span></div><button class="shade" data-live="https://familytree.labs.trlibrary.com/" aria-label="Load a live preview of Family Tree"></button><button class="live-btn" data-live="https://familytree.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Interactive Media</p>
+        <h2><a href="projects/family-tree.html">Family Tree</a></h2>
+        <p class="tag">Forty-six Roosevelts across six generations, every name opening a sourced biography.</p>
+      </div>
+      <div class="stackline"><span class="tech">Single self-contained vanilla JS file</span><span class="tech">Shadow DOM</span><span class="tech">GitHub Actions with headless verification</span><span class="tech">GitHub Pages</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/family-tree.html">Details</a>
+        <a class="btn sm quiet" href="https://familytree.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/FamilyTree" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Embeddable Widget" data-search="photo gallery photogallery drop photos in a folder, run one script, embed a masonry gallery anywhere. embeddable widget python 3 pillow vanilla js embed github pages masonry grid with lazy-loaded thumbnails and a full-screen lightbox idempotent build — only processes what has not been built yet multiple galleries on one page from a single script include namespaced css that will not collide with the host site configurable thumbnail width, maximum image side, and jpeg quality no server, no database, no image cdn bill">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">PG</span><span class="kicker">Embeddable Widget</span><span class="nm">Photo Gallery</span></div><button class="shade" data-live="https://photogallery.labs.trlibrary.com/" aria-label="Load a live preview of Photo Gallery"></button><button class="live-btn" data-live="https://photogallery.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Embeddable Widget</p>
+        <h2><a href="projects/photo-gallery.html">Photo Gallery</a></h2>
+        <p class="tag">Drop photos in a folder, run one script, embed a masonry gallery anywhere.</p>
+      </div>
+      <div class="stackline"><span class="tech">Python 3</span><span class="tech">Pillow</span><span class="tech">Vanilla JS embed</span><span class="tech">GitHub Pages</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/photo-gallery.html">Details</a>
+        <a class="btn sm quiet" href="https://photogallery.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/PhotoGallery" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Content Tool" data-search="dam portal embed acquiadam-photo-embed turns a locked-in press portal into native, auto-sizing gallery tiles on your own page. content tool vanilla js embed node 18+ acquia dam / widen portal api github actions github pages native auto-sizing tile grid instead of a fixed-height iframe thumbnail caching that defeats expiring pre-signed urls deep-linked lightbox into the real portal gallery and its download controls refresh every six hours by github action, plus a manual trigger works with any acquia dam portal — add it to  config.json  about twenty  data-*  styling options: accent, fonts, tile size, aspect ratio, badges">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">DP</span><span class="kicker">Content Tool</span><span class="nm">DAM Portal Embed</span></div><button class="shade" data-live="https://portalphotos.labs.trlibrary.com/demo.html" aria-label="Load a live preview of DAM Portal Embed"></button><button class="live-btn" data-live="https://portalphotos.labs.trlibrary.com/demo.html"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Content Tool</p>
+        <h2><a href="projects/acquia-dam-photo-embed.html">DAM Portal Embed</a></h2>
+        <p class="tag">Turns a locked-in press portal into native, auto-sizing gallery tiles on your own page.</p>
+      </div>
+      <div class="stackline"><span class="tech">Vanilla JS embed</span><span class="tech">Node 18+</span><span class="tech">Acquia DAM / Widen portal API</span><span class="tech">GitHub Actions</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/acquia-dam-photo-embed.html">Details</a>
+        <a class="btn sm quiet" href="https://portalphotos.labs.trlibrary.com/demo.html" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/AcquiaDAM-Photo-Embed" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Data &amp; Automation" data-search="hours embed hoursembed republishes hours locked inside one cms as a live embed on a completely different site. data &amp; automation node esm scraper schema.org json-ld vanilla js with shadow dom github actions cron github pages six-hourly sync of seasonal tabs, service rows, and holiday closures fails safe — a broken parse never overwrites good published data detects the current season by date, with a year-agnostic fallback background-aware theming that flips to light-on-dark over colored sections adopts the host page&#x27;s own heading and body fonts shadow dom isolation from the host cms&#x27;s stylesheet">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">HE</span><span class="kicker">Data &amp; Automation</span><span class="nm">Hours Embed</span></div><button class="shade" data-live="https://theodore-roosevelt-presidential-library.github.io/HoursEmbed/" aria-label="Load a live preview of Hours Embed"></button><button class="live-btn" data-live="https://theodore-roosevelt-presidential-library.github.io/HoursEmbed/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Data &amp; Automation</p>
+        <h2><a href="projects/hours-embed.html">Hours Embed</a></h2>
+        <p class="tag">Republishes hours locked inside one CMS as a live embed on a completely different site.</p>
+      </div>
+      <div class="stackline"><span class="tech">Node ESM scraper</span><span class="tech">schema.org JSON-LD</span><span class="tech">Vanilla JS with Shadow DOM</span><span class="tech">GitHub Actions cron</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/hours-embed.html">Details</a>
+        <a class="btn sm quiet" href="https://theodore-roosevelt-presidential-library.github.io/HoursEmbed/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/HoursEmbed" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Dashboard" data-search="ticketing widgets ticketingwidgets live sell-out warnings and best-day-to-visit advice, refreshed every fifteen minutes. dashboard python 3 standard library acme ticketing reporting api vanilla js widgets github actions github pages google tag manager (optional) six widgets: alert banner, time-slot grid, week planner, date check, month outlook, year heatmap sitewide dismissible floating banner, deployable through google tag manager sell-out risk model using sales pace, lead curves, and day-of-week behavior permanent monthly archive enabling year-over-year ghost overlays hand-maintained closures file honored by every widget, with named reasons staff-facing monitor page; mock mode runs the whole stack with no api key at all">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">TW</span><span class="kicker">Dashboard</span><span class="nm">Ticketing Widgets</span></div><button class="shade" data-live="https://ticketing.labs.trlibrary.com/" aria-label="Load a live preview of Ticketing Widgets"></button><button class="live-btn" data-live="https://ticketing.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Dashboard</p>
+        <h2><a href="projects/ticketing-widgets.html">Ticketing Widgets</a></h2>
+        <p class="tag">Live sell-out warnings and best-day-to-visit advice, refreshed every fifteen minutes.</p>
+      </div>
+      <div class="stackline"><span class="tech">Python 3 standard library</span><span class="tech">ACME Ticketing Reporting API</span><span class="tech">Vanilla JS widgets</span><span class="tech">GitHub Actions</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/ticketing-widgets.html">Details</a>
+        <a class="btn sm quiet" href="https://ticketing.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TicketingWidgets" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Visitor Experience" data-search="trip planner tripplanner a wizard that turns a guest&#x27;s interests into a routed, dated, printable itinerary. visitor experience vanilla js embed curated json data files node esm scrapers with playwright python image caching github actions github pages ten-step wizard across 43 regional stops and a 60-plus item local catalog, filtered by season scheduler honoring opening hours, meal windows, one evening show per night, and pace budgets airport recommendation including open-jaw routing, validated against rental-car coverage at both ends shareable permalinks, calendar export, and a purpose-built print page fix-it-here controls that re-lay an over-full plan in real time two weekly jobs: a live event refresh and a link-rot watchdog that opens issues rather than editing data wcag 2.1 aa verified with axe-core — zero violations">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">TP</span><span class="kicker">Visitor Experience</span><span class="nm">Trip Planner</span></div><button class="shade" data-live="https://trip.labs.trlibrary.com/" aria-label="Load a live preview of Trip Planner"></button><button class="live-btn" data-live="https://trip.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Visitor Experience</p>
+        <h2><a href="projects/trip-planner.html">Trip Planner</a></h2>
+        <p class="tag">A wizard that turns a guest&#x27;s interests into a routed, dated, printable itinerary.</p>
+      </div>
+      <div class="stackline"><span class="tech">Vanilla JS embed</span><span class="tech">Curated JSON data files</span><span class="tech">Node ESM scrapers with Playwright</span><span class="tech">Python image caching</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/trip-planner.html">Details</a>
+        <a class="btn sm quiet" href="https://trip.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Embeddable Widget" data-search="local weather medoraweather live local weather as a one-line embed, plus auto-refreshing forecast images for email. embeddable widget node.js esm vanilla js widget svg-to-png rendering api.weather.gov open-meteo github actions github pages one-tag widget with  data-*  options for days, hours, rain, view, and refresh interval five views: mini badge, current conditions, hourly, multi-day, alerts hotlinkable png and svg images including a 1200×630 social card live severe-weather alert banners with severity tinting and five-minute polling feels-like, wind and gusts, humidity, sunrise and sunset, air quality, snowfall stale-data fallback: serves the last good forecast and flags it rather than going blank">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">LW</span><span class="kicker">Embeddable Widget</span><span class="nm">Local Weather</span></div><button class="shade" data-live="https://weather.labs.trlibrary.com/" aria-label="Load a live preview of Local Weather"></button><button class="live-btn" data-live="https://weather.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Embeddable Widget</p>
+        <h2><a href="projects/medora-weather.html">Local Weather</a></h2>
+        <p class="tag">Live local weather as a one-line embed, plus auto-refreshing forecast images for email.</p>
+      </div>
+      <div class="stackline"><span class="tech">Node.js ESM</span><span class="tech">Vanilla JS widget</span><span class="tech">SVG-to-PNG rendering</span><span class="tech">api.weather.gov</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/medora-weather.html">Details</a>
+        <a class="btn sm quiet" href="https://weather.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/MedoraWeather" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Dashboard" data-search="living building dashboard lbc-dashboard a lobby display turning building performance into a living badlands panorama. dashboard single-file html, css, vanilla js inline svg open-meteo api github actions github pages overview screen with floating kpi tiles for energy, solar, geothermal, water, and co₂ seven-petal navigation rail with per-petal drill-in pages animated landscape: sun and moon arc, sky phases, stars, weather effects live local conditions with no api key required a single adapter block designed as the one place to swap demo data for live data companion spreadsheet for the petals that are documented by hand">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">LB</span><span class="kicker">Dashboard</span><span class="nm">Living Building Dashboard</span></div><button class="shade" data-live="https://lbc.labs.trlibrary.com" aria-label="Load a live preview of Living Building Dashboard"></button><button class="live-btn" data-live="https://lbc.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Dashboard</p>
+        <h2><a href="projects/lbc-dashboard.html">Living Building Dashboard</a></h2>
+        <p class="tag">A lobby display turning building performance into a living Badlands panorama.</p>
+      </div>
+      <div class="stackline"><span class="tech">Single-file HTML, CSS, vanilla JS</span><span class="tech">Inline SVG</span><span class="tech">Open-Meteo API</span><span class="tech">GitHub Actions</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/lbc-dashboard.html">Details</a>
+        <a class="btn sm quiet" href="https://lbc.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBC-Dashboard" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Content Tool" data-search="social calendar socialcalendar a shareable, read-only calendar of scheduled social posts, rebuilt twice a day. content tool python hootsuite rest api and oauth image compositing plain html/css/js github actions github pages month grid and forward-running agenda views over the same snapshot per-network previews that mimic how copy will actually look once posted filter by channel, tag, and status; full-text search of post copy link-in-bio page with a merging archive timed reveal so scheduled posts appear on time without waiting for a rebuild oauth refresh-token rotation written back to a repository secret automatically">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">SC</span><span class="kicker">Content Tool</span><span class="nm">Social Calendar</span></div><button class="shade" data-live="https://socialcalendar.labs.trlibrary.com/" aria-label="Load a live preview of Social Calendar"></button><button class="live-btn" data-live="https://socialcalendar.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Content Tool</p>
+        <h2><a href="projects/social-calendar.html">Social Calendar</a></h2>
+        <p class="tag">A shareable, read-only calendar of scheduled social posts, rebuilt twice a day.</p>
+      </div>
+      <div class="stackline"><span class="tech">Python</span><span class="tech">Hootsuite REST API and OAuth</span><span class="tech">Image compositing</span><span class="tech">Plain HTML/CSS/JS</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/social-calendar.html">Details</a>
+        <a class="btn sm quiet" href="https://socialcalendar.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/SocialCalendar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Content Tool" data-search="newsletter builder newsletterbuilder a browser newsletter builder that exports paste-ready html for your email platform. content tool static html, css, javascript no backend, no build step github pages block library plus a one-click standard template per-block editing with reorder, duplicate, and delete export html sized for a code-your-own email editor save an html file with the design data embedded, then reopen it to keep editing browser autosave of work in progress header studio: photo upload, drag to reposition, plaque and wordmark color picking, png download ships with  claude.md  and  llms.txt  so an ai assistant can build newsletters in it directly">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">NB</span><span class="kicker">Content Tool</span><span class="nm">Newsletter Builder</span></div><button class="shade" data-live="https://newsletter.labs.trlibrary.com" aria-label="Load a live preview of Newsletter Builder"></button><button class="live-btn" data-live="https://newsletter.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Content Tool</p>
+        <h2><a href="projects/newsletter-builder.html">Newsletter Builder</a></h2>
+        <p class="tag">A browser newsletter builder that exports paste-ready HTML for your email platform.</p>
+      </div>
+      <div class="stackline"><span class="tech">Static HTML, CSS, JavaScript</span><span class="tech">No backend, no build step</span><span class="tech">GitHub Pages</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/newsletter-builder.html">Details</a>
+        <a class="btn sm quiet" href="https://newsletter.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Data &amp; Automation" data-search="link checker linkchecker a weekly crawl that finds every broken link and typo across an entire website. data &amp; automation python requests github actions weekly cron github pages sitemap-seeded breadth-first crawl across every subdomain of one root domain head-then-get validation that separates real breaks from bot-protection warnings spell check split into likely typos and unknown words, so names and jargon do not drown the signal interactive report grouped by page, plus machine-readable json per-browser ignore that generates copy-ready lines for the shared ignore file threaded crawling and validation, tuned by environment variables">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">LC</span><span class="kicker">Data &amp; Automation</span><span class="nm">Link Checker</span></div><button class="shade" data-live="https://links.labs.trlibrary.com/" aria-label="Load a live preview of Link Checker"></button><button class="live-btn" data-live="https://links.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Data &amp; Automation</p>
+        <h2><a href="projects/link-checker.html">Link Checker</a></h2>
+        <p class="tag">A weekly crawl that finds every broken link and typo across an entire website.</p>
+      </div>
+      <div class="stackline"><span class="tech">Python</span><span class="tech">requests</span><span class="tech">GitHub Actions weekly cron</span><span class="tech">GitHub Pages</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/link-checker.html">Details</a>
+        <a class="btn sm quiet" href="https://links.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Dashboard" data-search="reviews reviews collects visitor reviews daily, classifies the themes, and triages what needs a reply. dashboard python apify actors swappable llm provider interface static html/css/js dashboard github actions github pages multi-platform incremental collection with a periodic reach-back to catch new replies theme, sentiment, and tone classification with a deterministic keyword fallback self-growing theme vocabulary, promoted only on evidence and then re-applied to history response triage queue with slas, plus a hand-written executive brief rotating public quote widget in four layouts, with luminance-aware text color three-gate quote safety: verbatim match, regex screen, adversarial critic pre-commit validator that refuses to ship unparseable data">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">RE</span><span class="kicker">Dashboard</span><span class="nm">Reviews</span></div><button class="shade" data-live="https://reviews.labs.trlibrary.com" aria-label="Load a live preview of Reviews"></button><button class="live-btn" data-live="https://reviews.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Dashboard</p>
+        <h2><a href="projects/reviews.html">Reviews</a></h2>
+        <p class="tag">Collects visitor reviews daily, classifies the themes, and triages what needs a reply.</p>
+      </div>
+      <div class="stackline"><span class="tech">Python</span><span class="tech">Apify actors</span><span class="tech">Swappable LLM provider interface</span><span class="tech">Static HTML/CSS/JS dashboard</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/reviews.html">Details</a>
+        <a class="btn sm quiet" href="https://reviews.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/Reviews" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Content Tool" data-search="anniversaries tranniversaries shows which milestones hit a round anniversary this year and the next five. content tool static html vanilla javascript plain json github actions github pages tabbed view across six years, current year first automatic five-year-multiple anniversary calculation month-and-day sorting, with undated entries falling to the bottom the whole dataset editable as one plain json file, no build step deploys on every push to  main ">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">AN</span><span class="kicker">Content Tool</span><span class="nm">Anniversaries</span></div><button class="shade" data-live="https://anniversaries.labs.trlibrary.com/" aria-label="Load a live preview of Anniversaries"></button><button class="live-btn" data-live="https://anniversaries.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Content Tool</p>
+        <h2><a href="projects/anniversaries.html">Anniversaries</a></h2>
+        <p class="tag">Shows which milestones hit a round anniversary this year and the next five.</p>
+      </div>
+      <div class="stackline"><span class="tech">Static HTML</span><span class="tech">Vanilla JavaScript</span><span class="tech">Plain JSON</span><span class="tech">GitHub Actions</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/anniversaries.html">Details</a>
+        <a class="btn sm quiet" href="https://anniversaries.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRAnniversaries" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Visitor Experience" data-search="campus map campusmap a 3d model of the campus you can spin, zoom, and pin with story markers. visitor experience static html/css/js, no build step google model-viewer gltf/glb with draco compression git lfs github actions github pages draco-compressed, gpu-instanced campus model at 7.7 mb clickable markers opening an image, description, and call-to-action panel markers auto-hide when a building or berm blocks the line of sight shareable view tokens encoding camera angle, zoom, target, and open marker visual editor — right-click to place pins, download the json one-line embed with per-embed custom marker sets">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">CM</span><span class="kicker">Visitor Experience</span><span class="nm">Campus Map</span></div><button class="shade" data-live="https://campus.labs.trlibrary.com" aria-label="Load a live preview of Campus Map"></button><button class="live-btn" data-live="https://campus.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Visitor Experience</p>
+        <h2><a href="projects/campus-map.html">Campus Map</a></h2>
+        <p class="tag">A 3D model of the campus you can spin, zoom, and pin with story markers.</p>
+      </div>
+      <div class="stackline"><span class="tech">Static HTML/CSS/JS, no build step</span><span class="tech">Google model-viewer</span><span class="tech">glTF/GLB with Draco compression</span><span class="tech">Git LFS</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/campus-map.html">Details</a>
+        <a class="btn sm quiet" href="https://campus.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/CampusMap" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Embeddable Widget" data-search="stargazer stargazer hold your phone up to the sky and it names the stars above you. embeddable widget vanilla js built from source by a python build step shadow dom d3-celestial data stellarium sky-culture artwork numpy github actions github pages about 5,000 stars to magnitude 6, all 88 constellations with lines, boundaries, and stories device-orientation sky pointing with compass-offset correction; drag and pinch on desktop sun, moon phase, and mercury through neptune from keplerian elements 85 constellation figures pinned to their stars by three-star affine fit see-through mode showing the rear camera behind a transparent chart — never uploaded tonight panel with sunset, full dark, moonrise, and eclipses, plus a live aurora estimate">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">ST</span><span class="kicker">Embeddable Widget</span><span class="nm">StarGazer</span></div><button class="shade" data-live="https://stargazer.labs.trlibrary.com" aria-label="Load a live preview of StarGazer"></button><button class="live-btn" data-live="https://stargazer.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Embeddable Widget</p>
+        <h2><a href="projects/stargazer.html">StarGazer</a></h2>
+        <p class="tag">Hold your phone up to the sky and it names the stars above you.</p>
+      </div>
+      <div class="stackline"><span class="tech">Vanilla JS built from source by a Python build step</span><span class="tech">Shadow DOM</span><span class="tech">d3-celestial data</span><span class="tech">Stellarium sky-culture artwork</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/stargazer.html">Details</a>
+        <a class="btn sm quiet" href="https://stargazer.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/StarGazer" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Embeddable Widget" data-search="quiz platform quizes drop a fifteen-question quiz into any page with two lines of html. embeddable widget static html/css/js, no framework shadow dom canvas badge generation peerjs / webrtc python indexing helper github pages two-line embed that mounts in a shadow root new quizzes added by dropping one json file in  quizzes/  — no code changes per-run shuffling of questions and options, so answer positions are worthless challenge-a-friend links that encode the entire run in the url live head-to-head play over webrtc with timers and graceful fallback to solo gallery widget with search, difficulty and topic facets, and a daily reshuffle keyword search index built from proper nouns and rare words inside the questions">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">QP</span><span class="kicker">Embeddable Widget</span><span class="nm">Quiz Platform</span></div><button class="shade" data-live="https://quiz.labs.trlibrary.com" aria-label="Load a live preview of Quiz Platform"></button><button class="live-btn" data-live="https://quiz.labs.trlibrary.com"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Embeddable Widget</p>
+        <h2><a href="projects/quizzes.html">Quiz Platform</a></h2>
+        <p class="tag">Drop a fifteen-question quiz into any page with two lines of HTML.</p>
+      </div>
+      <div class="stackline"><span class="tech">Static HTML/CSS/JS, no framework</span><span class="tech">Shadow DOM</span><span class="tech">Canvas badge generation</span><span class="tech">PeerJS / WebRTC</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/quizzes.html">Details</a>
+        <a class="btn sm quiet" href="https://quiz.labs.trlibrary.com" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/Quizes" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Interactive Media" data-search="rough rider trretrogame a ten-chapter 8-bit platformer that plays an entire life, mini-games and all. interactive media plain es, no framework or bundler html5 canvas web audio api fullscreen and screen orientation apis github pages ten chapters, each with a cutscene, a platformer level, a unique mini-game, and a recap forty collectible history facts checked against the library&#x27;s book collection era-correct enemies per chapter, with the character visibly aging and changing costume fully synthesized chiptune score and sound effects — zero audio files touch controls that adapt per mini-game, with letterboxed fullscreen and add-to-home-screen completion reward with a promo code, plus score and progress saved locally">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">RR</span><span class="kicker">Interactive Media</span><span class="nm">Rough Rider</span></div></div>
+      <div class="card-body">
+        <p class="cat">Interactive Media</p>
+        <h2><a href="projects/retro-game.html">Rough Rider</a></h2>
+        <p class="tag">A ten-chapter 8-bit platformer that plays an entire life, mini-games and all.</p>
+      </div>
+      <div class="stackline"><span class="tech">Plain ES, no framework or bundler</span><span class="tech">HTML5 canvas</span><span class="tech">Web Audio API</span><span class="tech">Fullscreen and Screen Orientation APIs</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/retro-game.html">Details</a>
+        <a class="btn sm quiet" href="http://trgame.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TRRetroGame" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Visitor Experience" data-search="elkhorn panoramas elkhorn-panos seven 360-degree panoramas that let anyone stand inside the elkhorn ranch ruins. visitor experience static html three.js panolens webgl github pages seven full-screen drag-and-pinch 360-degree panoramas viewer libraries vendored locally — no cdn dependency no api keys, no accounts, no build step custom domain on github pages with a working certificate deliberately minimal — about fifteen lines of page code per panorama">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">EP</span><span class="kicker">Visitor Experience</span><span class="nm">Elkhorn Panoramas</span></div><button class="shade" data-live="https://elkhorn.labs.trlibrary.com/" aria-label="Load a live preview of Elkhorn Panoramas"></button><button class="live-btn" data-live="https://elkhorn.labs.trlibrary.com/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Visitor Experience</p>
+        <h2><a href="projects/elkhorn-panos.html">Elkhorn Panoramas</a></h2>
+        <p class="tag">Seven 360-degree panoramas that let anyone stand inside the Elkhorn Ranch ruins.</p>
+      </div>
+      <div class="stackline"><span class="tech">Static HTML</span><span class="tech">three.js</span><span class="tech">Panolens</span><span class="tech">WebGL</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/elkhorn-panos.html">Details</a>
+        <a class="btn sm quiet" href="https://elkhorn.labs.trlibrary.com/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/elkhorn-panos" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    <li class="card" data-cat="Content Tool" data-search="digital invitation digitalinvite turns any invitation image into an envelope that opens, addressed by name. content tool single vanilla js file, no dependencies shadow dom css 3d transforms prefers-reduced-motion github pages envelope-opening animation with 3d flip, seal, perforated stamp, and postmark per-guest personalization from a  ?name=  parameter, with a configurable fallback visual builder with eight wcag-aa-checked presets and a live contrast readout  auto  ink colors that measure contrast and pick dark or light text themselves rich-text details panel that cleans word and google docs paste into an allowlisted subset email template built from table cells so the guest&#x27;s name stays live text when images are blocked download-everything zip and a share link encoding the whole build in under 1 kb">
+      <div class="preview"><div class="fallback"><span class="glyph" aria-hidden="true">DI</span><span class="kicker">Content Tool</span><span class="nm">Digital Invitation</span></div><button class="shade" data-live="https://rsvp.labs.trlibrary.com/demo/" aria-label="Load a live preview of Digital Invitation"></button><button class="live-btn" data-live="https://rsvp.labs.trlibrary.com/demo/"><span class="dot"></span>Live preview</button></div>
+      <div class="card-body">
+        <p class="cat">Content Tool</p>
+        <h2><a href="projects/digital-invite.html">Digital Invitation</a></h2>
+        <p class="tag">Turns any invitation image into an envelope that opens, addressed by name.</p>
+      </div>
+      <div class="stackline"><span class="tech">Single vanilla JS file, no dependencies</span><span class="tech">Shadow DOM</span><span class="tech">CSS 3D transforms</span><span class="tech">prefers-reduced-motion</span></div>
+      <div class="card-foot">
+        <a class="btn sm" href="projects/digital-invite.html">Details</a>
+        <a class="btn sm quiet" href="https://rsvp.labs.trlibrary.com/demo/" target="_blank" rel="noopener">Demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+        <a class="btn sm quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/DigitalInvite" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Code</a>
+      </div>
+    </li>
+    </ul>
+    <div class="empty" id="empty" hidden>
+      <h2>Nothing matches that</h2>
+      <p>Try a broader word &mdash; &ldquo;embed&rdquo;, &ldquo;dashboard&rdquo;, &ldquo;python&rdquo; &mdash;
+         or clear the filters.</p>
+    </div>
+  </div>
+</main>
+
+<section class="band" id="about">
+  <div class="shell">
+    <h2>Why any of this is public</h2>
+    <p class="lede">Museums and nonprofits keep solving the same problems separately and expensively.
+      A timed-entry sell-out warning, a photo gallery that does not cost a monthly subscription,
+      a way to get hours out of one CMS and onto another site &mdash; these are not competitive advantages.
+      They are plumbing. Publishing the plumbing costs the Library nothing and saves somebody else a
+      procurement cycle.</p>
+    <div class="cols">
+      <div>
+        <h3>Built to be handed off</h3>
+        <p>Nearly every project keeps its content in a plain JSON or Markdown file, separate from its
+          code. Adapting one usually means rewriting data and swapping a logo, not learning a
+          framework. Each project page here lists exactly which files to change.</p>
+      </div>
+      <div>
+        <h3>Hosting is usually free</h3>
+        <p>Most of these run entirely on GitHub Pages with a scheduled GitHub Action doing whatever
+          work a server would normally do. No hosting bill, no database, no credentials sitting in a
+          browser. Where an API key is needed, it lives in a repository secret.</p>
+      </div>
+      <div>
+        <h3>Fork it, do not ask</h3>
+        <p>MIT means you can use, change, and redistribute any of this commercially, without
+          attribution and without asking. Open an issue on the repository if something is broken or
+          unclear &mdash; that feedback makes the next fork easier for somebody else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/labs.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Newsletter Builder — TRPL Labs</title>
+<meta name="description" content="A browser newsletter builder that exports paste-ready HTML for your email platform.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/newsletter-builder.html">
+<meta property="og:title" content="Newsletter Builder — TRPL Labs">
+<meta property="og:description" content="A browser newsletter builder that exports paste-ready HTML for your email platform.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/newsletter-builder.html">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../index.html">TRPL Labs</a> &nbsp;/&nbsp; Content Tool</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Content Tool</p>
+    <h1>Newsletter Builder</h1>
+    <p class="tag">A browser newsletter builder that exports paste-ready HTML for your email platform.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://newsletter.labs.trlibrary.com" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://newsletter.labs.trlibrary.com">Launch live demo</button>
+  </div>
+</div>
+      
+
+      <h2>What it does</h2>
+      <p>A block-based email builder that runs entirely in the browser with no backend. Assemble blocks, edit each one in a side panel, and export HTML ready to paste into Constant Contact's code-your-own editor — or any platform that accepts raw HTML.</p>
+<p>A companion Header Studio composites a wordmark plaque over a photograph and hands back a branded PNG header, which removes the most common reason a staff member has to open a design tool at all.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Block library plus a one-click standard template</li>
+<li>Per-block editing with reorder, duplicate, and delete</li>
+<li>Export HTML sized for a code-your-own email editor</li>
+<li>Save an HTML file with the design data embedded, then reopen it to keep editing</li>
+<li>Browser autosave of work in progress</li>
+<li>Header Studio: photo upload, drag to reposition, plaque and wordmark color picking, PNG download</li>
+<li>Ships with <code>CLAUDE.md</code> and <code>llms.txt</code> so an AI assistant can build newsletters in it directly</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/NewsletterBuilder.git
+cd NewsletterBuilder</div>
+      <ol class="steps">
+<li>Fork, replace <code>CNAME</code>, set Pages to deploy from <code>main</code> at the root, add the DNS record, and enable Enforce HTTPS.</li>
+<li>Edit <code>index.html</code> to swap the colors, fonts, and default template block set for your organization's newsletter layout.</li>
+<li>Replace the logo and wordmark art in <code>assets/</code>, used by both the builder and Header Studio.</li>
+<li>Update <code>header.html</code> with your own plaque shape and brand color options.</li>
+<li>No API keys are needed. Images still have to live in your email platform's library or DAM and be referenced by URL.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Static HTML, CSS, JavaScript</span></li><li><span class="tech">No backend, no build step</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://newsletter.labs.trlibrary.com" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>newsletter.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/NewsletterBuilder/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="social-calendar.html">&larr; Previous<b>Social Calendar</b></a><a href="link-checker.html" style="text-align:right">Next &rarr;<b>Link Checker</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

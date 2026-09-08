@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trip Planner — TRPL Labs</title>
+<meta name="description" content="A wizard that turns a guest&#x27;s interests into a routed, dated, printable itinerary.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/trip-planner.html">
+<meta property="og:title" content="Trip Planner — TRPL Labs">
+<meta property="og:description" content="A wizard that turns a guest&#x27;s interests into a routed, dated, printable itinerary.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/trip-planner.html">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../index.html">TRPL Labs</a> &nbsp;/&nbsp; Visitor Experience</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Visitor Experience</p>
+    <h1>Trip Planner</h1>
+    <p class="tag">A wizard that turns a guest&#x27;s interests into a routed, dated, printable itinerary.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://trip.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://trip.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      
+
+      <h2>What it does</h2>
+      <p>Ten questions about interests, dates, travel style, and lodging comfort produce an hour-by-hour itinerary the guest can print, share, or drop into a calendar. It is rule-based and deterministic — there is no model in the loop and nothing to hallucinate.</p>
+<p>Everything it knows lives in plain JSON files, so editing the planner means editing data, not code. The scheduler routes distant stops as en-route legs with gateway-city overnights while holding the in-town stay in one contiguous block, so the guest books a single hotel instead of three.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Ten-step wizard across 43 regional stops and a 60-plus item local catalog, filtered by season</li>
+<li>Scheduler honoring opening hours, meal windows, one evening show per night, and pace budgets</li>
+<li>Airport recommendation including open-jaw routing, validated against rental-car coverage at both ends</li>
+<li>Shareable permalinks, calendar export, and a purpose-built print page</li>
+<li>Fix-it-here controls that re-lay an over-full plan in real time</li>
+<li>Two weekly jobs: a live event refresh and a link-rot watchdog that opens issues rather than editing data</li>
+<li>WCAG 2.1 AA verified with axe-core — zero violations</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/TripPlanner.git
+cd TripPlanner</div>
+      <ol class="steps">
+<li>Fork the repo and read <code>CLAUDE.md</code> first — it is the builder's guide to the architecture, the scheduler rules, and the gotchas.</li>
+<li>Rewrite the JSON in <code>data/</code>: origins, airports, destinations, lodging, your local catalog, your own venue and tours, weather, and itineraries. Each file carries a <code>note</code> field explaining its shape. Do not hand-edit the events file — it is generated.</li>
+<li>Set your brand colors, comfort tiers, and travel styles in <code>data/config.json</code>.</li>
+<li>Repoint <code>scripts/refresh-events.mjs</code> at your own event sources and update the monitored shows in the freshness checker.</li>
+<li>Settings → Pages → Source = GitHub Actions. Set your <code>CNAME</code> and DNS, and set Workflow permissions to Read and write so the refresh can commit.</li>
+<li>Add your own photos by setting each item's <code>image</code> to a URL and running the image-caching script.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Vanilla JS embed</span></li><li><span class="tech">Curated JSON data files</span></li><li><span class="tech">Node ESM scrapers with Playwright</span></li><li><span class="tech">Python image caching</span></li><li><span class="tech">GitHub Actions</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://trip.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>trip.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/TripPlanner/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="ticketing-widgets.html">&larr; Previous<b>Ticketing Widgets</b></a><a href="medora-weather.html" style="text-align:right">Next &rarr;<b>Local Weather</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

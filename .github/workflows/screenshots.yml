@@ -1,0 +1,58 @@
+name: Refresh screenshots
+
+# Captures each project's live demo and rebuilds the site so the gallery always
+# shows what the projects actually look like today. Runs weekly, and on demand.
+on:
+  schedule:
+    - cron: '20 6 * * 1'   # Mondays, 06:20 UTC
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: 'Optional space-separated slugs to shoot (blank = all)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshots
+  cancel-in-progress: true
+
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.48.0
+          npx playwright install --with-deps chromium
+
+      - name: Capture demo screenshots
+        run: node tools/shoot.mjs ${{ github.event.inputs.slugs }}
+
+      - name: Optimise PNGs
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq optipng
+          optipng -quiet -o2 assets/shots/*.png || true
+
+      - name: Rebuild site
+        run: python3 tools/build.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/shots index.html projects
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Refresh demo screenshots"
+            git push
+          fi

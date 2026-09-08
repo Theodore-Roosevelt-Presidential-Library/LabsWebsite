@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link Checker — TRPL Labs</title>
+<meta name="description" content="A weekly crawl that finds every broken link and typo across an entire website.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/link-checker.html">
+<meta property="og:title" content="Link Checker — TRPL Labs">
+<meta property="og:description" content="A weekly crawl that finds every broken link and typo across an entire website.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/link-checker.html">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../index.html">TRPL Labs</a> &nbsp;/&nbsp; Data &amp; Automation</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Data &amp; Automation</p>
+    <h1>Link Checker</h1>
+    <p class="tag">A weekly crawl that finds every broken link and typo across an entire website.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://links.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://links.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      
+
+      <h2>What it does</h2>
+      <p>A scheduled job crawls a whole site from its sitemap, validates every internal and external link, spell-checks visible text against a dictionary plus an allow-list, and publishes an interactive report.</p>
+<p>Issues are grouped by the page they appear on with links straight to what needs fixing, which is the difference between a report someone acts on and a CSV nobody opens. Two dismissal paths exist: a per-browser Ignore button for triage, and a shared committed ignore file for decisions the whole team should keep.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Sitemap-seeded breadth-first crawl across every subdomain of one root domain</li>
+<li>HEAD-then-GET validation that separates real breaks from bot-protection warnings</li>
+<li>Spell check split into likely typos and unknown words, so names and jargon do not drown the signal</li>
+<li>Interactive report grouped by page, plus machine-readable JSON</li>
+<li>Per-browser Ignore that generates copy-ready lines for the shared ignore file</li>
+<li>Threaded crawling and validation, tuned by environment variables</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/LinkChecker.git
+cd LinkChecker</div>
+      <ol class="steps">
+<li>Fork the repo and set Settings → Pages → Source to GitHub Actions. That is the only required manual step.</li>
+<li>Set <code>ROOT_DOMAIN</code> to your domain and <code>SITEMAP_URLS</code> to your sitemaps in the workflow file.</li>
+<li>Adjust the cron if Monday morning is not the cadence you want.</li>
+<li>Seed <code>custom_words.txt</code> with your place names, donor surnames, and jargon so the first report is not swamped by false positives.</li>
+<li>Test locally first with <code>MAX_PAGES=25 python run_check.py</code> and open the generated report.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Python</span></li><li><span class="tech">requests</span></li><li><span class="tech">GitHub Actions weekly cron</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://links.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>links.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LinkChecker/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="newsletter-builder.html">&larr; Previous<b>Newsletter Builder</b></a><a href="reviews.html" style="text-align:right">Next &rarr;<b>Reviews</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

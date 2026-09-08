@@ -1,0 +1,660 @@
+{
+  "meta": {
+    "org": "Theodore-Roosevelt-Presidential-Library",
+    "orgUrl": "https://github.com/Theodore-Roosevelt-Presidential-Library",
+    "updated": "2026-09-08"
+  },
+  "projects": [
+    {
+      "slug": "trc-widget",
+      "repo": "TRC-Widget",
+      "name": "TRC Search Widget",
+      "category": "Embeddable Widget",
+      "tagline": "Instant autocomplete across 139,714 Theodore Roosevelt Center archival items, in one script tag.",
+      "description": [
+        "The Theodore Roosevelt Center's digital library indexes its holdings with a controlled Library of Congress vocabulary and no autocomplete, so a visitor who types “henry cabot lodge” gets nothing back. This widget fixes that from the outside.",
+        "A weekly job harvests the Center's public taxonomies, caches them as static JSON on GitHub Pages, and serves three drop-in web components off that index. Because the vocabulary is precomputed, suggestions appear as fast as the visitor types — and the archive's own servers never sit in the critical path.",
+        "Any institution whose collection search runs on a controlled vocabulary has this same problem. Point the harvester at a different WordPress REST API and the whole thing works for a different archive."
+      ],
+      "capabilities": [
+        "<code>&lt;trc-search&gt;</code> autocomplete with live result counts, 6.9 KB gzipped",
+        "<code>&lt;trc-graph&gt;</code> interactive network map of 1,592 people or 1,600 subjects",
+        "<code>&lt;trc-topic&gt;</code> subject breakdown by format, deep-linked into the archive",
+        "Shadow-DOM isolation — host page CSS cannot reach in, widget styles cannot leak out",
+        "Every color exposed as a CSS custom property; three themes ship in the box",
+        "Weekly GitHub Action harvest with sanity checks that gate the deploy"
+      ],
+      "stack": ["Vanilla JS web components", "Node 18+", "esbuild", "d3-force", "WordPress REST API", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://trc.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and point <code>scripts/harvest.mjs</code> at your own WordPress REST API host. It needs open taxonomy endpoints.",
+        "Run <code>npm install</code>, then <code>npm run harvest</code> and <code>npm run head</code> to build <code>data/*.json</code> for your collection. Add <code>npm run fingerprints</code> and <code>npm run graphs</code> if you want the relationship maps.",
+        "Add your palette to the shared token block in <code>src/themes.js</code> — a new institution is about a dozen lines — and set your accent and font defaults.",
+        "Replace <code>CNAME</code> with your subdomain, point DNS at GitHub Pages, and set the Pages source to GitHub Actions with Enforce HTTPS on.",
+        "Adjust the harvest cron in <code>.github/workflows/</code>, then embed with one script tag plus <code>&lt;trc-search&gt;</code>."
+      ]
+    },
+    {
+      "slug": "tr-timeline",
+      "repo": "TRTimelineWidget",
+      "name": "TR Timeline",
+      "category": "Interactive Media",
+      "tagline": "A single-file timeline that sets one life against the history happening around it.",
+      "description": [
+        "Roosevelt's milestones run above a central date axis; American and world events run below it. A visitor reading about the Badlands years sees, in the same glance, that the Statue of Liberty went up while he was there.",
+        "The embed code sets the window, so one file serves a full-life view or a tight six-year slice. Every date, label, and blurb lives in one plain data file — editing the timeline means editing data, never code. An expand icon opens a full-screen vertical version showing every point."
+      ],
+      "capabilities": [
+        "Date-driven windows via <code>data-start</code> and <code>data-end</code> — year, month, or exact day",
+        "Named presets: full, earlylife, badlands, risetopower, presidency, postpresidency",
+        "Weight-based label density that re-fits itself on resize",
+        "Hover or tap for exact dates; click to pin an event in the readout",
+        "Full-screen vertical timeline with chapter dividers",
+        "Optional Explore buttons linking any point to a page on your own site"
+      ],
+      "stack": ["Vanilla JS, zero dependencies", "Shadow DOM", "Plain JSON data", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://timeline.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. The whole widget is three files: <code>tr-timeline.js</code>, <code>tr-data.js</code>, and <code>index.html</code>.",
+        "Rewrite <code>tr-data.js</code>. It holds three lists — <code>phases</code> (chapter bars), <code>events</code> (your subject's milestones), and <code>history</code> (context events). Each entry takes a year, an optional exact date, a label, a weight from 1 to 5, and a blurb.",
+        "Swap the fonts and palette referenced in <code>tr-timeline.js</code> for your own, keeping the safe fallbacks.",
+        "Replace <code>CNAME</code> with your domain, or delete it to use the default <code>*.github.io</code> address. The deploy workflow publishes on every push to <code>main</code>.",
+        "Embed with <code>&lt;div data-tr-timeline data-start=\"1858\" data-end=\"1919\"&gt;&lt;/div&gt;</code> and one script tag. The widget finds its data file on its own."
+      ]
+    },
+    {
+      "slug": "family-tree",
+      "repo": "FamilyTree",
+      "name": "Family Tree",
+      "category": "Interactive Media",
+      "tagline": "Forty-six Roosevelts across six generations, every name opening a sourced biography.",
+      "description": [
+        "Parents, siblings, both wives, six children, their spouses, and all seventeen grandchildren — with two lines carried down to present-day Library Trustees. Every person is a button; every button opens a biography drawn from published works in the Library's collection.",
+        "The layout is computed at runtime, so adding a person re-flows the tree instead of forcing anyone to bookkeep coordinates. Dates were checked independently against the Theodore Roosevelt Center, the National Park Service, and contemporary obituaries. That pass corrected two errors in the published books and surfaced a grandchild the sources never named."
+      ],
+      "capabilities": [
+        "46 people across six generations, laid out automatically",
+        "Biography dialog for every person, closing on Escape",
+        "Two published URLs — a branded standalone page and a bare <code>embed.html</code> for iframing",
+        "JavaScript API: <code>mount()</code>, <code>open(id)</code>, <code>fit()</code>, <code>home()</code>",
+        "Shadow DOM isolation with graceful font fallbacks",
+        "CI renders the whole tree headlessly and refuses to deploy if nodes overlap"
+      ],
+      "stack": ["Single self-contained vanilla JS file", "Shadow DOM", "GitHub Actions with headless verification", "GitHub Pages"],
+      "demo": "https://familytree.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. Everything published lives in <code>site/</code>.",
+        "Replace the <code>PEOPLE</code> and <code>FAMILIES</code> objects at the top of <code>site/tr-family-tree.js</code> with your own records. The layout re-flows when you add someone.",
+        "Rewrite the biography text in the same file, and document your sourcing in <code>docs/SOURCES.md</code>.",
+        "Swap the masthead and wordmark in <code>site/index.html</code>, committing your own SVG into <code>site/</code> rather than hotlinking it.",
+        "Update <code>site/CNAME</code> and point DNS at GitHub Pages. The workflow verifies, then publishes on push to <code>main</code>.",
+        "Embed by iframing <code>embed.html</code> at an explicit height (700–820px), or drop the script into a page with <code>&lt;div id=\"tr-family-tree\" data-height=\"780\"&gt;</code>."
+      ]
+    },
+    {
+      "slug": "photo-gallery",
+      "repo": "PhotoGallery",
+      "name": "Photo Gallery",
+      "category": "Embeddable Widget",
+      "tagline": "Drop photos in a folder, run one script, embed a masonry gallery anywhere.",
+      "description": [
+        "A build-and-embed pipeline for event photography. Full-resolution originals go into a folder; a Python script generates thumbnails, web-optimized lightbox images, and a manifest, all served from GitHub Pages. The host page needs two lines of HTML.",
+        "The numbers are the point: one gallery went from 926 MB of originals down to 5.6 MB of thumbnails plus 41 MB of images loaded only when someone opens the lightbox. Originals stay in the repo for archival purposes and are never served to a visitor."
+      ],
+      "capabilities": [
+        "Masonry grid with lazy-loaded thumbnails and a full-screen lightbox",
+        "Idempotent build — only processes what has not been built yet",
+        "Multiple galleries on one page from a single script include",
+        "Namespaced CSS that will not collide with the host site",
+        "Configurable thumbnail width, maximum image side, and JPEG quality",
+        "No server, no database, no image CDN bill"
+      ],
+      "stack": ["Python 3", "Pillow", "Vanilla JS embed", "GitHub Pages"],
+      "demo": "https://photogallery.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and delete the sample galleries from <code>galleries/</code> and <code>docs/galleries/</code>.",
+        "Add your own folder of full-resolution photos at <code>galleries/&lt;your-name&gt;/</code>.",
+        "Run <code>pip install Pillow</code> then <code>python3 build.py</code>. Tune <code>THUMB_WIDTH</code>, <code>WEB_MAX_SIDE</code>, and quality at the top of <code>build.py</code> first if you need different sizes.",
+        "In Settings → Pages, choose Deploy from a branch, <code>main</code>, folder <code>/docs</code>.",
+        "Replace <code>docs/CNAME</code> with your domain, add the DNS record, and enable Enforce HTTPS.",
+        "Embed with <code>&lt;div data-gallery=\"your-name\"&gt;&lt;/div&gt;</code> and one script tag pointing at your own <code>embed.js</code>."
+      ]
+    },
+    {
+      "slug": "acquia-dam-photo-embed",
+      "repo": "AcquiaDAM-Photo-Embed",
+      "name": "DAM Portal Embed",
+      "category": "Content Tool",
+      "tagline": "Turns a locked-in press portal into native, auto-sizing gallery tiles on your own page.",
+      "description": [
+        "Acquia DAM (Widen) portals can only be embedded as a fixed-height iframe with its own interior scrollbar, and the portal's JSON API sends no CORS headers, so a browser cannot read it directly. Both problems are solved server-side.",
+        "A scheduled job snapshots the portal's sections and galleries and permanently caches the thumbnails — necessary because Acquia's preview URLs are pre-signed and expire within a couple of hours. The result renders as ordinary page content that grows to fit. Clicking a tile opens the real gallery, deep-linked, so press users still download through Acquia's own controls."
+      ],
+      "capabilities": [
+        "Native auto-sizing tile grid instead of a fixed-height iframe",
+        "Thumbnail caching that defeats expiring pre-signed URLs",
+        "Deep-linked lightbox into the real portal gallery and its download controls",
+        "Refresh every six hours by GitHub Action, plus a manual trigger",
+        "Works with any Acquia DAM portal — add it to <code>config.json</code>",
+        "About twenty <code>data-*</code> styling options: accent, fonts, tile size, aspect ratio, badges"
+      ],
+      "stack": ["Vanilla JS embed", "Node 18+", "Acquia DAM / Widen portal API", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://portalphotos.labs.trlibrary.com/demo.html",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and replace the entry in <code>config.json</code> with your portal: domain, shortcode, and path. The path is the portal URL segment with spaces removed.",
+        "Commit, then run the <code>update-portal-data</code> Action manually. It writes <code>data/&lt;shortcode&gt;.json</code> and downloads thumbnails into <code>data/thumbs/&lt;shortcode&gt;/</code>.",
+        "Enable GitHub Pages and set your own <code>CNAME</code> and DNS if you want a custom domain.",
+        "Override the brand defaults on the script tag with <code>data-accent</code>, <code>data-rule</code>, <code>data-heading-font</code>, and <code>data-title-font</code>.",
+        "Paste the embed into any raw-HTML block, pointing <code>data-data-url</code> at your own generated JSON."
+      ]
+    },
+    {
+      "slug": "hours-embed",
+      "repo": "HoursEmbed",
+      "name": "Hours Embed",
+      "category": "Data & Automation",
+      "tagline": "Republishes hours locked inside one CMS as a live embed on a completely different site.",
+      "description": [
+        "The Library's restaurant, Salt + Scoria, keeps its hours in Drupal on trlibrary.com, which blocks cross-origin requests. The restaurant's own Squarespace site therefore could not read them, and staff were updating two places by hand.",
+        "A scheduled job scrapes the hours markup and its schema.org JSON-LD every six hours and writes a small JSON file. GitHub Pages serves that file with permissive CORS, and a tiny embed renders seasonal tabs on the Squarespace page. If parsing ever breaks, the script exits non-zero and the last good file stays published — the page never goes blank."
+      ],
+      "capabilities": [
+        "Six-hourly sync of seasonal tabs, service rows, and holiday closures",
+        "Fails safe — a broken parse never overwrites good published data",
+        "Detects the current season by date, with a year-agnostic fallback",
+        "Background-aware theming that flips to light-on-dark over colored sections",
+        "Adopts the host page's own heading and body fonts",
+        "Shadow DOM isolation from the host CMS's stylesheet"
+      ],
+      "stack": ["Node ESM scraper", "schema.org JSON-LD", "Vanilla JS with Shadow DOM", "GitHub Actions cron", "GitHub Pages"],
+      "demo": "https://theodore-roosevelt-presidential-library.github.io/HoursEmbed/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and change the source URL in <code>scripts/extract-hours.mjs</code> to your own hours page.",
+        "Rewrite the parser's selectors to match your markup. Use <code>--fixture test/fixture.html</code> against a saved copy of your page to test offline.",
+        "Settings → Pages → Deploy from a branch, <code>main</code>, folder <code>/docs</code>.",
+        "Settings → Actions → General → Workflow permissions → Read and write, so the sync job can commit its output.",
+        "Run the Sync hours workflow once by hand to publish live data.",
+        "Add a code block on the host site with <code>&lt;div data-trpl-hours&gt;&lt;/div&gt;</code> and your embed URL. Set <code>data-theme</code> and <code>data-accent</code> to match your brand."
+      ]
+    },
+    {
+      "slug": "ticketing-widgets",
+      "repo": "TicketingWidgets",
+      "name": "Ticketing Widgets",
+      "category": "Dashboard",
+      "tagline": "Live sell-out warnings and best-day-to-visit advice, refreshed every fifteen minutes.",
+      "description": [
+        "Six embeddable widgets that turn a ticketing system's reporting API into plain guidance for visitors: which timed-entry slots are gone, whether a day is likely to sell out, and which nearby days are a better bet.",
+        "A GitHub Action runs two reports every fifteen minutes and publishes static JSON. There is no server to run and no API key exposed in a browser. Risk is modeled as supply against expected weekday demand rather than raw percent sold, because a day sitting at 60% the night before can still sell out to walk-ups by mid-morning."
+      ],
+      "capabilities": [
+        "Six widgets: alert banner, time-slot grid, week planner, date check, month outlook, year heatmap",
+        "Sitewide dismissible floating banner, deployable through Google Tag Manager",
+        "Sell-out risk model using sales pace, lead curves, and day-of-week behavior",
+        "Permanent monthly archive enabling year-over-year ghost overlays",
+        "Hand-maintained closures file honored by every widget, with named reasons",
+        "Staff-facing monitor page; mock mode runs the whole stack with no API key at all"
+      ],
+      "stack": ["Python 3 standard library", "ACME Ticketing Reporting API", "Vanilla JS widgets", "GitHub Actions", "GitHub Pages", "Google Tag Manager (optional)"],
+      "demo": "https://ticketing.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Ask your ticketing admin to create a reporting-only integration user and request an API key. Until it arrives the repo runs in mock mode and the whole demo works end to end.",
+        "Add <code>ACME_API_KEY</code> as a repository secret. Set the report-ID repository variables — the shipped defaults are the Library's own report definitions and must be replaced.",
+        "Edit <code>closures.json</code> with your holiday closures and weekly closed days per season, and set your thresholds and tickets URL in <code>config.json</code>.",
+        "Settings → Pages → Deploy from a branch, <code>main</code>, root. Replace <code>CNAME</code> and add the DNS record.",
+        "Run the Update availability data workflow, then check that the generated JSON looks right.",
+        "Add the script once per page plus any <code>&lt;div data-trpl-widget=\"…\"&gt;</code> containers. Tune the thresholds in <code>day_risk()</code> if your demand pattern differs."
+      ]
+    },
+    {
+      "slug": "trip-planner",
+      "repo": "TripPlanner",
+      "name": "Trip Planner",
+      "category": "Visitor Experience",
+      "tagline": "A wizard that turns a guest's interests into a routed, dated, printable itinerary.",
+      "description": [
+        "Ten questions about interests, dates, travel style, and lodging comfort produce an hour-by-hour itinerary the guest can print, share, or drop into a calendar. It is rule-based and deterministic — there is no model in the loop and nothing to hallucinate.",
+        "Everything it knows lives in plain JSON files, so editing the planner means editing data, not code. The scheduler routes distant stops as en-route legs with gateway-city overnights while holding the in-town stay in one contiguous block, so the guest books a single hotel instead of three."
+      ],
+      "capabilities": [
+        "Ten-step wizard across 43 regional stops and a 60-plus item local catalog, filtered by season",
+        "Scheduler honoring opening hours, meal windows, one evening show per night, and pace budgets",
+        "Airport recommendation including open-jaw routing, validated against rental-car coverage at both ends",
+        "Shareable permalinks, calendar export, and a purpose-built print page",
+        "Fix-it-here controls that re-lay an over-full plan in real time",
+        "Two weekly jobs: a live event refresh and a link-rot watchdog that opens issues rather than editing data",
+        "WCAG 2.1 AA verified with axe-core — zero violations"
+      ],
+      "stack": ["Vanilla JS embed", "Curated JSON data files", "Node ESM scrapers with Playwright", "Python image caching", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://trip.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and read <code>CLAUDE.md</code> first — it is the builder's guide to the architecture, the scheduler rules, and the gotchas.",
+        "Rewrite the JSON in <code>data/</code>: origins, airports, destinations, lodging, your local catalog, your own venue and tours, weather, and itineraries. Each file carries a <code>note</code> field explaining its shape. Do not hand-edit the events file — it is generated.",
+        "Set your brand colors, comfort tiers, and travel styles in <code>data/config.json</code>.",
+        "Repoint <code>scripts/refresh-events.mjs</code> at your own event sources and update the monitored shows in the freshness checker.",
+        "Settings → Pages → Source = GitHub Actions. Set your <code>CNAME</code> and DNS, and set Workflow permissions to Read and write so the refresh can commit.",
+        "Add your own photos by setting each item's <code>image</code> to a URL and running the image-caching script."
+      ]
+    },
+    {
+      "slug": "medora-weather",
+      "repo": "MedoraWeather",
+      "name": "Local Weather",
+      "category": "Embeddable Widget",
+      "tagline": "Live local weather as a one-line embed, plus auto-refreshing forecast images for email.",
+      "description": [
+        "A job pulls National Weather Service data and air-quality readings about every thirty minutes, normalizes them into a cached JSON file, and renders both a zero-dependency JavaScript widget and a set of static PNG and SVG forecast images.",
+        "Everything the public loads is a static file on a CDN, so visitor traffic never touches the government API and the rate limits never bite. The images are hotlinkable, which means a newsletter can show today's forecast without any JavaScript at all."
+      ],
+      "capabilities": [
+        "One-tag widget with <code>data-*</code> options for days, hours, rain, view, and refresh interval",
+        "Five views: mini badge, current conditions, hourly, multi-day, alerts",
+        "Hotlinkable PNG and SVG images including a 1200×630 social card",
+        "Live severe-weather alert banners with severity tinting and five-minute polling",
+        "Feels-like, wind and gusts, humidity, sunrise and sunset, air quality, snowfall",
+        "Stale-data fallback: serves the last good forecast and flags it rather than going blank"
+      ],
+      "stack": ["Node.js ESM", "Vanilla JS widget", "SVG-to-PNG rendering", "api.weather.gov", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://weather.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo, then edit <code>config.json</code> and set <code>location</code> — name, region, latitude, longitude, timezone — to your own place.",
+        "In the same file set your base URL, custom domain, full-forecast link, and a real contact string for <code>userAgent</code>. The National Weather Service requires one.",
+        "Replace the brand colors, fonts, and icons in <code>src/lib/brand.mjs</code> and <code>src/lib/icons.mjs</code>, and swap the font files for ones you have web-embedding rights to.",
+        "Settings → Pages → Source = GitHub Actions. Add your DNS record, set the custom domain, and enable Enforce HTTPS.",
+        "Run <code>npm install &amp;&amp; npm run build</code> locally to confirm, then push. The workflow takes over on its half-hourly schedule."
+      ]
+    },
+    {
+      "slug": "lbc-dashboard",
+      "repo": "LBC-Dashboard",
+      "name": "Living Building Dashboard",
+      "category": "Dashboard",
+      "tagline": "A lobby display turning building performance into a living Badlands panorama.",
+      "description": [
+        "A single self-contained HTML file built for a widescreen lobby screen, showing energy, water, and air-quality performance against the seven petals of Living Building Challenge 4.0. The backdrop is a vector Badlands scene with a real day-night cycle and live local weather rendered as clouds, rain, snow, fog, or lightning.",
+        "Worth knowing before you fork it: this is a working prototype driven by browser-generated demo data. The next phase wires it to the Library's building management system. What it gives you today is the whole presentation layer and one clearly marked place to swap the data source."
+      ],
+      "capabilities": [
+        "Overview screen with floating KPI tiles for energy, solar, geothermal, water, and CO₂",
+        "Seven-petal navigation rail with per-petal drill-in pages",
+        "Animated landscape: sun and moon arc, sky phases, stars, weather effects",
+        "Live local conditions with no API key required",
+        "A single adapter block designed as the one place to swap demo data for live data",
+        "Companion spreadsheet for the petals that are documented by hand"
+      ],
+      "stack": ["Single-file HTML, CSS, vanilla JS", "Inline SVG", "Open-Meteo API", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://lbc.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, replace <code>CNAME</code> with your hostname, set Settings → Pages → Source to GitHub Actions, and add the DNS record.",
+        "Edit <code>index.html</code> — swap the palette, the headline copy, and the petal narrative text for your own building's story.",
+        "Change the latitude and longitude in the weather call so the scene reflects your site, or remove the scene entirely.",
+        "Confirm your building management system actually meters what you want on screen. Anything unmetered belongs in the spreadsheet, not on the wall.",
+        "Replace <code>tickDemo()</code> inside the data-source block with a <code>fetchLive()</code> returning the same field names.",
+        "Never put an API token in <code>index.html</code> — it is public. Route through a proxy or a scheduled job that commits a static JSON file."
+      ]
+    },
+    {
+      "slug": "social-calendar",
+      "repo": "SocialCalendar",
+      "name": "Social Calendar",
+      "category": "Content Tool",
+      "tagline": "A shareable, read-only calendar of scheduled social posts, rebuilt twice a day.",
+      "description": [
+        "Pulls scheduled social messages from the Hootsuite API twice a day, writes a JSON snapshot plus downsized preview images, and publishes a dependency-free static site. One story going to six channels renders as a single row with per-network icons, not six near-identical duplicates.",
+        "A second page rebuilds a link-in-bio archive by following shortlinks to their real destinations and reading each page's own headline, so the archive outlives the calendar's two-week window.",
+        "One caution before you deploy it publicly: the published site exposes copy that has not gone out yet. Put access control in front of the hostname if that matters to your organization."
+      ],
+      "capabilities": [
+        "Month grid and forward-running agenda views over the same snapshot",
+        "Per-network previews that mimic how copy will actually look once posted",
+        "Filter by channel, tag, and status; full-text search of post copy",
+        "Link-in-bio page with a merging archive",
+        "Timed reveal so scheduled posts appear on time without waiting for a rebuild",
+        "OAuth refresh-token rotation written back to a repository secret automatically"
+      ],
+      "stack": ["Python", "Hootsuite REST API and OAuth", "Image compositing", "Plain HTML/CSS/JS", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://socialcalendar.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, replace <code>CNAME</code>, set Settings → Pages → Source to GitHub Actions, and add the DNS record.",
+        "Follow <code>SETUP.md</code>: register a developer app with your scheduling platform and add the three required repository secrets. About ten minutes, once.",
+        "Run <code>scripts/bootstrap_auth.py</code> once locally to complete the OAuth handshake and seed the refresh token.",
+        "Point the brand tokens at your own colors and fonts.",
+        "Adjust the cron in <code>.github/workflows/refresh.yml</code> if twice daily is not your cadence, then trigger it once with a backfill to seed the links archive.",
+        "Decide whether the site should be public. It shows unsent copy."
+      ]
+    },
+    {
+      "slug": "newsletter-builder",
+      "repo": "NewsletterBuilder",
+      "name": "Newsletter Builder",
+      "category": "Content Tool",
+      "tagline": "A browser newsletter builder that exports paste-ready HTML for your email platform.",
+      "description": [
+        "A block-based email builder that runs entirely in the browser with no backend. Assemble blocks, edit each one in a side panel, and export HTML ready to paste into Constant Contact's code-your-own editor — or any platform that accepts raw HTML.",
+        "A companion Header Studio composites a wordmark plaque over a photograph and hands back a branded PNG header, which removes the most common reason a staff member has to open a design tool at all."
+      ],
+      "capabilities": [
+        "Block library plus a one-click standard template",
+        "Per-block editing with reorder, duplicate, and delete",
+        "Export HTML sized for a code-your-own email editor",
+        "Save an HTML file with the design data embedded, then reopen it to keep editing",
+        "Browser autosave of work in progress",
+        "Header Studio: photo upload, drag to reposition, plaque and wordmark color picking, PNG download",
+        "Ships with <code>CLAUDE.md</code> and <code>llms.txt</code> so an AI assistant can build newsletters in it directly"
+      ],
+      "stack": ["Static HTML, CSS, JavaScript", "No backend, no build step", "GitHub Pages"],
+      "demo": "https://newsletter.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, replace <code>CNAME</code>, set Pages to deploy from <code>main</code> at the root, add the DNS record, and enable Enforce HTTPS.",
+        "Edit <code>index.html</code> to swap the colors, fonts, and default template block set for your organization's newsletter layout.",
+        "Replace the logo and wordmark art in <code>assets/</code>, used by both the builder and Header Studio.",
+        "Update <code>header.html</code> with your own plaque shape and brand color options.",
+        "No API keys are needed. Images still have to live in your email platform's library or DAM and be referenced by URL."
+      ]
+    },
+    {
+      "slug": "link-checker",
+      "repo": "LinkChecker",
+      "name": "Link Checker",
+      "category": "Data & Automation",
+      "tagline": "A weekly crawl that finds every broken link and typo across an entire website.",
+      "description": [
+        "A scheduled job crawls a whole site from its sitemap, validates every internal and external link, spell-checks visible text against a dictionary plus an allow-list, and publishes an interactive report.",
+        "Issues are grouped by the page they appear on with links straight to what needs fixing, which is the difference between a report someone acts on and a CSV nobody opens. Two dismissal paths exist: a per-browser Ignore button for triage, and a shared committed ignore file for decisions the whole team should keep."
+      ],
+      "capabilities": [
+        "Sitemap-seeded breadth-first crawl across every subdomain of one root domain",
+        "HEAD-then-GET validation that separates real breaks from bot-protection warnings",
+        "Spell check split into likely typos and unknown words, so names and jargon do not drown the signal",
+        "Interactive report grouped by page, plus machine-readable JSON",
+        "Per-browser Ignore that generates copy-ready lines for the shared ignore file",
+        "Threaded crawling and validation, tuned by environment variables"
+      ],
+      "stack": ["Python", "requests", "GitHub Actions weekly cron", "GitHub Pages"],
+      "demo": "https://links.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and set Settings → Pages → Source to GitHub Actions. That is the only required manual step.",
+        "Set <code>ROOT_DOMAIN</code> to your domain and <code>SITEMAP_URLS</code> to your sitemaps in the workflow file.",
+        "Adjust the cron if Monday morning is not the cadence you want.",
+        "Seed <code>custom_words.txt</code> with your place names, donor surnames, and jargon so the first report is not swamped by false positives.",
+        "Test locally first with <code>MAX_PAGES=25 python run_check.py</code> and open the generated report."
+      ]
+    },
+    {
+      "slug": "reviews",
+      "repo": "Reviews",
+      "name": "Reviews",
+      "category": "Dashboard",
+      "tagline": "Collects visitor reviews daily, classifies the themes, and triages what needs a reply.",
+      "description": [
+        "A daily job pulls reviews from Google, TripAdvisor, Yelp, and Facebook, merges them incrementally, classifies each one into a controlled theme vocabulary, and derives windows, deltas, theme movement, and a response queue for a static dashboard. There is no server and no database — every number on screen is also a line in git history.",
+        "A separate embeddable widget publishes vetted five-star pull quotes to the public website, guarded by three gates: a verbatim match against the original review, a regex screen, and an adversarial critic pass. The theme vocabulary grows on evidence rather than on a hunch, and new themes are re-applied to the full corpus so year-over-year comparisons stay honest."
+      ],
+      "capabilities": [
+        "Multi-platform incremental collection with a periodic reach-back to catch new replies",
+        "Theme, sentiment, and tone classification with a deterministic keyword fallback",
+        "Self-growing theme vocabulary, promoted only on evidence and then re-applied to history",
+        "Response triage queue with SLAs, plus a hand-written executive brief",
+        "Rotating public quote widget in four layouts, with luminance-aware text color",
+        "Three-gate quote safety: verbatim match, regex screen, adversarial critic",
+        "Pre-commit validator that refuses to ship unparseable data"
+      ],
+      "stack": ["Python", "Apify actors", "Swappable LLM provider interface", "Static HTML/CSS/JS dashboard", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://reviews.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, replace <code>CNAME</code>, set Settings → Pages → Source to GitHub Actions, and add the DNS record.",
+        "Add the collection and model API keys as repository secrets. A local <code>.env</code> is invisible to Actions, so both places need them.",
+        "Edit <code>config.json</code> to point the sources block at your own listings, and set your SLAs and window sizes.",
+        "Verify the model path with the <code>--check</code> flag before trusting a full run.",
+        "Replace the theme vocabulary and review data with your own vocabulary and an empty dataset, then run a full backfill.",
+        "Before putting the quote widget on a public site, confirm each platform's terms permit excerpting review text."
+      ]
+    },
+    {
+      "slug": "anniversaries",
+      "repo": "TRAnniversaries",
+      "name": "Anniversaries",
+      "category": "Content Tool",
+      "tagline": "Shows which milestones hit a round anniversary this year and the next five.",
+      "description": [
+        "A small static page that reads a curated list of dated events and surfaces those whose anniversary in a given year lands on a multiple of five. Tabs cover the current year plus five ahead, each entry showing the original date, the anniversary number, and a sentence or two of context.",
+        "It exists because commemoration planning happens a year out, not a week out. Any institution with a founder, a building, or a collection has the same problem — replace one JSON file and it is your chronology."
+      ],
+      "capabilities": [
+        "Tabbed view across six years, current year first",
+        "Automatic five-year-multiple anniversary calculation",
+        "Month-and-day sorting, with undated entries falling to the bottom",
+        "The whole dataset editable as one plain JSON file, no build step",
+        "Deploys on every push to <code>main</code>"
+      ],
+      "stack": ["Static HTML", "Vanilla JavaScript", "Plain JSON", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://anniversaries.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and set Settings → Pages → Source to GitHub Actions.",
+        "Replace <code>events.json</code> with your own events. Each object takes a year, optional month and day, a title, and a description.",
+        "Swap the logo and edit the headings, colors, and copy in <code>index.html</code>.",
+        "Add a <code>CNAME</code> file and matching DNS record if you want a custom hostname.",
+        "Preview locally with <code>python3 -m http.server 8000</code> — the page fetches its JSON, so a <code>file://</code> URL will not work.",
+        "Verify every date against a primary source before publishing."
+      ]
+    },
+    {
+      "slug": "campus-map",
+      "repo": "CampusMap",
+      "name": "Campus Map",
+      "category": "Visitor Experience",
+      "tagline": "A 3D model of the campus you can spin, zoom, and pin with story markers.",
+      "description": [
+        "A web viewer for a compressed 3D model of the Library campus. Visitors orbit and zoom the terrain and buildings, click a point of interest to open a panel with an image, text, and a call to action, and share the exact view they are looking at through a short link.",
+        "The engineering that makes it usable is the compression — 7.7 MB delivered from a 256 MB source — and the occlusion: markers hide themselves when a building or a berm stands between them and the camera, computed against a precomputed height map rather than GPU raycasting. A visual editor lets a non-developer right-click to place pins and download the resulting file."
+      ],
+      "capabilities": [
+        "Draco-compressed, GPU-instanced campus model at 7.7 MB",
+        "Clickable markers opening an image, description, and call-to-action panel",
+        "Markers auto-hide when a building or berm blocks the line of sight",
+        "Shareable view tokens encoding camera angle, zoom, target, and open marker",
+        "Visual editor — right-click to place pins, download the JSON",
+        "One-line embed with per-embed custom marker sets"
+      ],
+      "stack": ["Static HTML/CSS/JS, no build step", "Google model-viewer", "glTF/GLB with Draco compression", "Git LFS", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://campus.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo, replace the GLB with your own Draco-compressed campus model, and regenerate <code>heightfield.json</code> for the new geometry.",
+        "Open <code>/editor.html</code> to right-click-place your own markers, then download and commit the resulting <code>pois.json</code>. Put marker photos in <code>img/poi/</code>.",
+        "Replace the wordmark in <code>img/</code> and update the <code>@font-face</code> URLs in <code>index.html</code> — they point at fonts hosted on trlibrary.com and will not work for you.",
+        "Edit <code>CNAME</code> and add a DNS record pointing at GitHub Pages.",
+        "Enable Pages with source GitHub Actions. The workflow publishes on every push to <code>main</code> with no build step."
+      ]
+    },
+    {
+      "slug": "stargazer",
+      "repo": "StarGazer",
+      "name": "StarGazer",
+      "category": "Embeddable Widget",
+      "tagline": "Hold your phone up to the sky and it names the stars above you.",
+      "description": [
+        "An embeddable night-sky explorer that uses phone motion sensors to identify constellations, planets, and bright stars overhead, with drag-to-look on a desktop. It is built for dark-sky places: a dim palette, an extra-dimming slider, and a red-light mode that preserves night vision.",
+        "All of the astronomy is computed on the device, so a single script tag turns any page into a working planetarium with no API keys and no server. Planet positions land within 0.3 degrees of the JPL reference ephemeris.",
+        "One thing to read before forking: the Indigenous star knowledge included in the repo is drawn from published sources and every entry is labeled as awaiting tribal partner review. The README is explicit that it should not be reused as-is."
+      ],
+      "capabilities": [
+        "About 5,000 stars to magnitude 6, all 88 constellations with lines, boundaries, and stories",
+        "Device-orientation sky pointing with compass-offset correction; drag and pinch on desktop",
+        "Sun, Moon phase, and Mercury through Neptune from Keplerian elements",
+        "85 constellation figures pinned to their stars by three-star affine fit",
+        "See-through mode showing the rear camera behind a transparent chart — never uploaded",
+        "Tonight panel with sunset, full dark, moonrise, and eclipses, plus a live aurora estimate"
+      ],
+      "stack": ["Vanilla JS built from source by a Python build step", "Shadow DOM", "d3-celestial data", "Stellarium sky-culture artwork", "numpy", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://stargazer.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, install numpy, and run the two build scripts. The three built files are not committed — the deploy workflow produces them.",
+        "Set your own location defaults on the embed tag with <code>data-lat</code>, <code>data-lon</code>, and <code>data-place</code>.",
+        "Edit the plain JSON content files for constellation paragraphs, dated sky events, meteor showers, and figures. No widget code changes needed.",
+        "Replace the wordmark and the brand font and color references.",
+        "Move the deploy workflow into place, set Pages source to GitHub Actions, edit <code>CNAME</code>, and add the DNS record. Motion sensors require HTTPS, which Pages provides.",
+        "Do not reuse the Indigenous star-knowledge content without your own tribal partner review."
+      ]
+    },
+    {
+      "slug": "quizzes",
+      "repo": "Quizes",
+      "name": "Quiz Platform",
+      "category": "Embeddable Widget",
+      "tagline": "Drop a fifteen-question quiz into any page with two lines of HTML.",
+      "description": [
+        "A dependency-free quiz engine that embeds into existing CMS pages rather than living on a site of its own. Each question gives immediate feedback plus a paragraph of real history and a link out; finishing yields a score, an achievement tier, and a downloadable badge.",
+        "It also supports asynchronous challenge-a-friend links and live two-player races. The challenge link encodes the identical run — score, deck, name, checksum — entirely in the URL, so nothing is stored server-side and there is no account to create. The whole quiz mounts in a shadow root, so a CMS theme cannot reach in and the quiz cannot leak out."
+      ],
+      "capabilities": [
+        "Two-line embed that mounts in a shadow root",
+        "New quizzes added by dropping one JSON file in <code>quizzes/</code> — no code changes",
+        "Per-run shuffling of questions and options, so answer positions are worthless",
+        "Challenge-a-friend links that encode the entire run in the URL",
+        "Live head-to-head play over WebRTC with timers and graceful fallback to solo",
+        "Gallery widget with search, difficulty and topic facets, and a daily reshuffle",
+        "Keyword search index built from proper nouns and rare words inside the questions"
+      ],
+      "stack": ["Static HTML/CSS/JS, no framework", "Shadow DOM", "Canvas badge generation", "PeerJS / WebRTC", "Python indexing helper", "GitHub Pages"],
+      "demo": "https://quiz.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, then copy a sample quiz to <code>quizzes/&lt;your-id&gt;.json</code> and replace the content. Exactly 15 questions with 4 options each, a zero-based answer index, plus an explanation, image, credit, and link per question.",
+        "Put imagery in <code>assets/img/&lt;your-id&gt;/</code> and fill in <code>credits.json</code>. Credit the source collection, never your DAM.",
+        "Add an entry to <code>quizzes/index.json</code> with difficulty and topics, then run the reindex script to rebuild the search keywords.",
+        "Replace the brand art and repoint the <code>@font-face</code> URLs in <code>assets/css/trpl.css</code>, which currently load from trlibrary.com.",
+        "Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, add the DNS record, and enforce HTTPS.",
+        "Point the embed snippet's script <code>src</code> at your own host and paste it into a full-HTML block on your CMS page."
+      ]
+    },
+    {
+      "slug": "retro-game",
+      "repo": "TRRetroGame",
+      "name": "Rough Rider",
+      "category": "Interactive Media",
+      "tagline": "A ten-chapter 8-bit platformer that plays an entire life, mini-games and all.",
+      "description": [
+        "Ten chapters carry Roosevelt from 1858 to 1919, each a platformer level over a painted backdrop, each ending in its own themed mini-game and then a study recap. Hidden treasure chests reveal forty real, sourced facts, and the recap tallies which the player found and which they missed.",
+        "It runs with no installation, no build step, and no network connection. The entire soundtrack is synthesized in the browser — there is not a single audio file in the repo. Finishing all ten chapters unlocks a promo code for a free youth admission, which is the part a museum actually cares about."
+      ],
+      "capabilities": [
+        "Ten chapters, each with a cutscene, a platformer level, a unique mini-game, and a recap",
+        "Forty collectible history facts checked against the Library's book collection",
+        "Era-correct enemies per chapter, with the character visibly aging and changing costume",
+        "Fully synthesized chiptune score and sound effects — zero audio files",
+        "Touch controls that adapt per mini-game, with letterboxed fullscreen and add-to-home-screen",
+        "Completion reward with a promo code, plus score and progress saved locally"
+      ],
+      "stack": ["Plain ES, no framework or bundler", "HTML5 canvas", "Web Audio API", "Fullscreen and Screen Orientation APIs", "GitHub Pages"],
+      "demo": "http://trgame.labs.trlibrary.com/",
+      "demoNote": "Served over HTTP only — the custom domain is still waiting on its certificate, so this one is a link out rather than a live embed.",
+      "embeddable": false,
+      "license": "MIT",
+      "setup": [
+        "Fork, then edit <code>js/data.js</code>. All ten chapters' text, years, blurbs, objectives, facts, costumes, ages, enemies, and mini-game configs live there, and it is usually the only file you touch.",
+        "Replace the backdrops in <code>assets/bg/</code>, keeping the filenames each chapter references. A prompt file ships with the repo for generating new ones.",
+        "Swap the wordmark and the URL it links to, and regenerate the favicons with the included script.",
+        "Edit the <code>REWARD</code> object near the top of <code>js/game.js</code>: set the encoded code, the offer text, the headline, and the claim URL.",
+        "Create that code in your ticketing system with real limits — redemption cap, one per customer, expiry. The game validates nothing; the encoding is obfuscation, not security.",
+        "Edit <code>CNAME</code>, add the DNS record, enable Pages, and confirm the HTTPS certificate issues before linking to it."
+      ]
+    },
+    {
+      "slug": "elkhorn-panos",
+      "repo": "elkhorn-panos",
+      "name": "Elkhorn Panoramas",
+      "category": "Visitor Experience",
+      "tagline": "Seven 360-degree panoramas that let anyone stand inside the Elkhorn Ranch ruins.",
+      "description": [
+        "The site of Roosevelt's Dakota ranch house, captured in seven equirectangular panoramas and served through a minimal drag-and-pinch viewer. The viewer libraries are vendored locally — no CDN, no build step, no API keys.",
+        "Be clear-eyed about what this is: a working proof of concept, not a finished visitor product. There are no captions, no hotspots, no navigation between panoramas, and no branding. What it does give you is the shortest possible path from a 360 camera to a shareable web experience, which is exactly the thing most institutions overestimate the difficulty of."
+      ],
+      "capabilities": [
+        "Seven full-screen drag-and-pinch 360-degree panoramas",
+        "Viewer libraries vendored locally — no CDN dependency",
+        "No API keys, no accounts, no build step",
+        "Custom domain on GitHub Pages with a working certificate",
+        "Deliberately minimal — about fifteen lines of page code per panorama"
+      ],
+      "stack": ["Static HTML", "three.js", "Panolens", "WebGL", "GitHub Pages"],
+      "demo": "https://elkhorn.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. There is no README to follow — these steps come from reading the files.",
+        "Shoot or export your own equirectangular (2:1) panoramas into <code>panos/</code> as <code>1.jpg</code>, <code>2.jpg</code>, and so on. Keep them web-sized; the current files run about 4.5 MB each.",
+        "Copy an existing <code>N.html</code> for each panorama and change the one line that names the image file.",
+        "Edit <code>index.html</code> to list your panoramas with real names, and add your own branding — there is none today.",
+        "Edit <code>CNAME</code>, add the DNS record, and enable Pages from <code>main</code> at the root."
+      ]
+    },
+    {
+      "slug": "digital-invite",
+      "repo": "DigitalInvite",
+      "name": "Digital Invitation",
+      "category": "Content Tool",
+      "tagline": "Turns any invitation image into an envelope that opens, addressed by name.",
+      "description": [
+        "A reusable embed plus a no-code builder that wraps invitation artwork in an animated envelope: it rises addressed to the guest, turns in 3D to show a brand seal, the flap opens, the card slides out, and an RSVP button appears. The guest's name comes from a query-string parameter, so a mail merge gives every recipient a hand-addressed envelope.",
+        "The builder is the part that makes it usable by a development office rather than a developer. Eight contrast-checked brand presets, a live readout, and a warning when the envelope liner is too close in tone to the background — which is the single failure that makes an opened envelope read as a hole in the page. It also emits a matching email template and a downloadable zip, so a staff member can hand a finished campaign to the web team without writing code."
+      ],
+      "capabilities": [
+        "Envelope-opening animation with 3D flip, seal, perforated stamp, and postmark",
+        "Per-guest personalization from a <code>?name=</code> parameter, with a configurable fallback",
+        "Visual builder with eight WCAG-AA-checked presets and a live contrast readout",
+        "<code>auto</code> ink colors that measure contrast and pick dark or light text themselves",
+        "Rich-text details panel that cleans Word and Google Docs paste into an allowlisted subset",
+        "Email template built from table cells so the guest's name stays live text when images are blocked",
+        "Download-everything zip and a share link encoding the whole build in under 1 kB"
+      ],
+      "stack": ["Single vanilla JS file, no dependencies", "Shadow DOM", "CSS 3D transforms", "prefers-reduced-motion", "GitHub Pages"],
+      "demo": "https://rsvp.labs.trlibrary.com/demo/",
+      "demoAlt": {"label": "Open the builder", "url": "https://rsvp.labs.trlibrary.com/"},
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork, enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and point DNS at GitHub Pages. A <code>.nojekyll</code> file is already committed.",
+        "Open your copy of the builder, set <code>data-card-image</code> to your invitation artwork (portrait 5:7 or 2:3) and <code>data-rsvp-url</code> to your RSVP page, then copy the snippet.",
+        "Set <code>data-font-kit-url</code> to your own web font kit. Licensed brand faces cannot be bundled in a public repo, and without a kit the embed falls back silently to open substitutes.",
+        "Replace the branded art — the seal and wordmark in <code>assets/</code>, and the flattened PNGs in <code>assets/email/</code>. The emailed stamp is a flat PNG and ignores builder color changes.",
+        "Recolor with <code>envelope-color</code>, <code>liner-color</code>, <code>accent-color</code>, and <code>background-color</code>. Keep the liner perceptually distinct from both the background and the envelope paper.",
+        "Edit the email template, paste the builder's output into your platform's custom-code editor, and send yourself a test to confirm the personalization survives click-tracking rewrites."
+      ]
+    }
+  ]
+}
