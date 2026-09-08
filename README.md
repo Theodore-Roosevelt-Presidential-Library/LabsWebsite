@@ -58,9 +58,12 @@ No dependencies. Python 3 standard library only.
 Chromium, and commits the results to `assets/shots/`. It then reruns `tools/build.py` so the
 cards pick the images up.
 
-The site works fine without them. A project with no screenshot shows a branded tile and a
-**Live preview** button that loads the real demo in an iframe on click. Previews are never
-autoloaded — several of these projects pull a 3D model or a star catalog on start.
+**Run this workflow once after the first deploy.** Until it does, every card falls back to a
+branded Night Sky tile with the project's name — correct, but monotonous across 21 cards.
+
+Cards are screenshots only. Live demos are embedded on the project detail pages instead, one
+per page and loaded on click — several of these projects pull a 3D model or a star catalog on
+start, which is fine once and unreasonable twenty-one times.
 
 Run it by hand:
 

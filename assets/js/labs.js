@@ -70,22 +70,6 @@
     }
     apply();
 
-    // Live previews load only when asked for. Some of these demos pull a 3D
-    // model or a star catalog, so autoloading twenty of them would be rude.
-    grid.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-live]');
-      if (!btn) return;
-      var box = btn.closest('.preview');
-      if (box.classList.contains('is-live')) return;
-      var frame = document.createElement('iframe');
-      frame.src = btn.dataset.live;
-      frame.loading = 'lazy';
-      frame.title = 'Live preview';
-      frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-      frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
-      box.appendChild(frame);
-      box.classList.add('is-live');
-    });
   }
 
   /* -------------------------------------------------------- detail page */

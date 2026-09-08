@@ -66,6 +66,9 @@ body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font-ui
 img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent-deep);outline-offset:2px}
+/* Inline icons have no intrinsic size. Without this an SVG with only a viewBox
+   stretches to fill its container, which is exactly what it will do. */
+a svg,button svg,p svg{width:1em;height:1em;flex:0 0 auto}
 
 .shell{max-width:var(--shell);margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-9999px}
@@ -78,12 +81,12 @@ p{margin:0 0 1em}
 /* ---------- masthead ---------- */
 .masthead{background:var(--night-sky);color:#fff;position:sticky;top:0;z-index:40;
   border-bottom:1px solid rgba(255,255,255,.14)}
-.masthead .shell{display:flex;align-items:center;gap:22px;min-height:66px}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;flex:0 0 auto}
-.brand img{height:26px;width:auto}
+.masthead .shell{display:flex;align-items:center;gap:22px;min-height:82px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:#fff;flex:0 0 auto}
+.brand img{height:38px;width:auto}
 .brand .labs{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
-  font-size:26px;line-height:1;letter-spacing:.04em;color:var(--deep-orange);
-  border-left:1px solid rgba(255,255,255,.32);padding-left:14px}
+  font-size:34px;line-height:1;letter-spacing:.04em;color:var(--deep-orange);
+  border-left:1px solid rgba(255,255,255,.32);padding-left:16px}
 .mast-nav{margin-left:auto;display:flex;align-items:center;gap:6px}
 .mast-nav a{font-size:13px;font-weight:700;text-decoration:none;padding:8px 12px;border-radius:var(--radius);
   color:rgba(255,255,255,.86)}
@@ -91,9 +94,9 @@ p{margin:0 0 1em}
 .mast-nav a.ghost{border:1px solid rgba(255,255,255,.4)}
 .mast-nav a.ghost:hover{border-color:var(--deep-orange);color:var(--deep-orange);background:transparent}
 @media(max-width:640px){
-  .masthead .shell{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;min-height:0}
+  .masthead .shell{flex-wrap:wrap;padding-top:12px;padding-bottom:10px;min-height:0}
   .mast-nav{margin-left:0;width:100%;flex-wrap:wrap}
-  .brand img{height:22px}.brand .labs{font-size:22px}
+  .brand img{height:30px}.brand .labs{font-size:27px;padding-left:13px}
 }
 
 /* ---------- hero ---------- */
@@ -113,7 +116,7 @@ p{margin:0 0 1em}
 .hero-stats span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#B9C4D2}
 
 /* ---------- toolbar ---------- */
-.toolbar{position:sticky;top:66px;z-index:30;background:rgba(255,255,255,.97);
+.toolbar{position:sticky;top:82px;z-index:30;background:rgba(255,255,255,.97);
   backdrop-filter:saturate(1.4) blur(6px);border-bottom:1px solid var(--rule);padding:16px 0}
 @media(max-width:640px){.toolbar{position:static}}
 .toolbar .shell{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -153,17 +156,8 @@ main{padding:36px 0 80px}
   color:var(--deep-orange);font-weight:700}
 .preview .fallback .nm{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
   font-size:34px;line-height:.86;margin-top:6px}
-.preview iframe{position:absolute;inset:0;width:250%;height:250%;border:0;
-  transform:scale(.4);transform-origin:top left;background:#fff}
-.preview .live-btn{position:absolute;right:10px;bottom:10px;z-index:3;font-family:var(--font-ui);
-  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
-  background:rgba(255,255,255,.95);color:var(--ink);border:1px solid var(--rule);
-  border-radius:var(--radius);padding:6px 11px;cursor:pointer;display:flex;align-items:center;gap:6px}
-.preview .live-btn:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
-.preview .live-btn .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.preview.is-live .fallback,.preview.is-live img,.preview.is-live .live-btn{display:none}
-.preview .shade{position:absolute;inset:0;z-index:2;cursor:pointer}
-.preview.is-live .shade{display:none}
+/* Cards show a screenshot, or a branded tile until the screenshot job has run.
+   Live demos are on the project pages, not here. */
 
 .card-body{padding:20px 20px 0;flex:1}
 .card-body .cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
@@ -205,7 +199,7 @@ main{padding:36px 0 80px}
 /* ---------- footer ---------- */
 .footer{background:var(--night-sky);color:#B9C4D2;padding:44px 0 52px;font-size:14px}
 .footer .shell{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
-.footer img{height:30px;opacity:.95}
+.footer img{height:46px;opacity:.95}
 .footer a{color:#fff}
 .footer .right{margin-left:auto;text-align:right;max-width:46ch}
 @media(max-width:640px){.footer .right{margin-left:0;text-align:left}}
@@ -260,7 +254,7 @@ main{padding:36px 0 80px}
   color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:5px 10px;cursor:pointer}
 .codeblock button:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
 
-.side{position:sticky;top:92px}
+.side{position:sticky;top:108px}
 @media(max-width:900px){.side{position:static}}
 .side section{border-top:2px solid var(--ink);padding:14px 0 22px}
 .side h3{font-size:19px;margin-bottom:10px}
@@ -268,9 +262,11 @@ main{padding:36px 0 80px}
 .side .meta{font-family:var(--font-body);font-size:15px;color:var(--ink-soft);margin:0}
 .side .links{display:flex;flex-direction:column;gap:8px}
 .side .links a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);
-  padding-bottom:7px;display:flex;justify-content:space-between;gap:10px}
+  padding-bottom:9px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .side .links a:hover{color:var(--accent-deep);border-color:var(--accent-deep)}
-.side .links a span{color:var(--ink-faint);font-size:12px}
+.side .links a span{color:var(--ink-faint);font-size:12px;margin-left:auto;flex:0 0 auto}
+.side .links a svg{width:14px;height:14px;flex:0 0 auto;margin-right:8px;fill:currentColor;
+  vertical-align:-2px}
 
 .nextprev{border-top:1px solid var(--rule);padding:26px 0 0;display:flex;justify-content:space-between;
   gap:20px;flex-wrap:wrap}

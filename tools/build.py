@@ -136,23 +136,17 @@ def card(p):
     slug = p["slug"]
     shot = shot_path(slug)
     demo = p.get("demo")
-    live = demo and p.get("embeddable")
 
+    # Cards are screenshots only. Live demos live on the project pages, where
+    # one iframe at a time is a reasonable thing to ask of a browser.
     if shot:
-        media = f'<img src="{shot}" alt="Screenshot of {esc(p["name"])}" loading="lazy" width="1280" height="800">'
+        media = (f'<img src="{shot}" alt="Screenshot of {esc(p["name"])}" '
+                 f'loading="lazy" decoding="async" width="1280" height="800">')
     else:
         media = (
             f'<div class="fallback"><span class="glyph" aria-hidden="true">{esc(initials(p["name"]))}</span>'
             f'<span class="kicker">{esc(p["category"])}</span>'
             f'<span class="nm">{esc(p["name"])}</span></div>'
-        )
-
-    if live:
-        media += (
-            f'<button class="shade" data-live="{esc(demo)}" '
-            f'aria-label="Load a live preview of {esc(p["name"])}"></button>'
-            f'<button class="live-btn" data-live="{esc(demo)}">'
-            f'<span class="dot"></span>Live preview</button>'
         )
 
     tech = "".join(f'<span class="tech">{esc(t)}</span>' for t in p["stack"][:4])
