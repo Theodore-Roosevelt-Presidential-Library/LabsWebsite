@@ -17,6 +17,7 @@ hand-edited in `index.html` or `projects/`.
 data/projects.json     ← the only file you edit for content
 tools/build.py         ← regenerates index.html, projects/*.html, sitemap.xml
 index.html             ← generated
+living-library.html    ← generated; prose lives in build_living_library()
 projects/<slug>.html   ← generated, one per project
 assets/css/labs.css    ← the design system
 assets/js/labs.js      ← search, filtering, live previews
@@ -49,6 +50,26 @@ No dependencies. Python 3 standard library only.
 | `demoNote` | Optional caveat shown under the demo panel. |
 | `demoAlt` | Optional second link, `{label, url}`. |
 | `setup` | Array of numbered fork-and-adapt steps. Inline HTML allowed. |
+
+### The Living Library page
+
+`living-library.html` is not a catalog entry — it is a plain-language read of
+[arXiv:2609.09368](https://arxiv.org/abs/2609.09368), the Microsoft/TRPL paper describing the
+framework behind Campfire, the Archivist App, and Talk to TR. It is also the featured band at
+the top of the homepage.
+
+Its prose lives in `build_living_library()` in `tools/build.py`, not in `projects.json`, because
+it is a one-off editorial page rather than a repeatable record.
+
+**Every figure on that page comes from the paper.** If you edit it, keep it that way — the page
+ends by telling the reader that where it differs from the paper, the paper is right. Two things
+in particular were handled deliberately and should not be softened:
+
+- The worked Cross-Era Analogical Grounding example carries an explicit warning that the response
+  is **generated, not a historical quotation**. A TR-voiced sentence on a Library page must never
+  read as something Roosevelt actually said.
+- The "What the paper does not claim" section is not hedging. The authors flag faithfulness,
+  anachronism, and experiential presence as open questions, and the page says so.
 
 ---
 
