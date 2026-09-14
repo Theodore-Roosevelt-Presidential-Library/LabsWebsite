@@ -322,9 +322,13 @@ main{padding:36px 0 80px}
   letter-spacing:.1em;color:var(--deep-orange);margin:0 0 12px}
 .exec .lede{font-family:var(--font-body);font-size:19px;line-height:1.45;color:#E4E8EE;
   max-width:54ch;margin:0 0 26px}
-.exec dl{margin:0;display:grid;gap:20px 34px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+/* Each dt/dd pair is wrapped in a div, because a bare <dl> with display:grid makes
+   every dt and dd its own grid item — which scatters terms away from their
+   definitions across the columns. The div is the grid item; the pair stays put. */
+.exec dl{margin:0;display:grid;gap:24px 40px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.exec dl>div{min-width:0}
 .exec dt{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
-  font-size:21px;line-height:1;letter-spacing:.015em;color:var(--deep-orange);margin-bottom:8px}
+  font-size:21px;line-height:1;letter-spacing:.015em;color:var(--deep-orange);margin-bottom:9px}
 .exec dd{margin:0;font-family:var(--font-body);font-size:16px;line-height:1.5;color:#DCE3EB}
 .exec dd strong{color:#fff}
 .exec .onward{font-family:var(--font-ui);font-size:13.5px;color:#A9B6C6;margin:26px 0 0;
