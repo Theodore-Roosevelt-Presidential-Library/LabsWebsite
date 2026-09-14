@@ -214,15 +214,18 @@ def build_index():
   <div class="shell">
     <div class="feat-grid">
       <div>
-        <p class="kicker">Published research &middot; Microsoft &amp; TRPL</p>
+        <p class="kicker">The Library's AI work, published in full</p>
         <h2>The Living Library</h2>
         <p class="sub">Transforming Archival Collections into Conversational Knowledge Systems &mdash;
           Lessons from the Theodore Roosevelt Presidential Library</p>
-        <p>Microsoft and the Library have published the blueprint behind Campfire, the Archivist App,
-          and Talk to TR: a four-layer framework for turning a fragmented archive into a governed,
-          searchable, conversational corpus &mdash; and a six-step process for doing it to a
-          different collection. The conversational avatar is the optional last layer. The first
-          three stand on their own.</p>
+        <p>Every museum and library is being asked what it is doing about AI. This is the Library's
+          answer, written down with <strong>Microsoft's AI for Good Lab</strong> and published for
+          anyone to copy: how roughly 300,000 archival records became something a visitor can
+          question in plain language, powering Campfire, the Archivist App, and the Talk to TR
+          exhibit.</p>
+        <p>It is four layers, and <strong>the AI avatar is only the last one &mdash; and it is
+          optional.</strong> The first three are the part most institutions actually need. It also
+          states plainly what the authors could not resolve, which is rarer than it should be.</p>
         <div class="p-actions">
           <a class="btn solid" href="living-library.html">Read the breakdown</a>
           <a class="btn" href="https://arxiv.org/abs/2609.09368" target="_blank" rel="noopener">
@@ -230,8 +233,8 @@ def build_index():
         </div>
       </div>
       <ul class="feat-stats">
-        <li><b>4</b><span>Layers, the last one optional</span></li>
-        <li><b>~300,000</b><span>Records in the governed corpus</span></li>
+        <li><b>4</b><span>Layers &mdash; only the last is an avatar</span></li>
+        <li><b>~300,000</b><span>Archival records, made askable</span></li>
         <li><b>40+</b><span>Repositories reconciled</span></li>
         <li><b>2.80s</b><span>Mean time to first spoken word</span></li>
       </ul>
@@ -516,14 +519,33 @@ def trc_collection_chart(top=12):
 
 
 def build_living_library():
-    CHART, CHART_DATE = trc_collection_chart()
-    """A plain-language read of arXiv:2609.09368, for institutions considering the same work.
+    """A plain-language read of arXiv:2609.09368, for institutions weighing the same work.
 
-    Every figure on this page comes from the paper. Nothing is estimated or rounded up.
+    Three parts: what it is, how it works, how you would do it. Every figure
+    comes from the paper. Nothing is estimated or rounded up.
     """
-    desc = ("Microsoft and the Theodore Roosevelt Presidential Library published the four-layer "
-            "framework behind Campfire, the Archivist App, and Talk to TR — and a six-step process "
-            "for applying it to another institution's collection.")
+    CHART, CHART_DATE = trc_collection_chart()
+
+    # The Campfire screenshot is captured in CI like every other shot. If it has
+    # not run yet, the figure is omitted rather than rendering a broken image.
+    CAMPFIRE = ""
+    if (ROOT / "assets" / "shots" / "campfire.png").exists():
+        CAMPFIRE = (
+            '<figure class="shot">\n'
+            '        <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">'
+            '<img src="assets/shots/campfire.png" loading="lazy" width="1280" height="800" '
+            'alt="The Campfire research interface, answering a question with citations to '
+            'archival documents"></a>\n'
+            '        <figcaption><strong>Campfire</strong> is layers one to three with nothing '
+            'bolted on top &mdash; a text interface, free, open to anyone. '
+            f'<a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">Try it '
+            f'yourself {ICON_EXT}</a></figcaption>\n'
+            "      </figure>"
+        )
+
+    desc = ("Microsoft's AI for Good Lab and the Theodore Roosevelt Presidential Library published "
+            "the framework behind Campfire, the Archivist App, and Talk to TR - and a six-step "
+            "process for applying it to another institution's collection.")
 
     body = f"""
 <div class="shell">
@@ -534,9 +556,9 @@ def build_living_library():
   <div class="shell">
     <p class="cat">Published research &middot; arXiv:2609.09368 &middot; 8 September 2026</p>
     <h1>The Living Library</h1>
-    <p class="tag">Transforming archival collections into conversational knowledge systems.
-      The framework behind Campfire, the Archivist App, and Talk to TR &mdash; written down so
-      another institution can do it too.</p>
+    <p class="tag">What one institution learned putting AI in front of its archive &mdash; and in
+      front of the public. The framework behind Campfire, the Archivist App, and Talk to TR,
+      written down so another institution can do it too.</p>
     <div class="p-actions">
       <a class="btn solid" href="{PAPER_URL}" target="_blank" rel="noopener">Read on arXiv {ICON_EXT}</a>
       <a class="btn" href="{PAPER_PDF}" target="_blank" rel="noopener">PDF {ICON_EXT}</a>
@@ -549,10 +571,10 @@ def build_living_library():
   <section class="exec">
     <p class="kicker">If your board is asking what you are doing about AI</p>
     <p class="lede">Nearly every museum, library, and historical society is being asked that question
-      right now &mdash; by trustees, by funders, and by vendors with a polished demo and a quote.
-      Very little of the available guidance comes from anyone who has actually put one of these in
-      front of the public and then measured what happened. <strong>This is a record of one
-      institution that did, including the parts it could not resolve.</strong></p>
+      right now &mdash; by trustees, by funders, and by vendors with a polished demo. Very little of
+      the available guidance comes from anyone who has actually put one of these in front of the
+      public and then measured what happened. <strong>This is a record of one institution that did,
+      including the parts it could not resolve.</strong></p>
     <dl>
       <div>
         <dt>What it actually does</dt>
@@ -562,42 +584,35 @@ def build_living_library():
       <div>
         <dt>Why that matters to you</dt>
         <dd>Most collections are functionally invisible. They are catalogued for people who already
-          know what they are looking for, which is a small and shrinking audience. This widens who
-          can use what you already own, without reprocessing it first.</dd>
+          know what they are looking for, which is a small and shrinking audience.</dd>
       </div>
       <div>
         <dt>The one decision that matters</dt>
-        <dd>It is four layers, and <strong>you can stop after three.</strong> The first three give
-          you a searchable, governed collection and a public research tool. The fourth is the
-          talking avatar. Three is useful on its own and far cheaper; four is a different kind of
-          project. Most institutions should plan to stop at three and decide about four later.</dd>
+        <dd>It is four layers, and <strong>you can stop after three.</strong> Three gives you a
+          searchable collection and a public research tool. Four is the talking avatar &mdash; a
+          different kind of project, and optional.</dd>
       </div>
       <div>
         <dt>What it will cost you</dt>
-        <dd>The paper gives no dollar figures, and it would be irresponsible to invent them. What it
-          does say is that the first four steps need governance and engineering work proportional to
-          the size of your collection, but <em>no</em> specialist AI staff &mdash; while the avatar
-          needs real-time systems and persona expertise, which is a different order of difficulty.
-          The honest caveat: Microsoft was the Library's lead technology partner and donated much of
-          this work. Budget accordingly.</dd>
+        <dd>The paper gives no dollar figures and it would be irresponsible to invent them. It does
+          say the first four steps need governance and engineering proportional to your collection,
+          but <em>no</em> specialist AI staff. The honest caveat: Microsoft donated much of this
+          work. Budget accordingly.</dd>
       </div>
       <div>
         <dt>The risk to take seriously</dt>
         <dd>Not the technology. Putting words in a real person's mouth. Everything expensive in the
-          design &mdash; grounding answers in actual documents, refusing to reference anything after
-          1919, telling visitors the responses are AI-generated &mdash; exists to manage that one
-          problem, and the authors still list it as unresolved.</dd>
+          design exists to manage that one problem, and the authors still list it as unresolved.</dd>
       </div>
       <div>
         <dt>Your first step is not technical</dt>
-        <dd>It is an inventory: what do you hold, where does it actually live, and what is not
-          digitized yet. That is policy and staff work, it needs no vendor, and it determines the
-          scope of everything after it. Start there.</dd>
+        <dd>It is an inventory: what you hold, where it actually lives, what is not digitized. That
+          is policy and staff work, it needs no vendor, and it scopes everything after it.</dd>
       </div>
     </dl>
-    <p class="onward">A fair warning about what this is not: not a benchmark, not a product pitch,
-      and not a claim that this is the right move for every collection. It is one deployment,
-      described honestly, by people who are still arguing with parts of it.</p>
+    <p class="onward">What this is not: a benchmark, a product pitch, or a claim that this is right
+      for every collection. It is one deployment, described honestly, by people still arguing with
+      parts of it.</p>
   </section>
 </div>
 
@@ -605,48 +620,285 @@ def build_living_library():
   <div class="p-layout">
     <div class="prose" id="main">
 
-      <section class="partner">
-        <p class="kicker">Start here</p>
-        <h2>None of this exists without the Theodore Roosevelt Center</h2>
-        <p>Before there was a corpus to search, a model to ground, or an avatar to talk to, there was
-          the patient, unglamorous work of finding Roosevelt's record and cataloging it item by item.
-          That work belongs to the
-          <a href="{TRC_URL}" target="_blank" rel="noopener">Theodore Roosevelt Center at Dickinson
-          State University</a>, and it has been going on since 2007.</p>
-        <p>The Center sits on Dickinson State's historic hilltop campus, about an hour east of the
-          Badlands, and its mission is to preserve and analyze the legacy of the twenty-sixth
-          president. Its cornerstone is the
-          <a href="{TRC_LIBRARY}" target="_blank" rel="noopener">Theodore Roosevelt Digital Library</a>
-          &mdash; an effort to gather Roosevelt-related documents, photographs, and ephemera scattered
-          across dozens of holding institutions and put them online in one organized, comprehensible
-          place, free to anyone. Alongside it the Center runs an annual Theodore Roosevelt Symposium,
-          educational programming built on primary sources, and a reference service that answers
-          scholars and schoolchildren alike. Much of the cataloging has been done with student interns
-          and volunteers working record by record.</p>
-        <p>That is the thing worth being precise about, because it is easy to lose in a paper full of
-          architecture diagrams: <strong>the hard part was done first, by people, over nearly two
-          decades.</strong> A retrieval index is only as good as the collection beneath it, and the
-          collection beneath this one was assembled by archivists and catalogers making thousands of
-          individual judgment calls. The Living Library is what became possible on top of that. It is
-          not a substitute for it, and it could not have been built without it.</p>
-        <p>The partnership is ongoing and practical. Campfire was built together with the Center and
-          Microsoft's AI for Good Lab, drawing on collections from eighteen institutions. The Library's
-          own <a href="projects/trc-widget.html">TRC Search Widget</a> &mdash; open source, in the
-          catalog on this site &mdash; exists purely to make the Center's digital library easier to
-          search from anywhere. And the paper's authors single the Center out by name, thanking it and
-          Dickinson State for &ldquo;preserving, curating, and providing access to the archival
-          collections that served as the foundation for these experiences.&rdquo;</p>
+      <p class="part"><span>Part one</span> What it is</p>
 
-        <h3 class="people-h">Whose collections these actually are</h3>
-        <p>Because the point is easy to blur, here is the Center's digital library broken out by the
-          institution that actually holds the material. One collection accounts for roughly
-          six records in every seven, and the great majority of the rest sits with national parks,
-          university libraries, state historical societies, and private collectors.</p>
+      <section class="credit">
+        <h2>The collection is not the Library's</h2>
+        <p>Worth establishing before anything else, because the framework gets the attention and the
+          collection is the part that took twenty years. Roosevelt's record is held by dozens of
+          separate institutions &mdash; the Library of Congress, Harvard, national parks, state
+          historical societies, private collectors. Very little of it belongs to any one place.</p>
+        <p>Gathering it, cataloguing it item by item, and putting it online is the work of the
+          <a href="{TRC_URL}" target="_blank" rel="noopener">Theodore Roosevelt Center at Dickinson
+          State University</a>, going on since 2007, much of it done by archivists, student interns,
+          and volunteers working one record at a time. A retrieval index is only as good as the
+          collection beneath it, and this one was built by people, by hand, first.
+          <a href="#collection">The breakdown of who actually holds what is further down.</a></p>
+      </section>
+
+      <h2>What it looks like in use</h2>
+      <p>Before the architecture, the thing itself. Here the historian Doris Kearns Goodwin puts
+        questions to the Talk to TR avatar in the Library's exhibit space, alongside Microsoft vice
+        chair and president Brad Smith.</p>
+      <figure class="media">
+        <div class="ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/MJu_-hiK_qk" loading="lazy"
+            title="Doris Kearns Goodwin in conversation with the Talk to TR avatar"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <figcaption>Video: Microsoft. The exhibit is a full-scale digital human on an LED wall in a
+          staged room &mdash; not a screen the visitor holds.</figcaption>
+      </figure>
+
+      <h2>The problem it starts from</h2>
+      <p>Roosevelt's record does not live in one building, and digitization alone does not fix that.
+        Item-level cataloguing is manual and inconsistent across eras of practice, so backlogs grow
+        alongside acquisition. And a scanned page behind a search box is still not an accessible one:
+        a visitor has to already know what to search for, in a vocabulary the archive happens to
+        share, before the archive will answer.</p>
+      <p>So the paper sets itself a narrow, testable question: <em>how might institutions make vast,
+        fragmented, and partially catalogued collections universally accessible, searchable, and
+        interpretable &mdash; without sacrificing historical integrity?</em></p>
+
+      <h2>Four layers, three tools, one corpus</h2>
+      <p>The answer is a stack. Each layer is useful on its own and depends only on the one beneath
+        it. Read from the bottom up.</p>
+
+      <ol class="layers">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>Digitization and corpus creation</h3>
+            <p>Material moves into institution-controlled preservation storage with source
+              identifiers and rights status preserved, so later stages never depend on a fragile
+              upstream path.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>AI-powered processing</h3>
+            <p>OCR and metadata extraction. Original metadata stays immutable and separate from
+              anything a model generated. <strong>This layer produces the Archivist App</strong>,
+              where curators correct what the model got wrong.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>Retrieval and reasoning</h3>
+            <p>A hybrid index over the governed corpus. Questions are interpreted, real material is
+              retrieved, and a model composes an answer attributable to actual documents.
+              <strong>This layer alone is Campfire.</strong></p>
+          </div>
+        </li>
+        <li class="optional">
+          <span class="n">4</span>
+          <div>
+            <h3>Embodied conversational interface <em>(optional)</em></h3>
+            <p>Voice, avatar, and physical presence over the very same corpus. <strong>This layer is
+              Talk to TR</strong> &mdash; and the paper is deliberate about calling it optional.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p>That last word is the most useful thing on this page for anyone weighing cost. Layers one
+        through three already turn a fragmented collection into a unified, governed, searchable
+        resource. An institution can stop there, take the entire research benefit, and decide about a
+        conversational layer later &mdash; or never.</p>
+
+      {CAMPFIRE}
+
+      <h2>Review that does not become a bottleneck</h2>
+      <p>This is the governance decision most worth stealing. Most review workflows are admission
+        gates: nothing reaches the index until a human signs off, which with a 300,000-record backlog
+        means the collection stays dark for years.</p>
+      <p>The Living Library inverts it. Processed records publish to the index <em>continuously</em>,
+        carrying their review status and OCR confidence. What the Archivist App adds is curatorial
+        <em>control</em> over that index rather than a precondition for entering it &mdash; a curator
+        can push a corrected record in or withdraw a problematic one at any time. Edits are
+        non-destructive and versioned, the original model output is preserved, and hard metadata from
+        the source system stays immutable, so human correction never overwrites the institutional
+        record. The collection becomes searchable immediately; review raises its quality over time
+        instead of blocking it.</p>
+
+      <p class="part"><span>Part two</span> How it works</p>
+      <p class="part-note">The engineering half. If you came for the decision rather than the
+        machinery, skip to <a href="#doing">part three</a> &mdash; nothing below changes the answer,
+        it only explains what the answer costs.</p>
+
+      <h2>Answering questions the archive never anticipated</h2>
+      <p class="gloss">In plain terms: when a visitor asks about something that did not exist in your
+        subject's lifetime, the system finds the closest thing that <em>did</em>, and answers through
+        that instead of guessing.</p>
+      <p>A century-old archive cannot answer a question about social media. Unconstrained generation
+        would answer, but invites anachronism and fabrication. Refusing is accurate and deadening.
+        The paper's central technique, <em>Cross-Era Analogical Grounding</em>, takes a third path:
+        it reframes the contemporary question as a retrieval for a <strong>historically attested
+        analog</strong>.</p>
+      <p>A mid-tier model picks an era-appropriate theme, selects a story from a resident catalog of
+        108 curated narratives, emits a retrieval query, and attaches a one-line rationale &mdash; a
+        curator hint &mdash; explaining why that story fits. Real archive evidence comes back, and
+        the speaking model answers the modern question <em>through</em> the analog, in period and in
+        voice. Stories rotate, so no visitor hears the same one twice.</p>
+
+      <figure class="worked">
+        <figcaption>A worked example, reproduced from the paper</figcaption>
+        <dl>
+          <div><dt>Visitor asks</dt><dd>&ldquo;What do you think about social media?&rdquo;</dd></div>
+          <div><dt>Theme chosen</dt><dd>Reaching the people directly, over the gatekeepers of the day</dd></div>
+          <div><dt>Story selected</dt><dd><em>Words Sharper Than Swords</em> &mdash; how Roosevelt
+            moved the public with his voice and pen</dd></div>
+          <div><dt>Retrieval query</dt><dd>Roosevelt / the press / the &lsquo;bully pulpit&rsquo; /
+            appealing directly to the people</dd></div>
+          <div><dt>Evidence returned</dt><dd>Passages on Roosevelt's use of the presidency as a
+            &ldquo;bully pulpit&rdquo; to reach citizens over the party bosses</dd></div>
+        </dl>
+        <p class="warn"><strong>What comes back is a generated response, not a historical
+          quotation.</strong> The system composes a new sentence in Roosevelt's register, grounded in
+          real retrieved passages, containing no reference postdating 1919. It is never presented as
+          something Roosevelt said, and visitors are told the responses are AI-generated. The paper
+          treats that gap &mdash; between a source-grounded analog and an utterance the man never
+          spoke &mdash; as a real and unresolved concern.</p>
+      </figure>
+
+      <h2>Staying fast enough to feel like conversation</h2>
+      <p class="gloss">In plain terms: a visitor will forgive a slightly worse answer, but not a long
+        silence.</p>
+      <p>The measured figure is the delay from a visitor releasing the push-to-talk button to the
+        first synthesized word, across one exhibition period:</p>
+
+      <table class="data">
+        <caption>End-to-end first-token latency, 457 completed answers</caption>
+        <tbody>
+          <tr><th>Mean</th><td>2.80 s</td></tr>
+          <tr><th>Median</th><td>2.55 s</td></tr>
+          <tr><th>Maximum</th><td>7.14 s</td></tr>
+          <tr><th>Under 5 seconds</th><td>97%</td></tr>
+          <tr><th>Under 3 seconds</th><td>69%</td></tr>
+        </tbody>
+      </table>
+      <p class="fine">Of 653 total push-to-talk releases, 457 ran to a completed answer; the rest
+        were interruptions, repeat requests, or held-button timeouts.</p>
+
+      <p>Three choices buy that. Speech recognition runs locally and incrementally while the visitor
+        is still talking. Retrieval takes two paths at once &mdash; the speaking model decides for
+        itself whether the current turn needs the knowledge base, while a second path prefetches
+        evidence for the next turn. And the whole chain streams: recognition into model into speech
+        synthesis into avatar frames, each stage starting before the previous finishes, so total
+        latency approaches the slowest single stage rather than the sum of all of them.</p>
+      <p>The finding underneath is worth noting for anyone sizing an index: the dominant cost is
+        <em>whether</em> a turn retrieves synchronously at all, not how large the index is.</p>
+
+      <h2>Safety that never stalls the exhibit</h2>
+      <p class="gloss">In plain terms: children will try to make the exhibit say something awful, and
+        an avatar that freezes mid-sentence in front of a crowd is its own kind of failure.</p>
+      <p>The kiosk is public and includes children, so it has to resist prompt injection and steer
+        away from improper content &mdash; under one strict rule that inverts the usual design:
+        <strong>a safety check must never make the avatar stall or fall silent.</strong></p>
+      <p>So the stack is three layers, each heavier and later than the last, none blocking the turn
+        in flight. A fast pattern screen runs on visitor input almost instantly; on a hit it does not
+        end the session but injects an in-character deflection into the <em>next</em> turn. A
+        small-model classifier runs asynchronously and fails open. A mid-tier model reviews the
+        avatar's own outgoing line in parallel with the stream, defaulting to observe rather than
+        block.</p>
+      <p>That design came from a real failure: an early substring filter matched &ldquo;kill&rdquo;
+        inside the benign phrase &ldquo;killer view&rdquo; and terminated the session irrecoverably.
+        The current version deflects in character and matches on word boundaries.</p>
+
+      <h2>Running all day without a babysitter</h2>
+      <p class="gloss">In plain terms: it has to open at nine and still work at five without staff
+        restarting it, and no visitor should see the previous visitor's conversation.</p>
+      <p>The exhibit holds one long-lived session open all day rather than rebuilding per visitor, so
+        nobody pays a cold-start cost. A moving <strong>watermark</strong> means each visitor sees
+        only history from after they arrived; a short bounded window of recent ambient content bleeds
+        across so someone arriving mid-story can refer to it; and a watchdog periodically discards raw
+        transcript and transient state while preserving a running summary.</p>
+      <p>Watchdogs cover every part likely to fail &mdash; avatar generation, dialogue, transport,
+        rendering &mdash; and escalate from the least disruptive recovery to the most: rebuild the
+        avatar session, restart the agent, and only then restart the whole show. The exhibit engaged
+        close to 5,000 visitors in its first two weeks of public operation in July 2026.</p>
+
+      <p class="part" id="doing"><span>Part three</span> Doing it yourself</p>
+
+      <h2>The six-step process</h2>
+      <p>Steps one to four are the load-bearing, broadly transferable core. They need governance and
+        engineering effort proportional to collection size, but no persona design and no real-time
+        systems expertise.</p>
+      <ol class="steps">
+        <li><strong>Assess collection readiness.</strong> Inventory assets across your own fragmented
+          repositories and identify digitization gaps. Policy and inventory work, not engineering
+          &mdash; and its outcome scopes everything after it.</li>
+        <li><strong>Build the corpus.</strong> Digitize and aggregate into institution-controlled
+          storage. Establish governance &mdash; source identifiers, rights status, and a schema
+          separating immutable metadata from later enrichment &mdash; <em>before</em> any AI
+          processing begins.</li>
+        <li><strong>Apply AI processing.</strong> Run OCR and metadata enrichment as a
+          model-pluggable stage. Validate the model choice against a source-grounded evaluation on a
+          stratified sample rather than by inspection, and plan for expert review.</li>
+        <li><strong>Implement retrieval.</strong> Index for hybrid search and expose it through a
+          governed contract. <strong>This step alone gives you a researcher-facing tool</strong>,
+          whether or not a conversational layer ever follows.</li>
+        <li><strong>Add a conversational layer.</strong> Integrate a model against that retrieval
+          contract and define the interaction patterns: persona grounding, analogical reframing, and
+          a non-blocking safety stack.</li>
+        <li><strong>Add an avatar &mdash; optional.</strong> Only where an institution wants embodied,
+          real-time presence, under the same latency and autonomous-operation discipline.</li>
+      </ol>
+
+      <h2>Five principles the authors think transfer</h2>
+      <div class="cols2">
+        <div><h3>Grounded in truth</h3><p>Every visitor-facing output traces to a verified source.
+          The persona is grounded in primary sources, not baked into model weights.</p></div>
+        <div><h3>Human in the loop</h3><p>Automation accelerates the pipeline; it does not replace
+          curatorial judgment. Sign-off governs quality over time, not entry.</p></div>
+        <div><h3>Scalable by design</h3><p>Vendors and models are configuration, not foundation. The
+          OCR stage is pluggable and persona prompts are overridable without redeployment.</p></div>
+        <div><h3>Experience-first</h3><p>A grounded, fast answer is necessary but not sufficient.
+          Immersion depended as much on lighting, audio, and staging as on the model.</p></div>
+        <div><h3>Ethically responsible</h3><p>Generating novel utterances for a real person risks
+          attributing statements they never made. Attribution is a first-class design constraint.</p></div>
+      </div>
+
+      <h2>What the paper does not claim</h2>
+      <p>The authors are unusually direct about this, and it is worth repeating rather than glossing.
+        This is a deployment experience report, not a controlled evaluation, and the evidence is
+        largely observational over two weeks of public operation.</p>
+      <ul>
+        <li>Three qualities central to this class of system remain <strong>open</strong>: whether
+          grounding keeps synthesis faithful, how often the figure lapses into anachronism, and how
+          strong the visitor's sense of presence actually is.</li>
+        <li>OCR errors are reduced by expert review but not eliminated, and residual errors can
+          propagate into retrieval.</li>
+        <li>A corpus centred on one figure's correspondence over-represents that figure's
+          perspective. Curatorial review can mitigate that bias but not remove it.</li>
+        <li>The boundary between inference and fabrication is inherently imperfect. Even a
+          source-grounded analog remains a novel utterance the historical figure never spoke.</li>
+        <li>The study covers a single figure and a single archive.</li>
+      </ul>
+      <p>For a presidential library, that candour is the point. A framework that overclaimed would be
+        the wrong thing to hand another institution.</p>
+
+      <h2>Privacy, as deployed</h2>
+      <p>Talk to TR is built for anonymous, walk-up use. The vision subsystem estimates presence but
+        performs no identity or facial recognition &mdash; camera frames, images, face embeddings and
+        biometric templates are not retained, and the only identifier it emits is transient and
+        non-biometric with roughly a 30-second lifetime. Microphone audio is processed as a transient
+        stream, never retained as a recording. Spoken participation is opt-in through the
+        push-to-talk control, on-site notice tells visitors they are interacting with an AI-generated
+        persona, and operational logs are kept for up to 30 days. No visitor-linked memory persists
+        across visits.</p>
+
+      <section id="collection">
+        <h2>The collection, in detail</h2>
+        <p>Back to where this started. Here is the Theodore Roosevelt Center's digital library broken
+          out by the institution that actually holds the material &mdash; the clearest available
+          picture of how distributed a presidential record really is.</p>
 {CHART}
         <p class="fine"><strong>Read this chart for one thing only: who holds what.</strong> It is a
-          snapshot of the Theodore Roosevelt Center's digital-library collection facet, harvested
-          {CHART_DATE} by the Library's own
-          <a href="projects/trc-widget.html">TRC Search Widget</a>, and counts move as cataloging
+          snapshot of the Center's collection facet, harvested {CHART_DATE} by the Library's own
+          <a href="projects/trc-widget.html">TRC Search Widget</a>, and counts move as cataloguing
           continues. It is <em>not</em> a measure of any institution's holdings &mdash; each figure
           counts only what that institution has catalogued into this particular index. The Library's
           own Roosevelt material is substantially larger than its line here suggests and is mostly
@@ -668,298 +920,31 @@ def build_living_library():
           <a href="{TRC_STAFF}" target="_blank" rel="noopener">their staff page</a>.</p>
       </section>
 
-      <h2>The problem it starts from</h2>
-      <p>Theodore Roosevelt's record does not live in one building, and very little of it belongs to
-        any single institution. The corpus behind this work was <em>aggregated</em> &mdash;
-        correspondence, photographs, publications, and artifacts held by more than forty separate
-        repositories, reconciled only informally, and surfaced through the Theodore Roosevelt Center's
-        cataloging. The Library holds some Roosevelt material of its own, but the overwhelming majority
-        of what these systems search is somebody else's, described here with permission and credited
-        to its holder. That is not unusual. The paper is blunt that fragmentation is the default
-        condition of an archive, not the exception.</p>
-      <p>Digitization alone does not fix it. Item-level cataloging is manual and inconsistent across
-        eras of practice, so backlogs grow alongside acquisition. And a scanned page behind a search
-        box is still not the same thing as an accessible one: a visitor has to already know what to
-        search for, in a vocabulary the archive happens to share, before the archive will answer.</p>
-      <p>So the question the paper sets itself is narrow and testable: <em>how might institutions make
-        vast, fragmented, and partially cataloged collections universally accessible, searchable, and
-        interpretable &mdash; without sacrificing historical integrity?</em></p>
-
-      <h2>The four layers</h2>
-      <p>The answer is a stack. Each layer is useful on its own, and each one depends only on the layer
-        beneath it. Read from the bottom up.</p>
-
-      <ol class="layers">
-        <li>
-          <span class="n">1</span>
-          <div>
-            <h3>Digitization and corpus creation</h3>
-            <p>Material is pulled from the Library's own systems into institution-controlled
-              preservation storage, with source identifiers and rights status preserved. Downstream
-              stages never depend on a fragile upstream path.</p>
-          </div>
-        </li>
-        <li>
-          <span class="n">2</span>
-          <div>
-            <h3>AI-powered processing</h3>
-            <p>Page images go through OCR and structured metadata extraction. Original metadata stays
-              immutable and separate from anything a model generated. Records are chunked, embedded,
-              and published to a search index.</p>
-          </div>
-        </li>
-        <li>
-          <span class="n">3</span>
-          <div>
-            <h3>Retrieval and reasoning</h3>
-            <p>A hybrid dense and semantic index over the governed corpus. Queries are interpreted,
-              material is retrieved, and a model composes an answer that is attributable to real
-              documents. <strong>This layer alone is Campfire.</strong></p>
-          </div>
-        </li>
-        <li class="optional">
-          <span class="n">4</span>
-          <div>
-            <h3>Embodied conversational interface <em>(optional)</em></h3>
-            <p>Voice, avatar, and physical presence over the very same corpus. This is Talk to TR:
-              a full-scale digital human on an LED wall inside a staged room, not a chatbot with a
-              face attached.</p>
-          </div>
-        </li>
-      </ol>
-
-      <p>The paper is careful about that word <em>optional</em>, and it is the most useful thing in it
-        for a museum weighing cost. Layers 1 through 3 already turn a fragmented collection into a
-        unified, searchable, governed resource. An institution can stop there, get the whole research
-        benefit, and add a conversational layer later against the same corpus &mdash; or never.</p>
-
-      <h2>Three tools, one corpus</h2>
-      <div class="cols3">
-        <div>
-          <h3>Campfire</h3>
-          <p>The public, researcher-facing experience: a text conversation grounded in the Layer 3
-            corpus, with no embodiment. It is Layers 1 to 3, exposed through a web interface.</p>
-        </div>
-        <div>
-          <h3>The Archivist App</h3>
-          <p>A curator-facing web application. Archivists open a record beside its source page image
-            and correct the AI-generated transcription and metadata in place.</p>
-        </div>
-        <div>
-          <h3>Talk to TR</h3>
-          <p>The exhibit. A continuously operating physical-digital installation that answers visitors
-            in the first person, in a curated room with its own lighting and spatial audio.</p>
-        </div>
-      </div>
-
-      <h2>Review that does not become a bottleneck</h2>
-      <p>This is the governance decision worth stealing. Most review workflows are admission gates:
-        nothing reaches the index until a human has signed off, and with a 300,000-record backlog that
-        means the collection stays dark for years.</p>
-      <p>The Living Library inverts it. Processed records are published to the index <em>continuously</em>,
-        carrying their review status and OCR confidence. Unreviewed material is not held back from
-        retrieval. What the Archivist App adds is curatorial <em>control</em> over that index rather
-        than a precondition for entering it &mdash; a curator can push a corrected record in or
-        withdraw a problematic one at any time. Edits are non-destructive and versioned: the original
-        model output is preserved, each correction is a new version with a side-by-side comparison and
-        a full audit trail of who changed what and when. Hard metadata carried from the source system
-        stays immutable, so human correction never overwrites the institutional system of record.</p>
-      <p>The collection becomes searchable immediately; human review raises its quality over time
-        instead of blocking it.</p>
-
-      <h2>Cross-Era Analogical Grounding</h2>
-      <p class="gloss">In plain terms: when a visitor asks about something that did not exist in
-        your subject's lifetime, the system finds the closest thing that <em>did</em>, and answers
-        through that instead of guessing.</p>
-      <p>Here is the paper's central technique, and the one most specific to historical work. A
-        century-old archive cannot answer a question about social media or electric cars. Free
-        generation would answer, but invites anachronism and fabrication. Refusing is accurate and
-        deadening.</p>
-      <p>Instead, a mid-tier model reframes the contemporary question as a retrieval for a
-        <em>historically attested analog</em>. It picks an era-appropriate theme, selects a story from
-        a resident catalog of 108 curated narratives, emits a retrieval query, and attaches a one-line
-        rationale &mdash; a curator hint &mdash; explaining why that story is relevant. Real archive
-        evidence comes back, and the speaking model answers the modern question <em>through</em> the
-        analog, in period and in voice. Stories rotate, so no visitor hears the same one twice.</p>
-
-      <figure class="worked">
-        <figcaption>A worked example, reproduced from the paper</figcaption>
-        <dl>
-          <dt>Visitor asks</dt><dd>&ldquo;What do you think about social media?&rdquo;</dd>
-          <dt>Theme chosen</dt><dd>Reaching the people directly, over the gatekeepers of the day</dd>
-          <dt>Story selected</dt><dd><em>Words Sharper Than Swords</em> &mdash; how Roosevelt moved the
-            public with his voice and pen</dd>
-          <dt>Retrieval query</dt><dd>Roosevelt / the press / the &lsquo;bully pulpit&rsquo; /
-            appealing directly to the people</dd>
-          <dt>Evidence returned</dt><dd>Passages on Roosevelt's use of the presidency as a
-            &ldquo;bully pulpit&rdquo; to reach citizens over the party bosses</dd>
-        </dl>
-        <p class="warn"><strong>What comes back is a generated response, not a historical quotation.</strong>
-          The system composes a new sentence in Roosevelt's register, grounded in real retrieved
-          passages, containing no reference postdating 1919. It is never presented as something
-          Roosevelt said, and visitors are told the responses are AI-generated. The paper treats this
-          gap &mdash; between a source-grounded analog and an utterance the man never spoke &mdash; as
-          a real and unresolved concern, not a solved one.</p>
-      </figure>
-
-      <h2>What it takes to stay responsive</h2>
-      <p class="gloss">In plain terms: a visitor will forgive a slightly worse answer, but not a
-        long silence. This is the engineering that keeps the pause short enough to feel like a
-        conversation.</p>
-      <p>Grounding an avatar in an archive is only useful if it answers promptly. The measured figure,
-        over one exhibition period, is the delay from a visitor releasing the push-to-talk button to
-        the first synthesized word:</p>
-
-      <table class="data">
-        <caption>End-to-end first-token latency across 457 completed answers</caption>
-        <tbody>
-          <tr><th>Mean</th><td>2.80 s</td></tr>
-          <tr><th>Median</th><td>2.55 s</td></tr>
-          <tr><th>Maximum</th><td>7.14 s</td></tr>
-          <tr><th>Under 5 seconds</th><td>97%</td></tr>
-          <tr><th>Under 3 seconds</th><td>69%</td></tr>
-        </tbody>
-      </table>
-      <p class="fine">Of 653 total push-to-talk releases, 457 ran to a completed answer; the rest were
-        interruptions, repeat requests, or held-button timeouts.</p>
-
-      <p>Three choices buy that. Speech recognition runs locally and incrementally while the visitor is
-        still talking. Retrieval takes two paths at once &mdash; the speaking model decides for itself
-        whether the current turn needs the knowledge base, while a second path prefetches evidence for
-        the next turn in the background. And the entire chain streams: recognition into model into
-        speech synthesis into avatar frames, each stage starting before the one before it finishes, so
-        total latency approaches the slowest single stage rather than the sum of all of them.</p>
-      <p>The finding underneath is worth noting for anyone sizing an index: the dominant cost is
-        <em>whether</em> a turn retrieves synchronously at all, not how large the index is.</p>
-
-      <h2>Safety that never stalls the exhibit</h2>
-      <p class="gloss">In plain terms: children will try to make the exhibit say something awful,
-        and an avatar that freezes mid-sentence in front of a crowd is its own kind of failure.
-        The safeguards are built to redirect rather than shut down.</p>
-      <p>The kiosk is public and includes children, so it has to resist prompt injection and steer away
-        from improper content. But it operates under one strict rule that inverts the usual design:
-        <strong>a safety check must never make the avatar stall or fall silent.</strong> In a
-        face-to-face museum setting, a guardrail that freezes the figure mid-sentence is a failure of
-        the interaction, not a safeguard.</p>
-      <p>So the stack is three layers, each heavier and later than the last, and none of them blocks the
-        turn in flight. A fast regex screen runs on visitor input in roughly no time at all; on a hit it
-        does not end the session but injects an in-character &ldquo;deflect and pivot&rdquo; instruction
-        into the <em>next</em> turn. A small-model classifier runs asynchronously and fails open &mdash;
-        if its verdict has not returned by the time the reply is ready, the reply plays and any hit is
-        handled on the following turn. A mid-tier model reviews the avatar's own outgoing line in
-        parallel with the stream, defaulting to observe rather than block.</p>
-      <p>That design came from a real failure: an early substring-based threat filter matched
-        &ldquo;kill&rdquo; inside the benign phrase &ldquo;killer view&rdquo; and terminated the session
-        irrecoverably. The current version deflects in character and matches on word boundaries.</p>
-
-      <h2>Running all day without a babysitter</h2>
-      <p class="gloss">In plain terms: the exhibit has to open at nine and still be working at five
-        without a staff member restarting it, and no visitor should see the previous visitor's
-        conversation.</p>
-      <p>The exhibit holds one long-lived session open throughout the day rather than rebuilding per
-        visitor, so nobody pays a cold-start cost. Three mechanisms make that safe. A moving
-        <strong>watermark</strong> means each visitor sees only history from after they arrived. A short
-        bounded window of recent ambient content bleeds across, so someone arriving mid-story can refer
-        to it. And a watchdog periodically discards raw transcript and transient state in place while
-        preserving a running summary &mdash; without dismantling the session.</p>
-      <p>Watchdogs cover every part likely to fail &mdash; avatar generation, the dialogue service, the
-        network transport, the rendering stack &mdash; and escalate from the least disruptive recovery
-        to the most: rebuild the avatar session first, restart the agent next, and only then restart the
-        whole show. The exhibit engaged close to 5,000 visitors in its first two weeks of public
-        operation in July 2026.</p>
-
-      <h2>Five principles the authors think transfer</h2>
-      <div class="cols2">
-        <div><h3>Grounded in truth</h3><p>Every visitor-facing output must trace to a verified source.
-          The persona is grounded non-parametrically in primary sources, not baked into model weights
-          or a static biography.</p></div>
-        <div><h3>Human in the loop</h3><p>Automation accelerates the pipeline; it does not replace
-          curatorial judgment. Sign-off governs the corpus's quality over time, not what enters it.</p></div>
-        <div><h3>Scalable by design</h3><p>Vendors and models are configuration, not foundation. The OCR
-          stage is model-pluggable, services are independently restartable, and persona prompts are
-          overridable at runtime without a redeployment.</p></div>
-        <div><h3>Experience-first</h3><p>A grounded, fast answer is necessary but not sufficient.
-          Immersion depended as much on avatar realism, lighting, audio, and staging as on the
-          language model.</p></div>
-        <div><h3>Ethically responsible</h3><p>Generating novel utterances for a real person risks
-          attributing statements they never made. Historical attribution is treated as a first-class
-          design constraint, and visitors are told the responses are AI-generated.</p></div>
-      </div>
-
-      <h2>The six-step process</h2>
-      <p>This is the part written for other institutions. Steps 1 to 4 are the load-bearing,
-        broadly transferable core &mdash; they need governance and engineering effort proportional to
-        collection size, but no persona design and no real-time systems expertise.</p>
-      <ol class="steps">
-        <li><strong>Assess collection readiness.</strong> Inventory assets across your own fragmented
-          repositories and identify digitization gaps. Policy and inventory work, not engineering &mdash;
-          and its outcome determines the scope of everything after it.</li>
-        <li><strong>Build the corpus.</strong> Digitize and aggregate into institution-controlled
-          storage. Establish governance &mdash; source identifiers, rights status, and a schema that
-          separates immutable hard metadata from later enrichment &mdash; <em>before</em> any AI
-          processing begins.</li>
-        <li><strong>Apply AI processing.</strong> Run OCR and metadata enrichment as a model-pluggable
-          stage. Validate the model choice against a source-grounded evaluation on a stratified sample
-          rather than by inspection, and plan for expert review.</li>
-        <li><strong>Implement the retrieval system.</strong> Index for hybrid dense and semantic search
-          and expose it through a governed contract. <strong>This step alone gives you a
-          researcher-facing tool</strong>, whether or not a conversational layer ever follows.</li>
-        <li><strong>Add a conversational layer.</strong> Integrate a model against the Layer 3 retrieval
-          contract and define the interaction patterns: persona grounding, analogical reframing for
-          out-of-scope questions, and a non-blocking safety stack.</li>
-        <li><strong>Add an avatar experience &mdash; optional.</strong> Only where an institution wants
-          embodied, real-time presence. Voice and visual rendering under the same real-time budget and
-          autonomous-operation discipline as Talk to TR.</li>
-      </ol>
-
-      <h2>What the paper does not claim</h2>
-      <p>The authors are unusually direct about this, and it is worth repeating rather than glossing.
-        This is a deployment experience report, not a controlled evaluation. The evidence is largely
-        observational &mdash; basic usage logging plus qualitative observation over two weeks of public
-        operation.</p>
-      <ul>
-        <li>Three qualities central to this class of system remain <strong>open</strong>: whether
-          grounding keeps synthesis faithful, how often the figure lapses into anachronism, and how
-          strong the visitor's sense of presence actually is. The first two would need systematic
-          annotation of responses against their sources; the last needs a dedicated visitor study.</li>
-        <li>OCR errors are reduced by expert review but not eliminated, and residual errors can
-          propagate into retrieval.</li>
-        <li>A corpus centered on one figure's correspondence over-represents that figure's perspective.
-          Curatorial review can mitigate that bias but not remove it.</li>
-        <li>The boundary between inference and fabrication is inherently imperfect. Even a
-          source-grounded analog remains a novel utterance the historical figure never spoke.</li>
-        <li>The study covers a single figure and a single archive.</li>
-      </ul>
-      <p>For a presidential library, that candor is the point. A framework that overclaimed would be
-        the wrong thing to hand another institution.</p>
-
-      <h2>Privacy, as deployed</h2>
-      <p>Talk to TR is built for anonymous, walk-up use. The vision subsystem estimates presence and
-        interaction state but performs no identity or facial recognition &mdash; camera frames, images,
-        face embeddings, and biometric templates are not retained, and the only identifier it emits is
-        transient and non-biometric with roughly a 30-second lifetime. Microphone audio is processed as
-        a transient stream and never retained as a recording. Spoken participation is opt-in through the
-        push-to-talk control, on-site notice tells visitors they are interacting with an AI-generated
-        persona, and operational logs are kept for up to 30 days and then deleted. The system does not
-        maintain visitor-linked memory across separate visits.</p>
-
       <h2>Where this sits in the Lab's work</h2>
       <p>The paper is a Microsoft AI for Good Lab publication &mdash; ten of its eleven authors are
         Microsoft, among them the Lab's senior director, Laura Hoffman, and its director and
-        co-founder, Juan Lavista Ferres. Microsoft was the Library's lead technology partner and
-        donated much of the work through the Lab. When the Library opened in July 2026,
+        co-founder, Juan Lavista Ferres. When the Library opened in July 2026,
         <a href="{MS_SIGNAL}" target="_blank" rel="noopener">Microsoft said it planned to publish a
         paper documenting how the technology works and to open source the software</a>. This paper is
-        the first half of that; the catalog on this site is the second.</p>
-      <p>The Living Library is also not the Lab's only run at this problem. Its closest sibling is
+        the first half of that; <a href="index.html">the catalog on this site</a> is the second.</p>
+      <p>It is also not the Lab's only run at this problem. Its closest sibling is
         <a href="{UKUVULA}" target="_blank" rel="noopener">Ukuvula</a>, built with the Nelson Mandela
-        Foundation &mdash; a transcription and enrichment pipeline that makes large oral-history
-        archives searchable, generating transcripts, named entities, thematic classifications, and
-        summaries from audiovisual recordings of the liberation era. Different medium, different
-        continent, same shape of problem: a collection that exists but cannot be asked a question.</p>
+        Foundation &mdash; a pipeline making large oral-history archives searchable, generating
+        transcripts, named entities, and summaries from liberation-era recordings. Different medium,
+        different continent, same shape of problem: a collection that exists but cannot be asked a
+        question.</p>
 
-      <h2>Cite it</h2>
-      <div class="codeblock"><button data-copy>Copy</button>Pengce Wang, Lucia Ronchi Darre, Matt Briney, Michaell Bakalars,
+      <h2>The short of it</h2>
+      <p>An archive that cannot be questioned is, for most people, an archive that does not exist.
+        The Living Library is one worked answer to that &mdash; not the only one, and not a finished
+        one. Its most transferable parts are the least glamorous: publish records continuously and
+        let curators correct them in place, keep every claim traceable to a real document, and decide
+        honestly whether you need the avatar at all.</p>
+      <p>If your institution is somewhere in this, the Library would like to hear about it.
+        <a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a> reaches a person.</p>
+
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># citation</span>
+Pengce Wang, Lucia Ronchi Darre, Matt Briney, Michaell Bakalars,
 Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim,
 Shawn Wright, and Juan Lavista Ferres.
 "The Living Library: Transforming Archival Collections into
@@ -973,57 +958,43 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
 
     <aside class="side">
       <section>
-        <h3>Authors</h3>
-        <p class="meta">Pengce Wang, Lucia Ronchi Darre, <strong>Matt Briney</strong>, Michaell
-          Bakalars, Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim, Shawn Wright,
-          and Juan Lavista Ferres.</p>
-        <p class="meta">Microsoft, and the Theodore Roosevelt Presidential Library.</p>
+        <h3>On this page</h3>
+        <div class="links toc">
+          <a href="#main">One &mdash; What it is</a>
+          <a href="#doing">Three &mdash; Doing it yourself</a>
+          <a href="#collection">The collection, in detail</a>
+        </div>
       </section>
       <section>
-        <h3>Built on</h3>
-        <ul>
-          <li><span class="tech">Azure Storage</span></li>
-          <li><span class="tech">Azure AI Foundry</span></li>
-          <li><span class="tech">Azure Cosmos DB</span></li>
-          <li><span class="tech">Azure AI Search</span></li>
-          <li><span class="tech">Azure Custom Voice</span></li>
-          <li><span class="tech">Whisper large-v3</span></li>
-          <li><span class="tech">LiveKit</span></li>
-          <li><span class="tech">Unreal Engine</span></li>
-        </ul>
-      </section>
-      <section>
-        <h3>Read it</h3>
+        <h3>Read the paper</h3>
         <div class="links">
           <a href="{PAPER_URL}" target="_blank" rel="noopener">{ICON_EXT} Abstract<span>arXiv</span></a>
           <a href="{PAPER_HTML}" target="_blank" rel="noopener">{ICON_EXT} Full text<span>HTML</span></a>
           <a href="{PAPER_PDF}" target="_blank" rel="noopener">{ICON_EXT} Download<span>PDF</span></a>
-          <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">{ICON_EXT} Try Campfire<span>Layer 3, live</span></a>
         </div>
+      </section>
+      <section>
+        <h3>Try the real thing</h3>
+        <div class="links">
+          <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">{ICON_EXT} Campfire<span>Layers 1&ndash;3, live</span></a>
+          <a href="{TRC_LIBRARY}" target="_blank" rel="noopener">{ICON_EXT} Digital Library<span>The collection</span></a>
+        </div>
+      </section>
+      <section>
+        <h3>Authors</h3>
+        <p class="meta">Pengce Wang, Lucia Ronchi Darre, <strong>Matt Briney</strong>, Michaell
+          Bakalars, Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim, Shawn Wright,
+          and Juan Lavista Ferres &mdash; Microsoft, and the Theodore Roosevelt Presidential
+          Library.</p>
       </section>
       <section>
         <h3>Press &amp; background</h3>
         <div class="links">
-          <a href="{MS_SIGNAL}" target="_blank" rel="noopener">{ICON_EXT} Microsoft on the opening<span>Signal, Jul 2026</span></a>
+          <a href="{MS_SIGNAL}" target="_blank" rel="noopener">{ICON_EXT} Microsoft on the opening<span>Signal</span></a>
           <a href="{GEEKWIRE}" target="_blank" rel="noopener">{ICON_EXT} Archives to avatars<span>GeekWire</span></a>
-          <a href="{MS_AIFG}" target="_blank" rel="noopener">{ICON_EXT} Microsoft AI for Good Lab<span>The lab</span></a>
-          <a href="{MS_AIFG_OSS}" target="_blank" rel="noopener">{ICON_EXT} Lab open-source database<span>Their code</span></a>
+          <a href="{MS_AIFG}" target="_blank" rel="noopener">{ICON_EXT} AI for Good Lab<span>The lab</span></a>
           <a href="{UKUVULA}" target="_blank" rel="noopener">{ICON_EXT} Ukuvula<span>Sibling project</span></a>
         </div>
-      </section>
-      <section>
-        <h3>The collection</h3>
-        <p class="meta">The archive underneath all of this is the work of the Theodore Roosevelt
-          Center at Dickinson State University, cataloging Roosevelt's record since 2007.</p>
-        <div class="links">
-          <a href="{TRC_URL}" target="_blank" rel="noopener">{ICON_EXT} The TR Center<span>Dickinson State</span></a>
-          <a href="{TRC_LIBRARY}" target="_blank" rel="noopener">{ICON_EXT} Digital Library<span>Search it</span></a>
-        </div>
-      </section>
-      <section>
-        <h3>See also</h3>
-        <p class="meta">The projects in <a href="index.html">this catalog</a> are the Library's
-          smaller, forkable tools. The Living Library is the architecture underneath the big ones.</p>
       </section>
     </aside>
   </div>

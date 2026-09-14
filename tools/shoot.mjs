@@ -20,8 +20,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'assets', 'shots');
 const { projects } = JSON.parse(readFileSync(path.join(ROOT, 'data', 'projects.json'), 'utf8'));
 
+// Pages that are not catalog entries but still appear on the site as figures.
+// Campfire refuses to be iframed (X-Frame-Options: DENY), so a screenshot is the
+// only way to show it in place.
+const EXTRA = [
+  { slug: 'campfire', demo: 'https://campfire.trlibrary.com', shotDelay: 5000 },
+];
+
 const only = process.argv.slice(2);
-const targets = projects.filter(p => p.demo && (!only.length || only.includes(p.slug)));
+const targets = [...projects, ...EXTRA]
+  .filter(p => p.demo && (!only.length || only.includes(p.slug)));
 
 mkdirSync(OUT, { recursive: true });
 
