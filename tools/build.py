@@ -455,6 +455,9 @@ def build_favicon():
 PAPER_URL = "https://arxiv.org/abs/2609.09368"
 PAPER_PDF = "https://arxiv.org/pdf/2609.09368"
 PAPER_HTML = "https://arxiv.org/html/2609.09368"
+TRC_URL = "https://www.theodorerooseveltcenter.org/"
+TRC_LIBRARY = "https://www.theodorerooseveltcenter.org/digital-library/"
+TRC_STAFF = "https://www.theodorerooseveltcenter.org/about/staff/"
 
 
 def build_living_library():
@@ -489,6 +492,53 @@ def build_living_library():
 <div class="shell">
   <div class="p-layout">
     <div class="prose" id="main">
+
+      <section class="partner">
+        <p class="kicker">Start here</p>
+        <h2>None of this exists without the Theodore Roosevelt Center</h2>
+        <p>Before there was a corpus to search, a model to ground, or an avatar to talk to, there was
+          the patient, unglamorous work of finding Roosevelt's record and cataloging it item by item.
+          That work belongs to the
+          <a href="{TRC_URL}" target="_blank" rel="noopener">Theodore Roosevelt Center at Dickinson
+          State University</a>, and it has been going on since 2007.</p>
+        <p>The Center sits on Dickinson State's historic hilltop campus, about an hour east of the
+          Badlands, and its mission is to preserve and analyze the legacy of the twenty-sixth
+          president. Its cornerstone is the
+          <a href="{TRC_LIBRARY}" target="_blank" rel="noopener">Theodore Roosevelt Digital Library</a>
+          &mdash; an effort to gather Roosevelt-related documents, photographs, and ephemera scattered
+          across dozens of holding institutions and put them online in one organized, comprehensible
+          place, free to anyone. Alongside it the Center runs an annual Theodore Roosevelt Symposium,
+          educational programming built on primary sources, and a reference service that answers
+          scholars and schoolchildren alike. Much of the cataloging has been done with student interns
+          and volunteers working record by record.</p>
+        <p>That is the thing worth being precise about, because it is easy to lose in a paper full of
+          architecture diagrams: <strong>the hard part was done first, by people, over nearly two
+          decades.</strong> A retrieval index is only as good as the collection beneath it, and the
+          collection beneath this one was assembled by archivists and catalogers making thousands of
+          individual judgment calls. The Living Library is what became possible on top of that. It is
+          not a substitute for it, and it could not have been built without it.</p>
+        <p>The partnership is ongoing and practical. Campfire was built together with the Center and
+          Microsoft's AI for Good Lab, drawing on collections from eighteen institutions. The Library's
+          own <a href="projects/trc-widget.html">TRC Search Widget</a> &mdash; open source, in the
+          catalog on this site &mdash; exists purely to make the Center's digital library easier to
+          search from anywhere. And the paper's authors single the Center out by name, thanking it and
+          Dickinson State for &ldquo;preserving, curating, and providing access to the archival
+          collections that served as the foundation for these experiences.&rdquo;</p>
+
+        <h3 class="people-h">The people doing the work</h3>
+        <ul class="people">
+          <li><b>Michael Patrick Cullinane, PhD</b><span>Co-Director; Lowman Walton Chair of
+            Theodore Roosevelt Studies</span></li>
+          <li><b>Erik Johnson, MA, MLIS</b><span>Co-Director</span></li>
+          <li><b>William J. Hansard, PhD</b><span>Public Historian</span></li>
+          <li><b>Alexandra Hecht, MA, MLIS</b><span>Digital Collections Cataloger and Archivist</span></li>
+          <li><b>Gemma Koontz, MS</b><span>Digital Collections Cataloger</span></li>
+          <li><b>Rachel Lane, MA</b><span>Researcher</span></li>
+          <li><b>Valerie Naylor, MS</b><span>National Parks Researcher</span></li>
+        </ul>
+        <p class="fine">Staff as listed by the Center. Roles change &mdash; the current roster is on
+          <a href="{TRC_STAFF}" target="_blank" rel="noopener">their staff page</a>.</p>
+      </section>
 
       <h2>The problem it starts from</h2>
       <p>Theodore Roosevelt's record does not live in one building. The Library's own holdings were
@@ -758,8 +808,9 @@ Shawn Wright, and Juan Lavista Ferres.
 Conversational Knowledge Systems -- Lessons from the Theodore
 Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
 
-      <p>This page is a plain-language summary. Where it differs from the paper, the paper is right
-        &mdash; <a href="{PAPER_URL}" target="_blank" rel="noopener">read it on arXiv</a>.</p>
+      <p>Everything above is drawn from the paper. The full text adds the architecture diagrams, the
+        OCR model evaluation, and the complete references &mdash;
+        <a href="{PAPER_URL}" target="_blank" rel="noopener">read it on arXiv</a>.</p>
     </div>
 
     <aside class="side">
@@ -790,6 +841,15 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
           <a href="{PAPER_HTML}" target="_blank" rel="noopener">{ICON_EXT} Full text<span>HTML</span></a>
           <a href="{PAPER_PDF}" target="_blank" rel="noopener">{ICON_EXT} Download<span>PDF</span></a>
           <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">{ICON_EXT} Try Campfire<span>Layer 3, live</span></a>
+        </div>
+      </section>
+      <section>
+        <h3>The collection</h3>
+        <p class="meta">The archive underneath all of this is the work of the Theodore Roosevelt
+          Center at Dickinson State University, cataloging Roosevelt's record since 2007.</p>
+        <div class="links">
+          <a href="{TRC_URL}" target="_blank" rel="noopener">{ICON_EXT} The TR Center<span>Dickinson State</span></a>
+          <a href="{TRC_LIBRARY}" target="_blank" rel="noopener">{ICON_EXT} Digital Library<span>Search it</span></a>
         </div>
       </section>
       <section>
