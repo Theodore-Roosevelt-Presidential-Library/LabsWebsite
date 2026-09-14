@@ -1,0 +1,276 @@
+{
+  "_note": "Snapshot of the Theodore Roosevelt Center's digital-library collection facet, by holding institution. Regenerate from https://trc.labs.trlibrary.com/data/collections.json (produced by the TRC-Widget project's harvester).",
+  "source": "Theodore Roosevelt Center digital library (dl_collection taxonomy)",
+  "sourceUrl": "https://www.theodorerooseveltcenter.org/digital-library/",
+  "via": "https://trc.labs.trlibrary.com/data/collections.json",
+  "harvested": "2026-07-19T09:02:20.874Z",
+  "collections": 53,
+  "records": 139714,
+  "items": [
+    {
+      "name": "Library of Congress Manuscript Division",
+      "slug": "library-of-congress-manuscript-division",
+      "count": 119804
+    },
+    {
+      "name": "Library of Congress Prints and Photographs",
+      "slug": "library-of-congress-prints-and-photographs",
+      "count": 5339
+    },
+    {
+      "name": "Harvard College Library",
+      "slug": "harvard-college-library",
+      "count": 3368
+    },
+    {
+      "name": "Theodore Roosevelt National Park",
+      "slug": "theodore-roosevelt-national-park",
+      "count": 2932
+    },
+    {
+      "name": "Theodore Roosevelt Association Journal",
+      "slug": "theodore-roosevelt-association-journal",
+      "count": 1758
+    },
+    {
+      "name": "Sagamore Hill National Historic Site",
+      "slug": "sagamore-hill-national-historic-site",
+      "count": 1100
+    },
+    {
+      "name": "Charles C. Myers Collection",
+      "slug": "charles-c-myers-collection",
+      "count": 953
+    },
+    {
+      "name": "Theodore Roosevelt Inaugural National Historic Site",
+      "slug": "theodore-roosevelt-inaugural-national-historic-site",
+      "count": 588
+    },
+    {
+      "name": "Arizona Historical Society",
+      "slug": "arizona-historical-society",
+      "count": 518
+    },
+    {
+      "name": "Dickinson State University",
+      "slug": "dickinson-state-university",
+      "count": 376
+    },
+    {
+      "name": "Theodore Roosevelt Birthplace National Historic Site",
+      "slug": "theodore-roosevelt-birthplace-national-historic-site",
+      "count": 363
+    },
+    {
+      "name": "Fritz R. Gordner Collection",
+      "slug": "fritz-r-gordner-collection",
+      "count": 318
+    },
+    {
+      "name": "Dr. Danny O. Crew Theodore Roosevelt Sheet Music Collection",
+      "slug": "dr-danny-o-crew-theodore-roosevelt-sheet-music-collection",
+      "count": 294
+    },
+    {
+      "name": "Theodore Roosevelt Island National Memorial",
+      "slug": "theodore-roosevelt-island-national-memorial",
+      "count": 239
+    },
+    {
+      "name": "Massachusetts Historical Society",
+      "slug": "massachusetts-historical-society",
+      "count": 212
+    },
+    {
+      "name": "Library of Congress Motion Picture, Broadcasting and Recorded Sound",
+      "slug": "library-of-congress-motion-picture-broadcasting-and-recorded-sound",
+      "count": 147
+    },
+    {
+      "name": "Gregory A. Wynn Theodore Roosevelt Collection",
+      "slug": "gregory-a-wynn-theodore-roosevelt-collection",
+      "count": 142
+    },
+    {
+      "name": "Grand Canyon National Park",
+      "slug": "grand-canyon-national-park",
+      "count": 107
+    },
+    {
+      "name": "Mike Thompson Collection",
+      "slug": "mike-thompson-collection",
+      "count": 98
+    },
+    {
+      "name": "Midwest Archeological Center",
+      "slug": "midwest-archeological-center",
+      "count": 93
+    },
+    {
+      "name": "Newberry Library",
+      "slug": "newberry-library",
+      "count": 92
+    },
+    {
+      "name": "America",
+      "slug": "america",
+      "count": 82
+    },
+    {
+      "name": "Buffalo Bill Center of the West",
+      "slug": "buffalo-bill-center-of-the-west",
+      "count": 82
+    },
+    {
+      "name": "State Historical Society of North Dakota",
+      "slug": "state-historical-society-of-north-dakota",
+      "count": 81
+    },
+    {
+      "name": "Marple Collection",
+      "slug": "marple-collection",
+      "count": 72
+    },
+    {
+      "name": "Denver Public Library",
+      "slug": "denver-public-library",
+      "count": 71
+    },
+    {
+      "name": "Mount Rushmore National Monument",
+      "slug": "mount-rushmore-national-monument",
+      "count": 65
+    },
+    {
+      "name": "Sherman Grinberg Film Collection",
+      "slug": "sherman-grinberg-film-collection",
+      "count": 60
+    },
+    {
+      "name": "Pinnacles National Park",
+      "slug": "pinnacles-national-park",
+      "count": 49
+    },
+    {
+      "name": "Lassen Volcanic National Park",
+      "slug": "lassen-volcanic-national-park",
+      "count": 47
+    },
+    {
+      "name": "White Horse Hill National Game Preserve",
+      "slug": "white-horse-hill",
+      "count": 45
+    },
+    {
+      "name": "Olympic National Park",
+      "slug": "olympic-national-park",
+      "count": 36
+    },
+    {
+      "name": "Crater Lake National Park",
+      "slug": "crater-lake-national-park",
+      "count": 31
+    },
+    {
+      "name": "Duane G. Jundt Theodore Roosevelt Collection",
+      "slug": "duane-g-jundt-theodore-roosevelt-collection",
+      "count": 30
+    },
+    {
+      "name": "Theodore Roosevelt Association",
+      "slug": "theodore-roosevelt-association",
+      "count": 26
+    },
+    {
+      "name": "Theodore Roosevelt Medora Foundation",
+      "slug": "theodore-roosevelt-medora-foundation",
+      "count": 19
+    },
+    {
+      "name": "Rio Grande National Forest",
+      "slug": "rio-grande-national-forest",
+      "count": 16
+    },
+    {
+      "name": "The Margaret Sanger Papers Project",
+      "slug": "the-margaret-sanger-papers-project",
+      "count": 14
+    },
+    {
+      "name": "Theodore Roosevelt Presidential Library Foundation",
+      "slug": "theodore-roosevelt-presidential-library-foundation",
+      "count": 8
+    },
+    {
+      "name": "Naval History and Heritage Command",
+      "slug": "naval-history-and-heritage-command",
+      "count": 8
+    },
+    {
+      "name": "Devils Tower National Monument",
+      "slug": "devils-tower-national-monument",
+      "count": 7
+    },
+    {
+      "name": "Natural Bridges National Monument",
+      "slug": "natural-bridges-national-monument",
+      "count": 4
+    },
+    {
+      "name": "Golden Gate National Recreation Area",
+      "slug": "golden-gate-national-recreation-area",
+      "count": 4
+    },
+    {
+      "name": "Muir Woods National Monument",
+      "slug": "muir-woods-national-monument",
+      "count": 4
+    },
+    {
+      "name": "Wind Cave National Park",
+      "slug": "wind-cave-national-park",
+      "count": 3
+    },
+    {
+      "name": "Chaco Canyon National Historical Park",
+      "slug": "chaco-canyon-national-historical-park",
+      "count": 2
+    },
+    {
+      "name": "Smithsonian",
+      "slug": "smithsonian",
+      "count": 2
+    },
+    {
+      "name": "New York Public Library",
+      "slug": "new-york-public-library",
+      "count": 1
+    },
+    {
+      "name": "Jewel Cave National Monument",
+      "slug": "jewel-cave-national-monument",
+      "count": 1
+    },
+    {
+      "name": "Mesa Verde National Park",
+      "slug": "mesa-verde-national-park",
+      "count": 1
+    },
+    {
+      "name": "Boschee Collection",
+      "slug": "boschee-collection",
+      "count": 1
+    },
+    {
+      "name": "Buffalo History Museum",
+      "slug": "buffalo-history-museum",
+      "count": 1
+    },
+    {
+      "name": "Mount Rushmore National Memorial",
+      "slug": "mount-rushmore-national-memorial",
+      "count": 0
+    }
+  ]
+}

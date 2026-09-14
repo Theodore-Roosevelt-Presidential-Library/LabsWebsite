@@ -460,7 +460,52 @@ TRC_LIBRARY = "https://www.theodorerooseveltcenter.org/digital-library/"
 TRC_STAFF = "https://www.theodorerooseveltcenter.org/about/staff/"
 
 
+def trc_collection_chart(top=12):
+    """Render the TRC digital library's holdings as a ranked bar chart.
+
+    Bars are linear against the largest collection, deliberately. The Library of
+    Congress Manuscript Division really is ~86% of the whole thing, and a log
+    scale would flatter the smaller collections by hiding that.
+    """
+    src = json.loads((ROOT / "data" / "trc-collections.json").read_text(encoding="utf-8"))
+    # One listed collection currently holds zero records; excluding it keeps the
+    # caption's arithmetic honest against the "and N more" line below.
+    items = [i for i in src["items"] if i["count"] > 0]
+    total, n = src["records"], len(items)
+    head, tail = items[:top], items[top:]
+    biggest = head[0]["count"]
+
+    rows = []
+    for i in head:
+        pct = i["count"] / total * 100
+        width = max(i["count"] / biggest * 100, 0.45)   # keep a sliver visible
+        mine = " own" if "Presidential Library" in i["name"] else ""
+        rows.append(
+            f'<li class="bar{mine}">'
+            f'<span class="bl">{esc(i["name"])}</span>'
+            f'<span class="bt"><span class="bf" style="width:{width:.3f}%"></span></span>'
+            f'<span class="bv">{i["count"]:,}<em>{pct:.1f}%</em></span></li>'
+        )
+
+    rest = sum(i["count"] for i in tail)
+    date = src["harvested"][:10]
+    dt = f"{date[8:10]} {['January','February','March','April','May','June','July','August','September','October','November','December'][int(date[5:7]) - 1]} {date[:4]}".lstrip("0")
+
+    chart = (
+        '<figure class="chart">\n'
+        f'  <figcaption>{total:,} records across {n} collections &mdash; '
+        'the top twelve holders</figcaption>\n'
+        f'  <ul>\n    ' + "\n    ".join(rows) + "\n  </ul>\n"
+        f'  <p class="rest">&hellip;and {len(tail)} more collections, {rest:,} records between them '
+        '&mdash; state historical societies, national parks and monuments, university libraries, '
+        'and private collections given or loaned for digitization.</p>\n'
+        "</figure>"
+    )
+    return chart, dt
+
+
 def build_living_library():
+    CHART, CHART_DATE = trc_collection_chart()
     """A plain-language read of arXiv:2609.09368, for institutions considering the same work.
 
     Every figure on this page comes from the paper. Nothing is estimated or rounded up.
@@ -525,6 +570,22 @@ def build_living_library():
           Dickinson State for &ldquo;preserving, curating, and providing access to the archival
           collections that served as the foundation for these experiences.&rdquo;</p>
 
+        <h3 class="people-h">Whose collections these actually are</h3>
+        <p>Because the point is easy to blur, here is the Center's digital library broken out by the
+          institution that actually holds the material. One collection accounts for roughly
+          six records in every seven, and the great majority of the rest sits with national parks,
+          university libraries, state historical societies, and private collectors.</p>
+{CHART}
+        <p class="fine"><strong>Read this chart for one thing only: who holds what.</strong> It is a
+          snapshot of the Theodore Roosevelt Center's digital-library collection facet, harvested
+          {CHART_DATE} by the Library's own
+          <a href="projects/trc-widget.html">TRC Search Widget</a>, and counts move as cataloging
+          continues. It is <em>not</em> a measure of any institution's holdings &mdash; each figure
+          counts only what that institution has catalogued into this particular index. The Library's
+          own Roosevelt material is substantially larger than its line here suggests and is mostly
+          catalogued elsewhere, and the roughly 300,000-record corpus the paper describes is broader
+          still than this digital library.</p>
+
         <h3 class="people-h">The people doing the work</h3>
         <ul class="people">
           <li><b>Michael Patrick Cullinane, PhD</b><span>Co-Director; Lowman Walton Chair of
@@ -541,10 +602,13 @@ def build_living_library():
       </section>
 
       <h2>The problem it starts from</h2>
-      <p>Theodore Roosevelt's record does not live in one building. The Library's own holdings were
-        assembled from more than forty repositories &mdash; correspondence, photographs, publications,
-        and artifacts accumulated across libraries, historical societies, and private hands, reconciled
-        only informally. That is not unusual. The paper is blunt that fragmentation is the default
+      <p>Theodore Roosevelt's record does not live in one building, and very little of it belongs to
+        any single institution. The corpus behind this work was <em>aggregated</em> &mdash;
+        correspondence, photographs, publications, and artifacts held by more than forty separate
+        repositories, reconciled only informally, and surfaced through the Theodore Roosevelt Center's
+        cataloging. The Library holds some Roosevelt material of its own, but the overwhelming majority
+        of what these systems search is somebody else's, described here with permission and credited
+        to its holder. That is not unusual. The paper is blunt that fragmentation is the default
         condition of an archive, not the exception.</p>
       <p>Digitization alone does not fix it. Item-level cataloging is manual and inconsistent across
         eras of practice, so backlogs grow alongside acquisition. And a scanned page behind a search
