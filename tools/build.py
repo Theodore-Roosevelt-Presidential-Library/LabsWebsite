@@ -122,7 +122,7 @@ def footer(depth=0):
       <p>Every project here is released under the MIT license. Fork it, rename it,
          and make it yours &mdash; no permission needed and no attribution required,
          though we would love to hear what you build.</p>
-      <p style="margin:0"><a href="mailto:info@trlibrary.com">info@trlibrary.com</a></p>
+      <p style="margin:0"><a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a></p>
     </div>
   </div>
 </footer>
@@ -455,6 +455,12 @@ def build_favicon():
 PAPER_URL = "https://arxiv.org/abs/2609.09368"
 PAPER_PDF = "https://arxiv.org/pdf/2609.09368"
 PAPER_HTML = "https://arxiv.org/html/2609.09368"
+MS_SIGNAL = "https://news.microsoft.com/signal/articles/ai-theodore-roosevelt-presidential-library/"
+MS_AIFG = "https://www.microsoft.com/en-us/research/group/ai-for-good-research-lab/"
+MS_AIFG_OSS = "https://microsoft.github.io/aiforgoodlab/"
+GEEKWIRE = ("https://www.geekwire.com/2026/archives-to-avatars-microsoft-ai-powers-"
+            "the-interactive-president-at-new-theodore-roosevelt-library/")
+UKUVULA = "https://github.com/microsoft/ukuvula"
 TRC_URL = "https://www.theodorerooseveltcenter.org/"
 TRC_LIBRARY = "https://www.theodorerooseveltcenter.org/digital-library/"
 TRC_STAFF = "https://www.theodorerooseveltcenter.org/about/staff/"
@@ -533,6 +539,52 @@ def build_living_library():
     </div>
   </div>
 </header>
+
+<div class="shell">
+  <section class="exec">
+    <p class="kicker">The short version, if you run an institution</p>
+    <p class="lede">You do not need to read the paper, or this page, to make a decision about it.
+      Here is the whole thing in six answers.</p>
+    <dl>
+      <dt>What it actually does</dt>
+      <dd>It lets someone ask your collection a question in plain language and get real documents
+        back &mdash; instead of requiring them to already know the right search term.</dd>
+
+      <dt>Why that matters to you</dt>
+      <dd>Most collections are functionally invisible. They are catalogued for people who already
+        know what they are looking for, which is a small and shrinking audience. This widens who
+        can use what you already own, without reprocessing it first.</dd>
+
+      <dt>The one decision that matters</dt>
+      <dd>It is four layers, and <strong>you can stop after three.</strong> The first three give you a
+        searchable, governed collection and a public research tool. The fourth is the talking avatar.
+        Three is useful on its own and far cheaper; four is a different kind of project. Most
+        institutions should plan to stop at three and decide about four later.</dd>
+
+      <dt>What it will cost you</dt>
+      <dd>The paper gives no dollar figures, and it would be irresponsible to invent them. What it
+        does say is that the first four steps need governance and engineering work proportional to
+        the size of your collection, but <em>no</em> specialist AI staff &mdash; while the avatar
+        needs real-time systems and persona expertise, which is a different order of difficulty.
+        The honest caveat: Microsoft was the Library's lead technology partner and donated much of
+        this work. Budget accordingly.</dd>
+
+      <dt>The risk to take seriously</dt>
+      <dd>Not the technology. Putting words in a real person's mouth. Everything expensive in the
+        design &mdash; grounding answers in actual documents, refusing to reference anything after
+        1919, telling visitors the responses are AI-generated &mdash; exists to manage that one
+        problem, and the authors still list it as unresolved.</dd>
+
+      <dt>Your first step is not technical</dt>
+      <dd>It is an inventory: what do you hold, where does it actually live, and what is not
+        digitized yet. That is policy and staff work, it needs no vendor, and it determines the
+        scope of everything after it. Start there.</dd>
+    </dl>
+    <p class="onward">Everything below is the long version &mdash; the partnership behind the
+      collection, then how the system works, then the six-step process and what the authors are
+      careful <em>not</em> to claim.</p>
+  </section>
+</div>
 
 <div class="shell">
   <div class="p-layout">
@@ -701,6 +753,9 @@ def build_living_library():
         instead of blocking it.</p>
 
       <h2>Cross-Era Analogical Grounding</h2>
+      <p class="gloss">In plain terms: when a visitor asks about something that did not exist in
+        your subject's lifetime, the system finds the closest thing that <em>did</em>, and answers
+        through that instead of guessing.</p>
       <p>Here is the paper's central technique, and the one most specific to historical work. A
         century-old archive cannot answer a question about social media or electric cars. Free
         generation would answer, but invites anachronism and fabrication. Refusing is accurate and
@@ -733,6 +788,9 @@ def build_living_library():
       </figure>
 
       <h2>What it takes to stay responsive</h2>
+      <p class="gloss">In plain terms: a visitor will forgive a slightly worse answer, but not a
+        long silence. This is the engineering that keeps the pause short enough to feel like a
+        conversation.</p>
       <p>Grounding an avatar in an archive is only useful if it answers promptly. The measured figure,
         over one exhibition period, is the delay from a visitor releasing the push-to-talk button to
         the first synthesized word:</p>
@@ -760,6 +818,9 @@ def build_living_library():
         <em>whether</em> a turn retrieves synchronously at all, not how large the index is.</p>
 
       <h2>Safety that never stalls the exhibit</h2>
+      <p class="gloss">In plain terms: children will try to make the exhibit say something awful,
+        and an avatar that freezes mid-sentence in front of a crowd is its own kind of failure.
+        The safeguards are built to redirect rather than shut down.</p>
       <p>The kiosk is public and includes children, so it has to resist prompt injection and steer away
         from improper content. But it operates under one strict rule that inverts the usual design:
         <strong>a safety check must never make the avatar stall or fall silent.</strong> In a
@@ -777,6 +838,9 @@ def build_living_library():
         irrecoverably. The current version deflects in character and matches on word boundaries.</p>
 
       <h2>Running all day without a babysitter</h2>
+      <p class="gloss">In plain terms: the exhibit has to open at nine and still be working at five
+        without a staff member restarting it, and no visitor should see the previous visitor's
+        conversation.</p>
       <p>The exhibit holds one long-lived session open throughout the day rather than rebuilding per
         visitor, so nobody pays a cold-start cost. Three mechanisms make that safe. A moving
         <strong>watermark</strong> means each visitor sees only history from after they arrived. A short
@@ -864,6 +928,21 @@ def build_living_library():
         persona, and operational logs are kept for up to 30 days and then deleted. The system does not
         maintain visitor-linked memory across separate visits.</p>
 
+      <h2>Where this sits in the Lab's work</h2>
+      <p>The paper is a Microsoft AI for Good Lab publication &mdash; ten of its eleven authors are
+        Microsoft, among them the Lab's senior director, Laura Hoffman, and its director and
+        co-founder, Juan Lavista Ferres. Microsoft was the Library's lead technology partner and
+        donated much of the work through the Lab. When the Library opened in July 2026,
+        <a href="{MS_SIGNAL}" target="_blank" rel="noopener">Microsoft said it planned to publish a
+        paper documenting how the technology works and to open source the software</a>. This paper is
+        the first half of that; the catalog on this site is the second.</p>
+      <p>The Living Library is also not the Lab's only run at this problem. Its closest sibling is
+        <a href="{UKUVULA}" target="_blank" rel="noopener">Ukuvula</a>, built with the Nelson Mandela
+        Foundation &mdash; a transcription and enrichment pipeline that makes large oral-history
+        archives searchable, generating transcripts, named entities, thematic classifications, and
+        summaries from audiovisual recordings of the liberation era. Different medium, different
+        continent, same shape of problem: a collection that exists but cannot be asked a question.</p>
+
       <h2>Cite it</h2>
       <div class="codeblock"><button data-copy>Copy</button>Pengce Wang, Lucia Ronchi Darre, Matt Briney, Michaell Bakalars,
 Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim,
@@ -905,6 +984,16 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
           <a href="{PAPER_HTML}" target="_blank" rel="noopener">{ICON_EXT} Full text<span>HTML</span></a>
           <a href="{PAPER_PDF}" target="_blank" rel="noopener">{ICON_EXT} Download<span>PDF</span></a>
           <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">{ICON_EXT} Try Campfire<span>Layer 3, live</span></a>
+        </div>
+      </section>
+      <section>
+        <h3>Press &amp; background</h3>
+        <div class="links">
+          <a href="{MS_SIGNAL}" target="_blank" rel="noopener">{ICON_EXT} Microsoft on the opening<span>Signal, Jul 2026</span></a>
+          <a href="{GEEKWIRE}" target="_blank" rel="noopener">{ICON_EXT} Archives to avatars<span>GeekWire</span></a>
+          <a href="{MS_AIFG}" target="_blank" rel="noopener">{ICON_EXT} Microsoft AI for Good Lab<span>The lab</span></a>
+          <a href="{MS_AIFG_OSS}" target="_blank" rel="noopener">{ICON_EXT} Lab open-source database<span>Their code</span></a>
+          <a href="{UKUVULA}" target="_blank" rel="noopener">{ICON_EXT} Ukuvula<span>Sibling project</span></a>
         </div>
       </section>
       <section>

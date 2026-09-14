@@ -314,6 +314,26 @@ main{padding:36px 0 80px}
 .layers p{margin:0;font-size:16px}
 @media(max-width:540px){.layers li{gap:12px;padding:15px 16px}.layers .n{font-size:27px;width:24px}}
 
+/* Executive summary — the read-this-and-stop layer */
+.exec{background:var(--night-sky);color:#fff;border-radius:var(--radius);
+  padding:32px 34px 28px;margin:34px 0 6px}
+@media(max-width:540px){.exec{padding:24px 20px}}
+.exec .kicker{font-family:var(--font-ui);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--deep-orange);margin:0 0 12px}
+.exec .lede{font-family:var(--font-body);font-size:19px;line-height:1.45;color:#E4E8EE;
+  max-width:54ch;margin:0 0 26px}
+.exec dl{margin:0;display:grid;gap:20px 34px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.exec dt{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:21px;line-height:1;letter-spacing:.015em;color:var(--deep-orange);margin-bottom:8px}
+.exec dd{margin:0;font-family:var(--font-body);font-size:16px;line-height:1.5;color:#DCE3EB}
+.exec dd strong{color:#fff}
+.exec .onward{font-family:var(--font-ui);font-size:13.5px;color:#A9B6C6;margin:26px 0 0;
+  border-top:1px solid rgba(255,255,255,.2);padding-top:16px}
+
+.gloss{font-family:var(--font-ui)!important;font-size:15px!important;line-height:1.5;
+  color:var(--ink-soft);background:var(--surface);border-left:3px solid var(--accent);
+  padding:12px 16px;border-radius:var(--radius);margin:0 0 18px}
+
 .partner{border-top:3px solid var(--night-sky);background:var(--surface);
   border-radius:var(--radius);padding:26px 28px 24px;margin:0 0 44px}
 @media(max-width:540px){.partner{padding:22px 20px}}
