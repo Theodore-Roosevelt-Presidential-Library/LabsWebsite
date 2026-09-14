@@ -141,19 +141,34 @@ or a button label is involved. All body and label text meets AA.
 
 ---
 
+## URLs
+
+The site uses extensionless URLs — `/about`, `/living-library`,
+`/projects/stargazer`. The files on disk keep their `.html` names; GitHub Pages
+resolves a request for `/about` to `about.html` on its own, with no redirect.
+
+Two consequences worth knowing:
+
+- **Old `.html` URLs still work.** `/living-library.html` serves the same page, so
+  anything already shared or indexed keeps resolving.
+- **No trailing slashes.** GitHub Pages does *not* serve `/about/` — that 404s.
+  `tools/build.py` strips `.html` from every internal link at write time
+  (`prettify()`), so don't hand-write links with extensions or trailing slashes.
+
 ## Local preview
 
-No server needed — the site uses no `fetch()`:
+`open index.html` and `python3 -m http.server` both break on extensionless links,
+because neither adds the `.html`. Use the included server instead — it applies the
+same rule GitHub Pages does:
 
 ```bash
-open index.html
+python3 tools/serve.py          # http://localhost:8000
+python3 tools/serve.py 8080     # a different port
 ```
 
-Or, if you prefer a real origin:
-
-```bash
-python3 -m http.server 8000
-```
+It deliberately mirrors two Pages behaviours so mistakes surface locally: a
+trailing slash on a page URL 404s, and a directory without an `index.html` 404s
+rather than showing a listing.
 
 ---
 

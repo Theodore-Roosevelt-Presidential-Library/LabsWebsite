@@ -50,6 +50,36 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+def _pretty_href(u):
+    """Drop the .html from an internal link. /about, not /about.html.
+
+    GitHub Pages serves `about.html` for a request to `/about` with no redirect,
+    so the files stay exactly where they are and every previously shared
+    .html URL keeps working. Note it does NOT serve `/about/` — a trailing
+    slash 404s — so these must stay slash-free.
+    """
+    if u.startswith(("http://", "https://", "mailto:", "#", "data:", "//")):
+        return u
+    path, sep, frag = u.partition("#")
+    if path.endswith(".html"):
+        path = path[:-5]
+        if path == "index" or path.endswith("/index"):
+            path = path[:-5]          # "index" -> "",  "../index" -> "../"
+            if path == "":
+                path = "./"
+    return path + (sep + frag if sep else "")
+
+
+def prettify(doc):
+    """Rewrite every internal href in a finished page. Applied once, at write time,
+    so prose links and generated links are handled by the same rule."""
+    return re.sub(r'href="([^"]*)"', lambda m: f'href="{_pretty_href(m.group(1))}"', doc)
+
+
+def write_page(rel_path, doc):
+    (ROOT / rel_path).write_text(prettify(doc), encoding="utf-8")
+
+
 def initials(name):
     words = [w for w in re.split(r"[\s-]+", name) if w]
     if len(words) == 1:
@@ -305,13 +335,11 @@ def build_index():
   </div>
 </section>
 """
-    (ROOT / "index.html").write_text(
+    write_page("index.html",
         head("TRPL Labs — Open source from the Theodore Roosevelt Presidential Library",
              desc, 0, SITE + "/")
         + body
-        + footer(0).replace("</body>", '<script src="assets/js/labs.js"></script>\n</body>'),
-        encoding="utf-8",
-    )
+        + footer(0).replace("</body>", '<script src="assets/js/labs.js"></script>\n</body>'))
 
 
 # --------------------------------------------------------------- detail page
@@ -441,11 +469,11 @@ cd {esc(repo)}</div>
 """
     desc = p["tagline"]
     out = (
-        head(f"{p['name']} — TRPL Labs", desc, 1, f"{SITE}/projects/{slug}.html")
+        head(f"{p['name']} — TRPL Labs", desc, 1, f"{SITE}/projects/{slug}")
         + body
         + footer(1).replace("</body>", '<script src="../assets/js/labs.js"></script>\n</body>')
     )
-    (ROOT / "projects" / f"{slug}.html").write_text(out, encoding="utf-8")
+    write_page(f"projects/{slug}.html", out)
 
 
 def build_favicon():
@@ -1002,11 +1030,11 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
 </div>
 """
     out = (
-        head("The Living Library — TRPL Labs", desc, 0, f"{SITE}/living-library.html")
+        head("The Living Library — TRPL Labs", desc, 0, f"{SITE}/living-library")
         + body
         + footer(0).replace("</body>", '<script src="assets/js/labs.js"></script>\n</body>')
     )
-    (ROOT / "living-library.html").write_text(out, encoding="utf-8")
+    write_page("living-library.html", out)
 
 
 def build_about():
@@ -1149,16 +1177,16 @@ def build_about():
 </div>
 """
     out = (
-        head("About — TRPL Labs", desc, 0, f"{SITE}/about.html")
+        head("About — TRPL Labs", desc, 0, f"{SITE}/about")
         + body
         + footer(0).replace("</body>", '<script src="assets/js/labs.js"></script>\n</body>')
     )
-    (ROOT / "about.html").write_text(out, encoding="utf-8")
+    write_page("about.html", out)
 
 
 def build_sitemap():
-    urls = ([f"{SITE}/", f"{SITE}/about.html", f"{SITE}/living-library.html"]
-            + [f"{SITE}/projects/{p['slug']}.html" for p in PROJECTS])
+    urls = ([f"{SITE}/", f"{SITE}/about", f"{SITE}/living-library"]
+            + [f"{SITE}/projects/{p['slug']}" for p in PROJECTS])
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
