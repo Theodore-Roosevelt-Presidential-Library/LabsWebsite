@@ -99,7 +99,7 @@ def masthead(depth=0):
     <nav class="mast-nav" aria-label="Primary">
       <a href="{up}index.html#projects">Projects</a>
       <a href="{up}living-library.html">The Living Library</a>
-      <a href="{up}index.html#about">About</a>
+      <a href="{up}about.html">About</a>
       <a href="https://www.trlibrary.com">trlibrary.com</a>
       <a class="ghost" href="{ORG_URL}">GitHub</a>
     </nav>
@@ -279,21 +279,21 @@ def build_index():
         <h3>Built to be handed off</h3>
         <p>Nearly every project keeps its content in a plain JSON or Markdown file, separate from its
           code. Adapting one usually means rewriting data and swapping a logo, not learning a
-          framework. Each project page here lists exactly which files to change.</p>
+          framework. Each project page lists exactly which files to change.</p>
       </div>
       <div>
         <h3>Hosting is usually free</h3>
         <p>Most of these run entirely on GitHub Pages with a scheduled GitHub Action doing whatever
           work a server would normally do. No hosting bill, no database, no credentials sitting in a
-          browser. Where an API key is needed, it lives in a repository secret.</p>
+          browser.</p>
       </div>
       <div>
         <h3>Fork it, do not ask</h3>
         <p>MIT means you can use, change, and redistribute any of this commercially, without
-          attribution and without asking. Open an issue on the repository if something is broken or
-          unclear &mdash; that feedback makes the next fork easier for somebody else.</p>
+          attribution and without asking.</p>
       </div>
     </div>
+    <p style="margin-top:28px"><a class="btn" href="about.html">More about TRPL Labs</a></p>
   </div>
 </section>
 """
@@ -1023,8 +1023,150 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
     (ROOT / "living-library.html").write_text(out, encoding="utf-8")
 
 
+def build_about():
+    """About TRPL Labs — written for the person deciding whether to trust and fork this."""
+    desc = ("Why the Theodore Roosevelt Presidential Library publishes its software, how these "
+            "projects are built, and what forking one actually involves.")
+
+    body = f"""
+<div class="shell">
+  <p class="crumbs"><a href="index.html">TRPL Labs</a> &nbsp;/&nbsp; About</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">About</p>
+    <h1>Plumbing is not a competitive advantage</h1>
+    <p class="tag">Museums and nonprofits keep solving the same problems separately and expensively.
+      TRPL Labs is the Theodore Roosevelt Presidential Library putting its answers in public so
+      somebody else can skip the procurement cycle.</p>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+
+      <h2>What this is</h2>
+      <p>Every project listed here was built because the Library needed it. A sell-out warning for
+        timed entry. A way to get restaurant hours out of one content system and onto a different
+        website. A photo gallery that does not carry a monthly subscription. A link checker. A night
+        sky you can point a phone at.</p>
+      <p>None of that is specific to Theodore Roosevelt, and none of it is a competitive advantage.
+        A visitor deciding between two museums has never once chosen based on whose hours widget was
+        better. So the code is public, under a license that lets anyone use it commercially without
+        asking and without credit.</p>
+
+      <h2>Why bother publishing it</h2>
+      <p>Small institutions are quoted enterprise prices for problems that a static file and a
+        scheduled job can solve. The cost of publishing this is close to zero &mdash; the repositories
+        already exist &mdash; and the alternative is a few dozen organizations each paying a vendor
+        to rebuild the same widget.</p>
+      <p>There is a second reason, which is that publishing changes how the work gets done. Code
+        written to be read by strangers gets its configuration separated from its logic, its
+        assumptions written down, and its secrets kept out of the browser. The Library's own tools
+        got better for having to be explainable.</p>
+
+      <h2>How these are built</h2>
+      <p>The projects vary, but the house style does not. If you are evaluating whether one of these
+        will survive contact with your institution, this is what you are actually buying into.</p>
+      <ul>
+        <li><strong>Content lives in data files, not code.</strong> Nearly every project keeps its
+          substance in plain JSON or Markdown, separate from the logic. Adapting one usually means
+          rewriting data and swapping a logo &mdash; not learning a framework.</li>
+        <li><strong>No server, in most cases.</strong> GitHub Pages serves the files; a scheduled
+          GitHub Action does whatever work a backend would normally do. No hosting bill, nothing to
+          patch, nothing to wake up for at 2am.</li>
+        <li><strong>Credentials never reach the browser.</strong> Where an API key is needed it lives
+          in a repository secret and is used by the scheduled job, which publishes static output.
+          The public page holds data, not access.</li>
+        <li><strong>Embeds are isolated.</strong> Widgets mount in a shadow root so a content
+          management system's theme cannot reach in and the widget cannot leak out. Usually one
+          script tag and one <code>div</code>.</li>
+        <li><strong>Failure is designed for.</strong> When a scrape or an upstream API breaks, the
+          last known-good data stays published rather than the page going blank.</li>
+        <li><strong>MIT throughout.</strong> Use it, change it, sell it. No attribution required.</li>
+      </ul>
+
+      <h2>What forking one actually involves</h2>
+      <p>Every project page on this site ends with a numbered <em>Make it your own</em> section
+        naming the specific files to change. The honest range: some of these are a fork, a text
+        edit, and a DNS record. Others need an API key from a vendor you already pay, and a couple
+        assume a system you may not have.</p>
+      <p>What none of them need is a developer on staff indefinitely. They need someone comfortable
+        editing a JSON file and clicking through repository settings once.</p>
+
+      <h2>What these are not</h2>
+      <p>Worth being straight about, because a list of open source projects can imply more than it
+        should.</p>
+      <ul>
+        <li><strong>These are not products.</strong> There is no support contract, no roadmap, and
+          no guarantee that a project is maintained after the Library stops needing it.</li>
+        <li><strong>They were built for one institution's circumstances.</strong> A North Dakota
+          museum's assumptions about seasons, closures, and weather are baked into more of this than
+          is obvious until you fork it.</li>
+        <li><strong>Some are prototypes and say so.</strong> Where a project is running on demo data
+          or waiting on a certificate, its page here says that rather than burying it.</li>
+        <li><strong>Licensed fonts and imagery are not included.</strong> The brand typefaces and
+          collection photography in these repositories are not the Library's to redistribute. Every
+          project falls back to open substitutes.</li>
+      </ul>
+
+      <h2>The bigger one</h2>
+      <p>Most of what is here is small and practical. The architecture behind the Library's larger
+        systems &mdash; Campfire, the Archivist App, and the Talk to TR exhibit &mdash; is published
+        separately as a peer-reviewable paper with Microsoft, along with a six-step process for
+        applying it to a different collection. If the question on your desk is how to make an entire
+        archive askable rather than how to embed a timeline,
+        <a href="living-library.html">start with The Living Library</a>.</p>
+
+      <h2>If you build something</h2>
+      <p>Nothing is owed. But if one of these turns into something at your institution, the Library
+        would genuinely like to hear about it &mdash; partly because it is encouraging, and partly
+        because the questions people ask while adapting these are the most useful feedback there is.
+        Issues and pull requests are welcome on any repository, and
+        <a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a> reaches a person.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Start somewhere</h3>
+        <p class="meta">If you are not sure which project is relevant, these three are the most
+          widely useful and the easiest to adapt.</p>
+        <div class="links">
+          <a href="projects/photo-gallery.html">Photo Gallery<span>Events</span></a>
+          <a href="projects/link-checker.html">Link Checker<span>Any website</span></a>
+          <a href="projects/anniversaries.html">Anniversaries<span>Any chronology</span></a>
+        </div>
+      </section>
+      <section>
+        <h3>Licensing</h3>
+        <p class="meta">MIT, on every repository. Use, change, and redistribute commercially,
+          without attribution and without asking.</p>
+      </section>
+      <section>
+        <h3>Get in touch</h3>
+        <div class="links">
+          <a href="mailto:hello@trlibrary.com">Email the Library<span>hello@trlibrary.com</span></a>
+          <a href="{ORG_URL}" target="_blank" rel="noopener">{ICON_EXT} GitHub<span>All repositories</span></a>
+          <a href="https://www.trlibrary.com" target="_blank" rel="noopener">{ICON_EXT} trlibrary.com<span>The Library</span></a>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <p style="height:40px"></p>
+</div>
+"""
+    out = (
+        head("About — TRPL Labs", desc, 0, f"{SITE}/about.html")
+        + body
+        + footer(0).replace("</body>", '<script src="assets/js/labs.js"></script>\n</body>')
+    )
+    (ROOT / "about.html").write_text(out, encoding="utf-8")
+
+
 def build_sitemap():
-    urls = ([f"{SITE}/", f"{SITE}/living-library.html"]
+    urls = ([f"{SITE}/", f"{SITE}/about.html", f"{SITE}/living-library.html"]
             + [f"{SITE}/projects/{p['slug']}.html" for p in PROJECTS])
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     (ROOT / "sitemap.xml").write_text(
@@ -1040,6 +1182,7 @@ def build_sitemap():
 def main():
     build_favicon()
     build_sitemap()
+    build_about()
     build_living_library()
     build_index()
     for i, p in enumerate(PROJECTS):
