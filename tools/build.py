@@ -256,6 +256,10 @@ def build_index():
         <p>It is four layers, and <strong>the AI avatar is only the last one &mdash; and it is
           optional.</strong> The first three are the part most institutions actually need. It also
           states plainly what the authors could not resolve, which is rarer than it should be.</p>
+        <p><strong>And the code is now public.</strong> Microsoft has released the reference
+          implementation at <a href="{MS_CODE}" target="_blank" rel="noopener">github.com/microsoft/TRPL</a>
+          &mdash; all four layers, MIT licensed, with synthetic sample data and a local Docker setup,
+          so a curious institution can run it before committing to anything.</p>
         <div class="p-actions">
           <a class="btn solid" href="living-library.html">Read the breakdown</a>
           <a class="btn" href="https://arxiv.org/abs/2609.09368" target="_blank" rel="noopener">
@@ -497,6 +501,7 @@ MS_AIFG_OSS = "https://microsoft.github.io/aiforgoodlab/"
 GEEKWIRE = ("https://www.geekwire.com/2026/archives-to-avatars-microsoft-ai-powers-"
             "the-interactive-president-at-new-theodore-roosevelt-library/")
 UKUVULA = "https://github.com/microsoft/ukuvula"
+MS_CODE = "https://github.com/microsoft/TRPL"
 TRC_URL = "https://www.theodorerooseveltcenter.org/"
 TRC_LIBRARY = "https://www.theodorerooseveltcenter.org/digital-library/"
 TRC_STAFF = "https://www.theodorerooseveltcenter.org/about/staff/"
@@ -590,6 +595,7 @@ def build_living_library():
     <div class="p-actions">
       <a class="btn solid" href="{PAPER_URL}" target="_blank" rel="noopener">Read on arXiv {ICON_EXT}</a>
       <a class="btn" href="{PAPER_PDF}" target="_blank" rel="noopener">PDF {ICON_EXT}</a>
+      <a class="btn" href="{MS_CODE}" target="_blank" rel="noopener">{ICON_GITHUB} The code</a>
       <a class="btn quiet" href="{PAPER_HTML}" target="_blank" rel="noopener">Full text in HTML {ICON_EXT}</a>
     </div>
   </div>
@@ -635,7 +641,9 @@ def build_living_library():
       <div>
         <dt>Your first step is not technical</dt>
         <dd>It is an inventory: what you hold, where it actually lives, what is not digitized. That
-          is policy and staff work, it needs no vendor, and it scopes everything after it.</dd>
+          is policy and staff work, it needs no vendor, and it scopes everything after it. The
+          working code is <a href="{MS_CODE}" target="_blank" rel="noopener">already published</a>
+          when you get to that part.</dd>
       </div>
     </dl>
     <p class="onward">What this is not: a benchmark, a product pitch, or a claim that this is right
@@ -850,6 +858,67 @@ def build_living_library():
 
       <p class="part" id="doing"><span>Part three</span> Doing it yourself</p>
 
+      <h2>The code is public too</h2>
+      <p>This is the part that changes what the paper is worth. On 10 September 2026, two days after
+        the paper went up, Microsoft published the reference implementation at
+        <a href="{MS_CODE}" target="_blank" rel="noopener">github.com/microsoft/TRPL</a>. It is not a
+        sanitized demo written for the occasion &mdash; it is the architecture described above, laid
+        out as four directories that correspond to the four layers.</p>
+
+      <table class="data wide">
+        <caption>What is in the repository</caption>
+        <tbody>
+          <tr><th><code>Layer1_Data_foundations</code></th>
+              <td>Provider-neutral ingestion, asset processing, OCR, metadata extraction</td></tr>
+          <tr><th><code>Layer2_Archivist_App</code></th>
+              <td>The full-stack curator review workflow</td></tr>
+          <tr><th><code>Layer3_Campfire</code></th>
+              <td>The visitor-facing Reading Room and cited retrieval experience</td></tr>
+          <tr><th><code>Layer4_Talk_to_TR</code></th>
+              <td>Real-time speech, LiveKit, camera events &mdash; described by Microsoft as
+                reference and experimental</td></tr>
+        </tbody>
+      </table>
+
+      <p>You get reusable source, provider-neutral ingestion contracts, synthetic sample data, and
+        Docker Compose files that bring each layer up on a laptop. Layers one and two run against
+        local Azure emulators. Layers three and four deliberately report cloud-backed features as
+        <em>unavailable</em> rather than faking AI responses &mdash; the honest choice, and it means
+        you can walk the shape of the system before spending anything. Prerequisites are Docker
+        Desktop and Python 3.12 or newer.</p>
+
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># configure, then bring up layers 1 and 2 locally</span>
+git clone https://github.com/microsoft/TRPL.git &amp;&amp; cd TRPL
+python3 Layer1_Data_foundations/scripts/local_dev.py doctor
+python3 Layer1_Data_foundations/scripts/local_dev.py configure
+docker compose --env-file Layer1_Data_foundations/.env.local \\
+  --profile full-stack up --build -d</div>
+
+      <p><strong>Licensing splits by type:</strong> the code is MIT, the documentation is Creative
+        Commons Attribution 4.0.</p>
+
+      <p>Read the rest of the fine print before planning around it, because Microsoft is unusually
+        direct about what this is not:</p>
+      <ul>
+        <li><strong>No feature development is planned.</strong> It is a long-lived showcase under
+          best-effort security maintenance, with no ETA or service-level agreement.</li>
+        <li><strong>Pull requests are limited</strong> to security maintenance and documentation
+          corrections that preserve published behavior.</li>
+        <li><strong>Azure is the documented path, not a requirement.</strong> Layer 1's content-source
+          adapter already demonstrates provider substitution; swapping storage, search, or models
+          elsewhere is possible but will take implementation work, because the repository preserves
+          the architecture actually used rather than abstracting every provider.</li>
+        <li><strong>Every tracked fixture is synthetic.</strong> No collection data ships with it.</li>
+        <li><strong>Rights, privacy, security, accessibility, Responsible AI, and retention are the
+          adopter's responsibility</strong> &mdash; stated plainly in the README, and worth showing
+          to whoever signs off on your deployment.</li>
+      </ul>
+
+      <p class="fine">One mismatch to expect when you move between the paper and the code: the
+        repository folds OCR and metadata extraction into Layer 1 and makes Layer 2 purely the
+        Archivist App, where the paper puts AI processing in Layer 2 with review inside it. Same
+        system, slightly different seams.</p>
+
       <h2>The six-step process</h2>
       <p>Steps one to four are the load-bearing, broadly transferable core. They need governance and
         engineering effort proportional to collection size, but no persona design and no real-time
@@ -954,7 +1023,9 @@ def build_living_library():
         co-founder, Juan Lavista Ferres. When the Library opened in July 2026,
         <a href="{MS_SIGNAL}" target="_blank" rel="noopener">Microsoft said it planned to publish a
         paper documenting how the technology works and to open source the software</a>. This paper is
-        the first half of that; <a href="index.html">the catalog on this site</a> is the second.</p>
+        the first half of that, and <a href="{MS_CODE}" target="_blank" rel="noopener">the reference
+        implementation</a> &mdash; published two days later &mdash; is the second. Both promises kept,
+        inside ten weeks of opening.</p>
       <p>It is also not the Lab's only run at this problem. Its closest sibling is
         <a href="{UKUVULA}" target="_blank" rel="noopener">Ukuvula</a>, built with the Nelson Mandela
         Foundation &mdash; a pipeline making large oral-history archives searchable, generating
@@ -999,6 +1070,7 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
           <a href="{PAPER_URL}" target="_blank" rel="noopener">{ICON_EXT} Abstract<span>arXiv</span></a>
           <a href="{PAPER_HTML}" target="_blank" rel="noopener">{ICON_EXT} Full text<span>HTML</span></a>
           <a href="{PAPER_PDF}" target="_blank" rel="noopener">{ICON_EXT} Download<span>PDF</span></a>
+          <a href="{MS_CODE}" target="_blank" rel="noopener">{ICON_GITHUB} The implementation<span>microsoft/TRPL</span></a>
         </div>
       </section>
       <section>

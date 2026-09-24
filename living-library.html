@@ -48,6 +48,7 @@
     <div class="p-actions">
       <a class="btn solid" href="https://arxiv.org/abs/2609.09368" target="_blank" rel="noopener">Read on arXiv <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
       <a class="btn" href="https://arxiv.org/pdf/2609.09368" target="_blank" rel="noopener">PDF <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn" href="https://github.com/microsoft/TRPL" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> The code</a>
       <a class="btn quiet" href="https://arxiv.org/html/2609.09368" target="_blank" rel="noopener">Full text in HTML <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
     </div>
   </div>
@@ -93,7 +94,9 @@
       <div>
         <dt>Your first step is not technical</dt>
         <dd>It is an inventory: what you hold, where it actually lives, what is not digitized. That
-          is policy and staff work, it needs no vendor, and it scopes everything after it.</dd>
+          is policy and staff work, it needs no vendor, and it scopes everything after it. The
+          working code is <a href="https://github.com/microsoft/TRPL" target="_blank" rel="noopener">already published</a>
+          when you get to that part.</dd>
       </div>
     </dl>
     <p class="onward">What this is not: a benchmark, a product pitch, or a claim that this is right
@@ -308,6 +311,67 @@
 
       <p class="part" id="doing"><span>Part three</span> Doing it yourself</p>
 
+      <h2>The code is public too</h2>
+      <p>This is the part that changes what the paper is worth. On 10 September 2026, two days after
+        the paper went up, Microsoft published the reference implementation at
+        <a href="https://github.com/microsoft/TRPL" target="_blank" rel="noopener">github.com/microsoft/TRPL</a>. It is not a
+        sanitized demo written for the occasion &mdash; it is the architecture described above, laid
+        out as four directories that correspond to the four layers.</p>
+
+      <table class="data wide">
+        <caption>What is in the repository</caption>
+        <tbody>
+          <tr><th><code>Layer1_Data_foundations</code></th>
+              <td>Provider-neutral ingestion, asset processing, OCR, metadata extraction</td></tr>
+          <tr><th><code>Layer2_Archivist_App</code></th>
+              <td>The full-stack curator review workflow</td></tr>
+          <tr><th><code>Layer3_Campfire</code></th>
+              <td>The visitor-facing Reading Room and cited retrieval experience</td></tr>
+          <tr><th><code>Layer4_Talk_to_TR</code></th>
+              <td>Real-time speech, LiveKit, camera events &mdash; described by Microsoft as
+                reference and experimental</td></tr>
+        </tbody>
+      </table>
+
+      <p>You get reusable source, provider-neutral ingestion contracts, synthetic sample data, and
+        Docker Compose files that bring each layer up on a laptop. Layers one and two run against
+        local Azure emulators. Layers three and four deliberately report cloud-backed features as
+        <em>unavailable</em> rather than faking AI responses &mdash; the honest choice, and it means
+        you can walk the shape of the system before spending anything. Prerequisites are Docker
+        Desktop and Python 3.12 or newer.</p>
+
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># configure, then bring up layers 1 and 2 locally</span>
+git clone https://github.com/microsoft/TRPL.git &amp;&amp; cd TRPL
+python3 Layer1_Data_foundations/scripts/local_dev.py doctor
+python3 Layer1_Data_foundations/scripts/local_dev.py configure
+docker compose --env-file Layer1_Data_foundations/.env.local \
+  --profile full-stack up --build -d</div>
+
+      <p><strong>Licensing splits by type:</strong> the code is MIT, the documentation is Creative
+        Commons Attribution 4.0.</p>
+
+      <p>Read the rest of the fine print before planning around it, because Microsoft is unusually
+        direct about what this is not:</p>
+      <ul>
+        <li><strong>No feature development is planned.</strong> It is a long-lived showcase under
+          best-effort security maintenance, with no ETA or service-level agreement.</li>
+        <li><strong>Pull requests are limited</strong> to security maintenance and documentation
+          corrections that preserve published behavior.</li>
+        <li><strong>Azure is the documented path, not a requirement.</strong> Layer 1's content-source
+          adapter already demonstrates provider substitution; swapping storage, search, or models
+          elsewhere is possible but will take implementation work, because the repository preserves
+          the architecture actually used rather than abstracting every provider.</li>
+        <li><strong>Every tracked fixture is synthetic.</strong> No collection data ships with it.</li>
+        <li><strong>Rights, privacy, security, accessibility, Responsible AI, and retention are the
+          adopter's responsibility</strong> &mdash; stated plainly in the README, and worth showing
+          to whoever signs off on your deployment.</li>
+      </ul>
+
+      <p class="fine">One mismatch to expect when you move between the paper and the code: the
+        repository folds OCR and metadata extraction into Layer 1 and makes Layer 2 purely the
+        Archivist App, where the paper puts AI processing in Layer 2 with review inside it. Same
+        system, slightly different seams.</p>
+
       <h2>The six-step process</h2>
       <p>Steps one to four are the load-bearing, broadly transferable core. They need governance and
         engineering effort proportional to collection size, but no persona design and no real-time
@@ -429,7 +493,9 @@
         co-founder, Juan Lavista Ferres. When the Library opened in July 2026,
         <a href="https://news.microsoft.com/signal/articles/ai-theodore-roosevelt-presidential-library/" target="_blank" rel="noopener">Microsoft said it planned to publish a
         paper documenting how the technology works and to open source the software</a>. This paper is
-        the first half of that; <a href="./">the catalog on this site</a> is the second.</p>
+        the first half of that, and <a href="https://github.com/microsoft/TRPL" target="_blank" rel="noopener">the reference
+        implementation</a> &mdash; published two days later &mdash; is the second. Both promises kept,
+        inside ten weeks of opening.</p>
       <p>It is also not the Lab's only run at this problem. Its closest sibling is
         <a href="https://github.com/microsoft/ukuvula" target="_blank" rel="noopener">Ukuvula</a>, built with the Nelson Mandela
         Foundation &mdash; a pipeline making large oral-history archives searchable, generating
@@ -474,6 +540,7 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
           <a href="https://arxiv.org/abs/2609.09368" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Abstract<span>arXiv</span></a>
           <a href="https://arxiv.org/html/2609.09368" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Full text<span>HTML</span></a>
           <a href="https://arxiv.org/pdf/2609.09368" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Download<span>PDF</span></a>
+          <a href="https://github.com/microsoft/TRPL" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> The implementation<span>microsoft/TRPL</span></a>
         </div>
       </section>
       <section>
