@@ -353,6 +353,18 @@ main{padding:36px 0 80px}
 
 /* Media */
 .media,.shot{margin:0 0 36px}
+/* Animation / still figures inside .media that are not 16:9 iframes */
+.media>video,.media>img{width:100%;height:auto;display:block;border-radius:var(--radius);
+  background:var(--dark-gray)}
+
+/* Producer credits */
+.credits{list-style:none;margin:0 0 10px;padding:0}
+.credits li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-family:var(--font-ui);font-size:13.5px;color:var(--ink);
+  border-bottom:1px solid var(--rule);padding:6px 0}
+.credits li span{color:var(--ink-faint);font-size:11px;text-transform:uppercase;
+  letter-spacing:.06em;flex:0 0 auto}
+
 .media .ratio{position:relative;padding-top:56.25%;background:var(--dark-gray);
   border-radius:var(--radius);overflow:hidden}
 .media .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}

@@ -197,7 +197,16 @@
         resource. An institution can stop there, take the entire research benefit, and decide about a
         conversational layer later &mdash; or never.</p>
 
-      
+      <figure class="shot">
+        <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener"><img src="assets/shots/campfire.png" loading="lazy" width="1280" height="800" alt="The Campfire research interface, answering a question with citations to archival documents"></a>
+        <figcaption><strong>Campfire</strong> is layers one to three with nothing bolted on top &mdash; a text interface, free, open to anyone. <a href="https://campfire.trlibrary.com" target="_blank" rel="noopener">Try it yourself <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a></figcaption>
+      </figure>
+
+      <figure class="media">
+        <video src="assets/media/ocr-transcription.mp4" autoplay loop muted playsinline
+          preload="metadata" aria-label="A handwritten Roosevelt letter being transcribed word by word"></video>
+        <figcaption>One document, end to end. A handwritten letter from Roosevelt to his son Kermit is transcribed, then read for what it <em>contains</em> &mdash; resource type, production method, the people named &mdash; and placed in the relationship graph that makes the collection searchable. Handwriting stayed the dominant OCR error source across every model the paper evaluated, which is exactly why Layer 2 hands this output to a curator rather than trusting it. Animation by the Microsoft AI for Good Lab, from the project team's own release materials. Letter: Theodore Roosevelt to Kermit Roosevelt, 4 March 1903.</figcaption>
+      </figure>
 
       <h2>Review that does not become a bottleneck</h2>
       <p>This is the governance decision most worth stealing. Most review workflows are admission
@@ -463,6 +472,7 @@ docker compose --env-file Layer1_Data_foundations/.env.local \
   </ul>
   <p class="rest">&hellip;and 40 more collections, 2,297 records between them &mdash; state historical societies, national parks and monuments, university libraries, and private collections given or loaned for digitization.</p>
 </figure>
+
         <p class="fine"><strong>Read this chart for one thing only: who holds what.</strong> It is a
           snapshot of the Center's collection facet, harvested 19 July 2026 by the Library's own
           <a href="projects/trc-widget">TRC Search Widget</a>, and counts move as cataloguing
@@ -551,11 +561,22 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
         </div>
       </section>
       <section>
-        <h3>Authors</h3>
-        <p class="meta">Pengce Wang, Lucia Ronchi Darre, <strong>Matt Briney</strong>, Michaell
-          Bakalars, Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim, Shawn Wright,
-          and Juan Lavista Ferres &mdash; Microsoft, and the Theodore Roosevelt Presidential
-          Library.</p>
+        <h3>Who built it</h3>
+        <ul class="credits">
+          <li>Juan M. Lavista Ferres<span>Microsoft</span></li>
+          <li>Pengce Wang<span>Microsoft</span></li>
+          <li>Lucia Ronchi Darr&eacute;<span>Microsoft</span></li>
+          <li>Michaell Bakalars<span>Microsoft</span></li>
+          <li>Daniel Rutkowski<span>Microsoft</span></li>
+          <li>Ursula Hardy<span>Microsoft</span></li>
+          <li>David Wolf<span>Microsoft</span></li>
+          <li>Laura Hoffman<span>Microsoft</span></li>
+          <li>Allen Kim<span>Microsoft</span></li>
+          <li>Shawn Wright<span>Microsoft</span></li>
+          <li><strong>Matt Briney</strong><span>TRPL</span></li>
+        </ul>
+        <p class="fine">All eleven authors of the paper. The citation below prints names as the
+          paper typesets them.</p>
       </section>
       <section>
         <h3>Press &amp; background</h3>

@@ -561,6 +561,44 @@ def build_living_library():
 
     # The Campfire screenshot is captured in CI like every other shot. If it has
     # not run yet, the figure is omitted rather than rendering a broken image.
+    # The handwriting-to-text animation. Drop the file into assets/media/ as
+    # ocr-transcription.mp4 (preferred — far smaller than GIF) or .gif, and the
+    # figure appears. Absent, nothing renders. Credit line lives in CREDIT below;
+    # set it to whatever the source requires before publishing.
+    OCR = ""
+    _mdir = ROOT / "assets" / "media"
+    _credit = ("Animation by the Microsoft AI for Good Lab, from the project team's own "
+               "release materials. Letter: Theodore Roosevelt to Kermit Roosevelt, 4 March 1903.")
+    _mp4, _gif = _mdir / "ocr-transcription.mp4", _mdir / "ocr-transcription.gif"
+    _cap = (
+        "One document, end to end. A handwritten letter from Roosevelt to his son Kermit is "
+        "transcribed, then read for what it <em>contains</em> &mdash; resource type, production "
+        "method, the people named &mdash; and placed in the relationship graph that makes the "
+        "collection searchable. Handwriting stayed the dominant OCR error source across every "
+        "model the paper evaluated, which is exactly why Layer 2 hands this output to a curator "
+        "rather than trusting it. "
+    )
+    def _has(f):
+        return f.exists() and f.stat().st_size > 1024   # ignore empty placeholders
+
+    if _has(_mp4):
+        OCR = (
+            '<figure class="media">\n'
+            '        <video src="assets/media/ocr-transcription.mp4" autoplay loop muted playsinline\n'
+            '          preload="metadata" aria-label="A handwritten Roosevelt letter being '
+            'transcribed word by word"></video>\n'
+            f'        <figcaption>{_cap}{_credit}</figcaption>\n'
+            "      </figure>"
+        )
+    elif _has(_gif):
+        OCR = (
+            '<figure class="media">\n'
+            '        <img src="assets/media/ocr-transcription.gif" loading="lazy"\n'
+            '          alt="A handwritten Roosevelt letter being transcribed word by word">\n'
+            f'        <figcaption>{_cap}{_credit}</figcaption>\n'
+            "      </figure>"
+        )
+
     CAMPFIRE = ""
     if (ROOT / "assets" / "shots" / "campfire.png").exists():
         CAMPFIRE = (
@@ -745,6 +783,8 @@ def build_living_library():
         conversational layer later &mdash; or never.</p>
 
       {CAMPFIRE}
+
+      {OCR}
 
       <h2>Review that does not become a bottleneck</h2>
       <p>This is the governance decision most worth stealing. Most review workflows are admission
@@ -993,6 +1033,7 @@ docker compose --env-file Layer1_Data_foundations/.env.local \\
           out by the institution that actually holds the material &mdash; the clearest available
           picture of how distributed a presidential record really is.</p>
 {CHART}
+
         <p class="fine"><strong>Read this chart for one thing only: who holds what.</strong> It is a
           snapshot of the Center's collection facet, harvested {CHART_DATE} by the Library's own
           <a href="projects/trc-widget.html">TRC Search Widget</a>, and counts move as cataloguing
@@ -1081,11 +1122,22 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
         </div>
       </section>
       <section>
-        <h3>Authors</h3>
-        <p class="meta">Pengce Wang, Lucia Ronchi Darre, <strong>Matt Briney</strong>, Michaell
-          Bakalars, Dan Rutkowski, Ursula Hardy, David Wolf, Laura Hoffman, Allen Kim, Shawn Wright,
-          and Juan Lavista Ferres &mdash; Microsoft, and the Theodore Roosevelt Presidential
-          Library.</p>
+        <h3>Who built it</h3>
+        <ul class="credits">
+          <li>Juan M. Lavista Ferres<span>Microsoft</span></li>
+          <li>Pengce Wang<span>Microsoft</span></li>
+          <li>Lucia Ronchi Darr&eacute;<span>Microsoft</span></li>
+          <li>Michaell Bakalars<span>Microsoft</span></li>
+          <li>Daniel Rutkowski<span>Microsoft</span></li>
+          <li>Ursula Hardy<span>Microsoft</span></li>
+          <li>David Wolf<span>Microsoft</span></li>
+          <li>Laura Hoffman<span>Microsoft</span></li>
+          <li>Allen Kim<span>Microsoft</span></li>
+          <li>Shawn Wright<span>Microsoft</span></li>
+          <li><strong>Matt Briney</strong><span>TRPL</span></li>
+        </ul>
+        <p class="fine">All eleven authors of the paper. The citation below prints names as the
+          paper typesets them.</p>
       </section>
       <section>
         <h3>Press &amp; background</h3>
