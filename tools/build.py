@@ -568,7 +568,7 @@ def build_living_library():
     OCR = ""
     _mdir = ROOT / "assets" / "media"
     _credit = ("Animation by the Microsoft AI for Good Lab, from the project team's own "
-               "release materials. Letter: Theodore Roosevelt to Kermit Roosevelt, 4 March 1903.")
+               "release materials. Letter: Theodore Roosevelt to Kermit Roosevelt, 9 March 1903.")
     _mp4, _gif = _mdir / "ocr-transcription.mp4", _mdir / "ocr-transcription.gif"
     _cap = (
         "One document, end to end. A handwritten letter from Roosevelt to his son Kermit is "
