@@ -501,6 +501,8 @@ MS_AIFG_OSS = "https://microsoft.github.io/aiforgoodlab/"
 GEEKWIRE = ("https://www.geekwire.com/2026/archives-to-avatars-microsoft-ai-powers-"
             "the-interactive-president-at-new-theodore-roosevelt-library/")
 UKUVULA = "https://github.com/microsoft/ukuvula"
+TERENTIA = "https://terentia.io"
+TERENTIA_CASE = "https://terentia.io/case-studies/theodore-roosevelt-presidential-library"
 MS_CODE = "https://github.com/microsoft/TRPL"
 TRC_URL = "https://www.theodorerooseveltcenter.org/"
 TRC_LIBRARY = "https://www.theodorerooseveltcenter.org/digital-library/"
@@ -746,7 +748,10 @@ def build_living_library():
             <h3>Digitization and corpus creation</h3>
             <p>Material moves into institution-controlled preservation storage with source
               identifiers and rights status preserved, so later stages never depend on a fragile
-              upstream path.</p>
+              upstream path. At TRPL, <a href="{TERENTIA}" target="_blank" rel="noopener">Terentia</a>
+              provides the collections and digital asset management foundation for this governed
+              corpus, bringing together distributed historical materials and supporting the access
+              controls and metadata structures used by downstream research and AI experiences.</p>
           </div>
         </li>
         <li>
@@ -904,6 +909,12 @@ def build_living_library():
         <a href="{MS_CODE}" target="_blank" rel="noopener">github.com/microsoft/TRPL</a>. It is not a
         sanitized demo written for the occasion &mdash; it is the architecture described above, laid
         out as four directories that correspond to the four layers.</p>
+
+      <p><strong>Production deployment.</strong> The open-source repository is a reference
+        implementation of the Living Library architecture. In TRPL&rsquo;s production environment,
+        the governed collections corpus is managed in Terentia, which provides the underlying
+        collections and digital asset management layer used to organize, control, and make
+        collection content available to downstream applications.</p>
 
       <table class="data wide">
         <caption>What is in the repository</caption>
@@ -1146,6 +1157,7 @@ Roosevelt Presidential Library." arXiv:2609.09368, September 2026.</div>
           <a href="{GEEKWIRE}" target="_blank" rel="noopener">{ICON_EXT} Archives to avatars<span>GeekWire</span></a>
           <a href="{MS_AIFG}" target="_blank" rel="noopener">{ICON_EXT} AI for Good Lab<span>The lab</span></a>
           <a href="{UKUVULA}" target="_blank" rel="noopener">{ICON_EXT} Ukuvula<span>Sibling project</span></a>
+          <a href="{TERENTIA_CASE}" target="_blank" rel="noopener">{ICON_EXT} Becoming an AI-powered presidential library<span>Terentia</span></a>
         </div>
       </section>
     </aside>
