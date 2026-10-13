@@ -2,7 +2,7 @@
   "meta": {
     "org": "Theodore-Roosevelt-Presidential-Library",
     "orgUrl": "https://github.com/Theodore-Roosevelt-Presidential-Library",
-    "updated": "2026-09-08"
+    "updated": "2026-10-13"
   },
   "projects": [
     {
@@ -654,6 +654,616 @@
         "Replace the branded art — the seal and wordmark in <code>assets/</code>, and the flattened PNGs in <code>assets/email/</code>. The emailed stamp is a flat PNG and ignores builder color changes.",
         "Recolor with <code>envelope-color</code>, <code>liner-color</code>, <code>accent-color</code>, and <code>background-color</code>. Keep the liner perceptually distinct from both the background and the envelope paper.",
         "Edit the email template, paste the builder's output into your platform's custom-code editor, and send yourself a test to confirm the personalization survives click-tracking rewrites."
+      ]
+    },
+    {
+      "slug": "trnp-trip-planner",
+      "repo": "TRNPTripPlanner",
+      "name": "Got Two Hours?",
+      "category": "Visitor Experience",
+      "tagline": "Tell it how much time you have, and it builds a route through the national park.",
+      "description": [
+        "A visitor picks how much time they have and where they are starting — the Library, either unit of Theodore Roosevelt National Park, or the interstate — and the planner builds a route. By default it starts with the full Library visit, checks live timed-entry availability for the first open slot, then fills the remaining park time with stops drawn from the National Park Service's own \"things to do\" and places data.",
+        "The route engine scores each stop against the time it adds, swaps in better stops when they fit, and orders them by the shortest drive. It respects visitor center hours, sunset, and any NPS alert that closes a stop, and it never shortens the Library visit to make a plan look complete. The finished plan lives in the page address, so a staff member can send a guest a link to the exact day."
+      ],
+      "capabilities": [
+        "Plans from 90 minutes to a full day, from four starting points",
+        "Live timed-entry check against the ticketing feed, with next-day fallbacks",
+        "Honors visitor center hours, sunset, and NPS closure alerts automatically",
+        "Drive times from OSRM over OpenStreetMap roads, with a cushion",
+        "\"Roosevelt day\" alternative that adds the Elkhorn Ranch on long plans",
+        "Shareable plan links, with UTM-tagged ticket links for GA4",
+        "Renders straight into the host page, no iframe, with scoped <code>tp-</code> styles"
+      ],
+      "stack": ["Vanilla JS", "Leaflet", "NPS Data API", "OSRM", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://trnp-planner.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and get a free NPS API key. Add it as the Actions secret <code>NPS_API_KEY</code> — the shared <code>DEMO_KEY</code> is rate-limited and will miss runs.",
+        "Edit <code>data/stops.json</code> for your park: NPS ids, minutes at each stop, a 1–10 score, and your own institution's visit length under <code>library.visitMinutes</code>.",
+        "Run <code>node scripts/build-matrix.mjs</code> and <code>node scripts/build-nps.mjs</code> to rebuild the drive-time matrix and park data.",
+        "Point the availability URL at your own ticketing feed, or turn the \"start with\" visit off with <code>lib=0</code>.",
+        "Copy <code>docs/refresh-nps.yml</code> into <code>.github/workflows/</code>, give workflows read and write permission, and enable Pages from <code>main</code> with your own <code>CNAME</code>."
+      ]
+    },
+    {
+      "slug": "wildlife-watch",
+      "repo": "WildlifeWatch",
+      "name": "Wildlife Watch",
+      "category": "Visitor Experience",
+      "tagline": "A field guide to the park's bison, wild horses, and twenty other animals, with recent sightings.",
+      "description": [
+        "A guide to watching wildlife in Theodore Roosevelt National Park: a field guide to 22 animals, a full section on the park's wild horses, a map of where to look, an outing planner with sunrise and dawn windows for any date, and a roll-up of recent public sightings from iNaturalist.",
+        "The sightings are handled with care for the animals. No exact locations are published: reports are rolled up to named areas or one-kilometer squares, the newest two days are held back, and obscured records are skipped. Month-by-month charts are adjusted for how many people report anything at all, so summer crowds do not make every animal look like a summer animal."
+      ],
+      "capabilities": [
+        "Field guide to 22 species with seasons, where to look, and charts of when each is reported",
+        "Wild horses section: history timeline, how bands work, and a coat-color guide",
+        "Map of viewing spots, sighting squares, and USGS bison range from GPS collars",
+        "Outing planner with sunrise, sunset, and a downloadable dawn-drive calendar file",
+        "Daily iNaturalist refresh with location privacy guardrails built into the build script",
+        "Printable family checklist and the NPS 25-yard rule",
+        "Seven embeddable views, each a self-sizing widget"
+      ],
+      "stack": ["Vanilla JS", "Leaflet", "iNaturalist API", "USGS National Map", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://wildlife.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and edit <code>data/species.json</code>, <code>data/spots.json</code>, and <code>data/zones.json</code> for your own place and animals.",
+        "Replace or remove the horse section in <code>data/horses.json</code>, and swap photos in <code>assets/photos/</code> with their credits in <code>credits.json</code>.",
+        "Point <code>scripts/build-inat.mjs</code> at your own iNaturalist place id. Keep the location roll-up and the two-day delay — they protect the animals.",
+        "Copy <code>docs/refresh-data.yml</code> into <code>.github/workflows/</code> and give workflows read and write permission. No API keys are needed.",
+        "Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and replace the trlibrary.com fonts with ones you have rights to."
+      ]
+    },
+    {
+      "slug": "elkhorn-guide",
+      "repo": "ElkhornGuide",
+      "name": "Elkhorn Ranch Walking Guide",
+      "category": "Visitor Experience",
+      "tagline": "A GPS and compass guide to Roosevelt's ranch site that keeps working with no signal.",
+      "description": [
+        "A mobile walking guide to the Elkhorn Ranch site in Theodore Roosevelt National Park. A live map and compass lead visitors to each of the eight National Park Service tour stops along the path, and arriving at a stop opens its story in the words of Roosevelt and his ranch partner Bill Sewall.",
+        "There is no cell service at the ranch, so the guide is built to be saved before the drive: the app, photos, an aerial image, and topo tiles for both the trail and the road in. It explains the location and compass prompts before the phone asks, walks visitors through fixing blocked permissions on every common browser, and notices when a phone is only sharing approximate location."
+      ],
+      "capabilities": [
+        "GPS arrival detection that scales with fix accuracy, with vibration on arrival",
+        "Compass on Android and iPhone, with a GPS-course fallback while walking",
+        "Full offline mode through a service worker: about 3 MB plus topo tiles",
+        "Plain-language permission screen before any browser prompt, plus per-browser recovery steps",
+        "Detects approximate-location mode and stops auto-opening stories",
+        "Points to the trailhead and offers directions when the visitor is still far away",
+        "Staff preview mode with <code>?sim=1</code> to walk the route from anywhere"
+      ],
+      "stack": ["Vanilla JS PWA", "Leaflet", "Service worker", "Geolocation and DeviceOrientation", "USGS imagery", "GitHub Pages"],
+      "demo": "https://elkhornguide.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "Location and compass need a phone on site. Add ?sim=1 to the address to tap the map and move your position from anywhere.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and replace every word of copy in <code>data/stops.json</code>: the approach note, the stops, quotations, and credits. Keep a source list like <code>docs/fact-check.md</code>.",
+        "Replace the stop coordinates and route line, and the aerial image in <code>map/</code>. NAIP imagery from USGS is public domain for any U.S. site.",
+        "Adjust the arrival radius and the far-away distance in <code>app.js</code> for your trail.",
+        "Update the offline tile ranges and the cache list in <code>sw.js</code>, then bump the cache version.",
+        "Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and replace the icons and <code>manifest.webmanifest</code> with your own."
+      ]
+    },
+    {
+      "slug": "camping",
+      "repo": "Camping",
+      "name": "Camping on Public Land",
+      "category": "Visitor Experience",
+      "tagline": "Answers \"can I camp here?\" from a phone's location across a patchwork of public and private land.",
+      "description": [
+        "The land around Medora is a patchwork of national grassland, national park, state trust land, wildlife areas, and private ranches, often with no fence between them and different rules on each. This tool answers one question from a phone's location — who manages this ground, can I camp here, and can I have a fire today — without the location ever leaving the device.",
+        "Around that button sit a map of public land by manager, today's fire restrictions and fire danger, rain on clay roads, permit and reservation links, and an offline map that can be saved before heading out. Land records rebuild weekly and conditions every six hours. When in doubt it says \"check first,\" never \"allowed.\""
+      ],
+      "capabilities": [
+        "One-tap land check: manager, camping rules, and today's campfire status",
+        "Warnings near boundaries and when the GPS fix is poor",
+        "Quarter-mile no-camping zones around developed Forest Service sites",
+        "Campfire logic from county and agency declarations, fire danger, and Red Flag Warnings",
+        "Live check of electronically posted private land, requesting only the posted flag",
+        "Offline map that saves about five miles of topo around the map center",
+        "Opens a GitHub issue when the posted Forest Service orders change"
+      ],
+      "stack": ["Python standard library", "Vanilla JS", "Leaflet", "PAD-US and agency GIS", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://camping.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "Not legal advice. Land records are approximate; posted signs and the managing agency always have the final word.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and set your bounding box and extra areas in <code>collector/lands.py</code>. PAD-US covers every state; swap the North Dakota trust-land and Game and Fish layers for your state's equivalents.",
+        "Rewrite the rules in <code>CLASSES</code> at the top of <code>docs/camping.js</code> for your land managers, with a source for each.",
+        "Point <code>collector/conditions.py</code> at your state's fire danger and burn-restriction services and your forest's alerts page.",
+        "Never request owner or lessee fields from parcel services. The collectors here deliberately ask only for tract, access, and posted status.",
+        "Enable Pages from <code>main</code>, folder <code>/docs</code>, set your <code>CNAME</code>, enforce HTTPS (location needs it), and give workflows read and write permission."
+      ]
+    },
+    {
+      "slug": "hunt-fish",
+      "repo": "HuntFish",
+      "name": "Hunting and Fishing Guide",
+      "category": "Visitor Experience",
+      "tagline": "Can I hunt here, what's open today, and where to fish — from a phone, offline.",
+      "description": [
+        "A companion to the camping tool for hunters and anglers around Medora. One button reads the phone's location and says who manages the ground, whether it is open to hunting, which hunting units it falls in, and legal shooting hours for that exact spot that day. On private land it asks the state whether the parcel is electronically posted.",
+        "Season dates are read from the state's proclamations every day, so next year's dates appear on their own; when a date changes or a season cannot be found, the workflow opens a GitHub issue. The regulation pages behind the written land rules are fingerprinted twice a week for the same reason. About 30 fishing waters are listed with species, ramps, recent stocking, and invasive-species notes."
+      ],
+      "capabilities": [
+        "Land check with hunting units for deer, elk, pronghorn, bighorn, turkey, and lion",
+        "Shooting hours by spot and date using the NOAA solar method, with time-zone boundaries",
+        "Daily season-date parsing from state proclamations, with issues opened on change",
+        "Where-to-fish list filterable by species, with ramps, piers, and stocking history",
+        "Map with public land, walk-in tracts, no-shooting rings, posted land, and unit lines",
+        "Licenses, vendors, hunter education, and carcass rules in one view",
+        "Offline map that keeps land records, units, and shooting hours working with no signal"
+      ],
+      "stack": ["Python standard library", "Vanilla JS", "Leaflet", "State and federal GIS", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://huntfish.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "Not legal advice. The current state proclamations and the land manager always have the final word.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and replace the North Dakota Game and Fish services in <code>collector/build.py</code> with your state's PLOTS, units, and fishing-waters layers.",
+        "Rewrite <code>build()</code> in <code>collector/seasons.py</code> for your state's proclamation pages, and the land rules in <code>CLASSES</code> in <code>docs/huntfish.js</code>.",
+        "List your regulation pages in <code>collector/check_sources.py</code> so changes open an issue for a person to review.",
+        "Request only the posted flag from any posted-land service. Owner names and contacts should never be read.",
+        "Enable Pages from <code>main</code>, folder <code>/docs</code>, set your <code>CNAME</code>, enforce HTTPS, and give workflows read and write permission."
+      ]
+    },
+    {
+      "slug": "lodging",
+      "repo": "Lodging",
+      "name": "Lodging Finder",
+      "category": "Visitor Experience",
+      "tagline": "Shows which hotels, cabins, rentals, and campgrounds near a small town are open for a visitor's dates.",
+      "description": [
+        "Medora has a short list of places to stay, and they fill. This widget gives every hotel, cabin, vacation rental, and campground nearby its own card — photo, a one-line description, and one button — grouped by whether it is open for the visitor's dates, needs a direct check, or is full. Tabs split Medora, vacation rentals, nearby towns, and Dickinson.",
+        "A daily collector checks each source on a rotation that spends lookups where they matter: the next few weeks daily, the rest of the year weekly. Rates are discarded and never shown. Staff get a monitor page with every tracked night against every property, and a log of nights opening up and selling out."
+      ],
+      "capabilities": [
+        "Open, check-directly, or full status for every night of a stay",
+        "Dated booking links, so the button opens the right site on the right dates",
+        "Pluggable sources: hotel search, campground reservations, state parks, Airbnb, Vrbo",
+        "Staggered re-check schedule with a lighter pace setting",
+        "Shareable views with <code>?checkin=</code>, <code>nights</code>, <code>tab</code>, and <code>place</code>",
+        "Staff monitor grid plus a CSV log of availability changes",
+        "Shadow-DOM widget that measures the host page's fixed header"
+      ],
+      "stack": ["Python", "Vanilla JS widget", "Shadow DOM", "SearchApi and Apify", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://lodging.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and replace <code>data/properties.json</code> with your own properties. <code>\"public\": false</code> hides one.",
+        "Choose sources with <code>LODGING_SOURCES</code> and add only the keys they need. Check each booking site's terms and robots rules before turning on a direct source.",
+        "Run <code>python collector/collect.py --check</code> to confirm each source, then <code>--limit 3</code> for a short real run.",
+        "Run <code>python collector/photos.py</code> to find a photo address for each property. No images are copied into the repo.",
+        "Enable Pages from <code>main</code>, folder <code>/docs</code>, set your <code>CNAME</code>, and give workflows read and write permission."
+      ]
+    },
+    {
+      "slug": "badlands-today",
+      "repo": "BadlandsToday",
+      "name": "Today in the Badlands",
+      "category": "Embeddable Widget",
+      "tagline": "One strip with today's park alerts, weather, river, air quality, and things to do.",
+      "description": [
+        "An embeddable strip with what a visitor needs to know this morning: park closures and road events, National Weather Service alerts, current weather, the Little Missouri River against its normal range, modeled air quality with smoke flagged, sunset and moon phase, and the park's activities filtered by how much time the visitor has.",
+        "An hourly build pulls every source into one snapshot and keeps the last good value, flagged, when a source fails. In the browser, weather, alerts, river, and air are then refreshed live every fifteen minutes. Activities with no official duration are grouped under \"at your own pace\" rather than given made-up times."
+      ],
+      "capabilities": [
+        "NPS alerts and road events plus NWS watches and warnings, with a clear \"no closures\" state",
+        "River flow compared with 69 years of daily percentiles for the date",
+        "Air quality labeled as a modeled estimate, with a link to official readings",
+        "Things to do filtered by time available and by park unit",
+        "Optional crowd outlook from five years of NPS monthly visitation",
+        "Self-sizing iframe with light and dark themes and per-visitor remembered choices",
+        "Last-good fallback for every source, flagged in the status block"
+      ],
+      "stack": ["Node.js", "Vanilla JS", "NPS Data API", "NWS and USGS APIs", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://badlandstoday.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and get a free NPS API key. Add it as the Actions secret <code>NPS_API_KEY</code>.",
+        "In <code>scripts/build.mjs</code>, set your park code, NWS zones and forecast grid, USGS gauge, and coordinates.",
+        "Rebuild <code>data/river-stats.json</code> for your gauge, or turn the river panel off with <code>data-show</code>.",
+        "Copy <code>docs/deploy.yml</code> into <code>.github/workflows/</code>, give workflows read and write permission, and set Pages to deploy from GitHub Actions.",
+        "Run the workflow once by hand, then add <code>&lt;div data-badlands-today=\"strip\"&gt;</code> and the script tag to your site."
+      ]
+    },
+    {
+      "slug": "aurora-watch",
+      "repo": "AuroraWatch",
+      "name": "Northern Lights Watch",
+      "category": "Embeddable Widget",
+      "tagline": "Tonight's aurora outlook, a year-ahead trip planner, and what records since 1932 say about when to come.",
+      "description": [
+        "An embeddable northern lights outlook for one place. For tonight and the next two nights it combines NOAA's space-weather forecast with cloud cover and moonlight after dark and gives a plain rating, from \"unlikely\" to \"strong.\" When it is dark and activity is up, it reads NOAA's 30-minute aurora model for the sky to the north and says so.",
+        "The trip planner scores every night of the coming year from what the record says: seasonal odds since 1940 of aurora-strength activity under a mostly clear sky, where the solar cycle stands, moonlight, and NOAA's 45-day outlook where it reaches. It lists the five best three-night stretches and links straight to lodging on those dates."
+      ],
+      "capabilities": [
+        "Three-night outlook from NOAA Kp forecast, cloud cover, darkness, and moon",
+        "\"Active now\" note from NOAA's OVATION model when warranted",
+        "Year-ahead planner ranking every night, with the five best three-night windows",
+        "Nightly record since 1932 built from GFZ Kp and ERA5 cloud cover",
+        "Compact, planner-only, and full views for different pages",
+        "Lodging links that pass check-in date and nights to a lodging finder",
+        "Single-file, dependency-free, shadow-DOM widget"
+      ],
+      "stack": ["Vanilla JS widget", "Python standard library", "NOAA SWPC", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://aurora.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and set your latitude, longitude, and time zone in <code>collector/history.py</code> and <code>docs/aurora.js</code>.",
+        "Adjust the Kp rating table for your magnetic latitude. Farther south needs higher Kp for the same rating.",
+        "Run <code>python collector/history.py</code> once for the full rebuild (about a minute), then let the weekly workflow run <code>--recent</code>.",
+        "Point <code>data-cta</code> at your own lodging page, or turn it off.",
+        "Enable Pages from <code>main</code>, folder <code>/docs</code>, edit <code>docs/CNAME</code>, and give workflows read and write permission."
+      ]
+    },
+    {
+      "slug": "giving-tools",
+      "repo": "PlannedGiving",
+      "name": "Giving Tools",
+      "category": "Embeddable Widget",
+      "tagline": "Sixteen planned-giving calculators and guides, each one script tag, with nothing a donor types leaving the page.",
+      "description": [
+        "A set of self-contained embeds for planned and tax-smart giving: a six-question Giving Navigator that ranks options with reasons, an IRA charitable rollover calculator, a stock gift comparison, a bunching comparison, a state-by-state chart, bequest and beneficiary guides, an estate tax estimator, life-income illustrations, and more. Each tool ends with questions for the donor's own advisor.",
+        "Every figure lives in one tax-data file stamped with its tax year and review date, which every tool prints in its footer. A GitHub Action opens a review issue each November and January. Donors can download an advisor summary or pre-filled paperwork as a PDF, built entirely in the browser — no donor data is ever sent anywhere."
+      ],
+      "capabilities": [
+        "Sixteen tools, each a single <code>&lt;script&gt;</code> tag, plus an all-in-one bundle",
+        "Advisor-summary PDFs, custodian and broker letters, and pre-filled tax forms built client-side with pdf-lib",
+        "Shareable scenario links with inputs encoded in the URL",
+        "North Dakota's 40% endowment credit calculator, switchable off for other states",
+        "One file for every tax figure, with scheduled review issues",
+        "Staff tool for IRS-compliant gift acknowledgment letters",
+        "Keyboard-navigable, 44px targets, works at phone width"
+      ],
+      "stack": ["Vanilla JS", "Node build script", "pdf-lib", "Playwright tests", "GitHub Pages"],
+      "demo": "https://givingtools.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "Educational only, not tax or legal advice.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and edit <code>src/config.js</code>: legal name, EIN, address, contacts, URLs, palette, and <code>shortName</code>. Set <code>features.ndCredit: false</code> outside North Dakota.",
+        "Replace the licensed webfonts in <code>fonts/</code>. They are not covered by the MIT license.",
+        "Review every figure in <code>src/tax-data.js</code> against current IRS guidance, following <code>docs/TAX-REVIEW.md</code>.",
+        "Run <code>node build.js &amp;&amp; node gen-pages.js</code>, then <code>node test/run.js</code> to check the math.",
+        "Commit <code>dist/</code>, enable Pages from <code>main</code> at the root, and follow <code>docs/FORKING.md</code> for the rest."
+      ]
+    },
+    {
+      "slug": "lbc-systems",
+      "repo": "LBCSystems",
+      "name": "How the Library Works",
+      "category": "Interactive Media",
+      "tagline": "A 3D cutaway of the building's geothermal, water, and carbon systems, traced from the construction drawings.",
+      "description": [
+        "An interactive 3D model of the Library's energy, water, and carbon systems, built to explain its pursuit of Living Building Challenge certification. The site is modeled as a cutaway block of the butte, and each stop opens the ground or the building: all 216 geothermal boreholes, the mechanical room, the wastewater treatment train and leach field, the prairie roof assembly, and the solar canopies.",
+        "The geometry is not illustrative guesswork. Borehole positions, pipe routes, tanks, and equipment were vector-extracted from the conformed drawing set and registered to the campus model by matching building outlines, and terrain comes from USGS elevation data. Where a position is approximate or a part is drawn larger so it reads at site scale, the page says so."
+      ],
+      "capabilities": [
+        "Energy, water, and carbon layers with guided stops and animated flows",
+        "Cutaways into the bore field, mechanical room, process tanks, and leach field",
+        "Exploded samples of the roof assembly and radiant slab",
+        "Geometry registered from construction drawings and USGS 3DEP terrain",
+        "Deep links to any layer or stop, such as <code>/#energy/2</code>",
+        "Embed codes with layer, stop, lock, and panel options",
+        "All visitor copy and figures in one file, <code>assets/content.js</code>"
+      ],
+      "stack": ["three.js r160", "glTF with meshopt", "Vanilla JS", "Python tooling", "GitHub Pages"],
+      "demo": "https://lbcsystems.labs.trlibrary.com/",
+      "demoAlt": {
+        "label": "Embed codes",
+        "url": "https://lbcsystems.labs.trlibrary.com/embed.html"
+      },
+      "embeddable": true,
+      "demoNote": "Some tank and route positions are approximate, and equipment is drawn larger than built so it reads at site scale. Certification language follows precertification status.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. The site needs no build step; three.js is vendored and loaded with an import map.",
+        "Replace <code>assets/models/campus.glb</code> with your own building model, in feet, and the terrain and roof height fields in <code>assets/data/</code>.",
+        "Rebuild <code>systems.json</code> for your building with the scripts in <code>tools/</code>, which register drawing sheets to the model by outline.",
+        "Rewrite every word and figure in <code>assets/content.js</code> from your own audit and certification documents.",
+        "Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and replace the trlibrary.com fonts."
+      ]
+    },
+    {
+      "slug": "geology",
+      "repo": "Geology",
+      "name": "Read the Rocks",
+      "category": "Interactive Media",
+      "tagline": "Tap anywhere in the park to learn which rock layer you're standing on and how it formed.",
+      "description": [
+        "A geology explorer for Theodore Roosevelt National Park. Tap anywhere on the colored geologic map, or follow your own location, and a card names the rock layer, its age, a plain-language story, and what to look for. Outside the park map it falls back to the U.S. state bedrock map, so it answers anywhere in the country.",
+        "A drive-along mode reads short notes aloud as the car reaches each stop on the scenic drives, and can announce when the road crosses into a new layer. There is also a clickable layer-cake column, fifteen pullouts and trails with what to look for, the state's statewide landslide inventory as an optional layer, and a nine-chapter story of how the Badlands formed."
+      ],
+      "capabilities": [
+        "Park geologic map from the NPS Geologic Resources Inventory, packed as TopoJSON",
+        "Nationwide fallback and elevation from the Macrostrat API",
+        "Drive-along notes read aloud by location, with screen wake lock",
+        "Clickable stratigraphic column and fifteen where-to-see-it stops",
+        "Optional statewide landslide layer with point-in-landslide checks",
+        "Share links to any point, stop, or layer",
+        "Self-sizing embeds for map, layers, stops, story, or all"
+      ],
+      "stack": ["Vanilla JS", "Leaflet", "TopoJSON", "Macrostrat API", "Python and GeoPandas", "GitHub Pages"],
+      "demo": "https://geology.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and download your park's digital geologic map from the NPS Geologic Resources Inventory, or a state survey's.",
+        "Run <code>scripts/build_geology.py</code> to simplify, reproject, and pack it as TopoJSON.",
+        "Rewrite the layer stories, colors, and quotations in <code>data/units.json</code>, the stops in <code>data/stops.json</code>, and the drive notes in <code>data/drive.json</code>.",
+        "Replace or remove the landslide layer, which points at a North Dakota service, and rewrite <code>STORY</code> in <code>assets/app.js</code>.",
+        "Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and replace the photos and trlibrary.com fonts."
+      ]
+    },
+    {
+      "slug": "little-missouri",
+      "repo": "LittleMo",
+      "name": "The Little Missouri",
+      "category": "Interactive Media",
+      "tagline": "Today's river at Medora beside the river Roosevelt knew, with a century of gauge records.",
+      "description": [
+        "A river page in two halves. Today's River shows live flow and gauge height at Medora against every year on record for the date, paddling status from the park's own thresholds, flood stages, weather, alerts, and a 30-day chart against the normal range. Then &amp; Now sets Roosevelt's own words about the river beside what the gauges have measured since, in eight chapters from 1805 to today.",
+        "The Maps section swipes or fades between historic layers — General Land Office survey plats, 1939 and 1957 aerials, 1970s topo — and today's imagery. The Record shows exactly which years exist at each gauge, every yearly peak, and lets a visitor lay any past year over this one. The page is honest that Roosevelt's own years have no measurements."
+      ],
+      "capabilities": [
+        "Live USGS flow with a fallback to the newer Water Data API",
+        "Calendar-day percentiles computed from the full daily record, rebuilt weekly",
+        "Then &amp; Now chapters whose \"now\" numbers update themselves from the record",
+        "Swipe and fade comparisons with plats, historic aerials, and old topo",
+        "Paddling status from NPS thresholds and NWS flood stages",
+        "Overlay any past year on this one, plus records and yearly peaks",
+        "Self-sizing embeds, including a compact live card for a sidebar"
+      ],
+      "stack": ["Vanilla JS", "Leaflet", "USGS Water Services", "NWS NWPS", "Python", "GitHub Pages"],
+      "demo": "https://littlemo.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and set your USGS gauge ids in <code>scripts/build_history.py</code> and <code>assets/app.js</code>, then run it to build the history files.",
+        "Replace the chapters in <code>data/story.json</code>. Keep quotations verbatim and cited.",
+        "Render your own historic overlays to <code>assets/overlays/</code> and update <code>MAPSITES</code> with bounds and credits.",
+        "Set your paddling thresholds and NWS flood-stage gauges.",
+        "Move <code>scripts/refresh-history.yml</code> into <code>.github/workflows/</code>, give workflows read and write permission, and enable Pages with your own <code>CNAME</code>."
+      ]
+    },
+    {
+      "slug": "bad-lands-cow-boy",
+      "repo": "BadlandsCowboy",
+      "name": "The Bad Lands Cow Boy",
+      "category": "Interactive Media",
+      "tagline": "Every surviving issue of Medora's 1880s newspaper, transcribed and indexed day by day.",
+      "description": [
+        "<em>The Bad Lands Cow Boy</em> was Medora's newspaper from 1884 to 1886, the years Roosevelt ranched here. This site puts every surviving issue online, transcribed and indexed: what the paper reported for any calendar week, a timeline of more than 4,000 dated events, every item that names Roosevelt, full-text search of about half a million words, and a gallery of nearly 200 period ads and cattle brands.",
+        "Transcriptions sit beside the zoomable Library of Congress page scan, and clicking an item zooms the scan to it. A people index matches more than 1,800 names across the paper's spellings, with short bios written only from the paper's own items and fact-checked against the full text. Items from missing issues are recovered where other papers reprinted them."
+      ],
+      "capabilities": [
+        "\"This Week in Medora\" for any calendar week, embeddable and defaulting to today",
+        "Timeline of dated events, filterable by month, topic, and person",
+        "Transcription beside the page scan, with one-click zoom to each item",
+        "Full-text search across the whole run",
+        "Ad and brand gallery, each cropped from the scan where it first ran",
+        "People index with fact-checked bios and highlighted mentions",
+        "Events published as CSV and JSON"
+      ],
+      "stack": ["Static HTML and JS", "Python build scripts", "Library of Congress Chronicling America", "IIIF tiles", "GitHub Pages"],
+      "demo": "https://badlandscowboy.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "Transcriptions were made with AI from the page images. Check any quotation against the scan before publishing; every item links to it.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and find your paper's LCCN on Chronicling America.",
+        "Run <code>scripts/fetch_batch.py</code> and <code>scripts/prep_blocks.py</code> to pull page OCR and block coordinates.",
+        "Transcribe each issue into <code>source/transcriptions/&lt;date&gt;.json</code> following the rules in <code>scripts/TRANSCRIBE_BRIEF.md</code>.",
+        "Run <code>python3 scripts/build_site_data.py</code> to compile the site data.",
+        "Enable Pages from <code>main</code> at the root and edit <code>CNAME</code>."
+      ]
+    },
+    {
+      "slug": "homestead",
+      "repo": "Homestead",
+      "name": "Who Owned the Badlands?",
+      "category": "Interactive Media",
+      "tagline": "Watch land around Medora pass into private hands, patent by patent, from 1889 to 1957.",
+      "description": [
+        "A map of federal land patents in twelve townships around Medora, built from the General Land Office records. A year slider starting in 1883, the year Roosevelt first came to the Badlands, adds each parcel as its patent is granted, so a visitor can watch the homesteading boom and the federal buy-backs of the 1930s play out across the landscape.",
+        "Tapping a spot, or using the \"What land am I on?\" button, shows every patent for that ground with a link to the original record, today's land status, and the Native history of the area. A search answers \"Did your family homestead near Medora?\" and a set of story cards follows parcels that were patented twice."
+      ],
+      "capabilities": [
+        "Year slider with playback from 1883 to 1960",
+        "Patent cards linking to BLM GLO Records, with today's land status",
+        "\"What land am I on?\" lookup that runs entirely in the browser",
+        "Patentee name search across the whole index",
+        "Patents-per-year chart with an accessible data table",
+        "Embeds render straight into the page, no iframe, with scoped styles",
+        "Downloadable GeoJSON and CSV of parcels and patents"
+      ],
+      "stack": ["Vanilla JS", "Leaflet", "Python and Shapely", "BLM GLO Records", "GitHub Pages"],
+      "demo": "https://homestead.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and pull GLO land-patent records for your townships from the BLM.",
+        "Geocode parcels to the public land survey grid with the scripts in <code>src/</code>.",
+        "Run <code>src/fetch_land_status.py</code> for today's land status, then <code>python3 src/build_site_data.py</code>.",
+        "Rewrite <code>site/data/context.json</code>, including the Native history, with a source for every statement.",
+        "Serve the <code>site/</code> folder through a GitHub Actions Pages workflow and edit its <code>CNAME</code>."
+      ]
+    },
+    {
+      "slug": "day-by-day",
+      "repo": "DaybyDay",
+      "name": "Day by Day",
+      "category": "Data & Automation",
+      "tagline": "All 21,986 days of Roosevelt's life as an open dataset, a JSON API, and an explorer.",
+      "description": [
+        "Every day of Theodore Roosevelt's life, from his birth in 1858 to his death in 1919, as a structured dataset. Each day carries a headline and summary, where he was, the people and places involved, letters to and from him, related archive items, and life-period tags. There are more than 4,700 people and 2,800 places in linked registries, and more than 127,000 Theodore Roosevelt Center digital library items attached to the days they belong to.",
+        "The facts come from a published chronology that is under copyright, so none of its text is reproduced: every summary was written fresh, and an automated check rejects any six-word run copied from the source. Each day cites the source's volume and page. Roosevelt's own words are included but flagged unverified until checked against the original."
+      ],
+      "capabilities": [
+        "Static JSON API, rebuilt by GitHub Actions on every push",
+        "Explorer site and embeddable widgets",
+        "Linked people and places registries, most places with coordinates",
+        "7,358 letters with correspondent and topic, many linked to the letter itself",
+        "Thirty editorial life periods across four facets",
+        "Copy-check that rejects six-word runs from the copyrighted source",
+        "Data under CC BY 4.0 in JSONL and CSV"
+      ],
+      "stack": ["Python standard library", "Static JSON API", "Vanilla JS", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://daybyday.labs.trlibrary.com/",
+      "demoAlt": {
+        "label": "API index",
+        "url": "https://daybyday.labs.trlibrary.com/api/v1/index.json"
+      },
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Use the API directly: start at <code>/api/v1/index.json</code>. The data is CC BY 4.0; credit the Library.",
+        "To build your own figure's chronology, fork the repo and follow <code>docs/methods.md</code> and <code>docs/schema.md</code>.",
+        "Write day records into <code>data/enrich/*.jsonl</code> and keep the copy-check if your source is under copyright.",
+        "Run <code>python pipeline/build_dataset.py</code> and <code>python pipeline/build_api.py</code>.",
+        "Enable Pages through GitHub Actions; the workflow builds <code>site/api</code> on every push."
+      ]
+    },
+    {
+      "slug": "executive-actions",
+      "repo": "ExecutiveActions",
+      "name": "Executive Orders and Proclamations",
+      "category": "Data & Automation",
+      "tagline": "Every executive order and proclamation Roosevelt signed, with texts, stories, and what each led to.",
+      "description": [
+        "Every executive order and proclamation Theodore Roosevelt signed as president — more than 1,500 documents — as an open dataset with a static JSON API, an explorer, and embeddable widgets. Each record has a plain-language summary, categories, places, states, citations to the Statutes at Large and the American Presidency Project, and a text where one exists.",
+        "More than 500 documents carry sourced notes on reception, political impact, and legacy, and nearly 200 present-day parks, forests, refuges, and other places are traced to the document that began them on a Then and Now page. Every text is labeled by how it was checked: collated word for word against a primary printing, or a working copy from a digitization or volunteer transcription."
+      ],
+      "capabilities": [
+        "1,111 executive orders and 410 proclamations, reconciled across four source lists",
+        "Static JSON API and CSV, rebuilt on every push",
+        "114 public stories written from verified research entries",
+        "Then and Now: present-day places traced to the documents that created them",
+        "Links between documents that modified or revoked one another",
+        "Verification status on every text, with page-image links",
+        "Embeddable widgets and cross-links to Day by Day"
+      ],
+      "stack": ["Python standard library", "Static JSON API", "Vanilla JS", "GovInfo USLM", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://executiveactions.labs.trlibrary.com/",
+      "demoAlt": {
+        "label": "Then and Now",
+        "url": "https://executiveactions.labs.trlibrary.com/then-and-now.html"
+      },
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Use the API directly: start at <code>/api/v1/index.json</code>. The data is CC BY 4.0; the source documents are public domain.",
+        "To build another president's set, fork the repo and replace the catalogs in <code>sources/</code>, following <code>docs/methods.md</code>.",
+        "Record every date or title correction with its source in <code>data/corrections.json</code>.",
+        "Run <code>python pipeline/build_dataset.py</code> and <code>python pipeline/build_api.py</code>.",
+        "Enable Pages through GitHub Actions; the workflow builds <code>site/api</code> on every push."
+      ]
+    },
+    {
+      "slug": "popup",
+      "repo": "Popup",
+      "name": "Pop-ups",
+      "category": "Content Tool",
+      "tagline": "A self-hosted replacement for OptinMonster: a brand-locked builder that publishes through Google Tag Manager.",
+      "description": [
+        "An in-house replacement for a pop-up subscription service. A five-step builder designs a banner, pop-up, slide-in, or full-window takeover in the brand system, previews it with the real runtime, and hands back code to paste into Google Tag Manager. One small runtime script decides which pop-up shows, where, and how often.",
+        "Publishing stays where it already is: only people who can publish the tag container can put a pop-up on the site, and the builder cannot change the live site. Pop-up settings are data, never code, and each carries a check value the runtime verifies. Email sign-ups go straight into Constant Contact, and every impression, click, and conversion lands in GA4."
+      ],
+      "capabilities": [
+        "Five formats: top or bottom banner, pop-up, slide-in, and takeover",
+        "Guided builder that counts the pages a pop-up will appear on from the sitemap",
+        "Background photos with an automatic readability check and Canva templates",
+        "Embedded Constant Contact sign-up form styled to match",
+        "GA4 events with six custom dimensions, plus a JavaScript API",
+        "Debug, preview, and clear switches on any page URL",
+        "One-time GTM import that creates the loader, template, and event tags"
+      ],
+      "stack": ["Vanilla JS runtime", "Google Tag Manager", "GA4", "Constant Contact", "Playwright tests", "GitHub Pages"],
+      "demo": "https://popup.labs.trlibrary.com/",
+      "demoAlt": {
+        "label": "Open the builder",
+        "url": "https://popup.labs.trlibrary.com/builder/"
+      },
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and update the <code>site</code> object at the top of <code>popup.js</code>: your fixed header, alert bar, and chat-button selectors, and the hostnames the runtime may run on.",
+        "Replace the brand looks in the builder and <code>fonts.css</code> with your own.",
+        "Import <code>gtm/trpl-popup-setup.json</code> into your GTM container (merge, rename conflicts) and register the six GA4 custom dimensions.",
+        "Point <code>scripts/fetch_sitemap.py</code> at your sitemap and move its workflow into <code>.github/workflows/</code>.",
+        "Enable Pages from <code>main</code> at the root and protect <code>main</code> — pushing to it changes the script every visitor runs."
+      ]
+    },
+    {
+      "slug": "house-file",
+      "repo": "HouseFile",
+      "name": "House File Stats",
+      "category": "Dashboard",
+      "tagline": "A daily, privacy-safe dashboard of an email list's size, completeness, and growth in Constant Contact.",
+      "description": [
+        "A dashboard of the email house file in Constant Contact: file size, how much of it is mailable, field completeness, per-source totals and sync freshness, public newsletter list sizes, a state and ZIP map, and growth over time. A collector pages through every contact each morning and keeps only counters.",
+        "Privacy is the design, not an afterthought. Contacts are held only in memory; the output is counts and percentages. Small ZIP codes are folded into state totals, internal list names stay off the page, and the workflow fails the run if anything resembling an email, phone number, or record ID appears in the output. Another organization can reuse it by editing one config file."
+      ],
+      "capabilities": [
+        "Daily aggregate stats and a growth history committed as JSON",
+        "Field completeness with address fallbacks to custom fields",
+        "Per-source attribution, with \"last record created\" to show a sync is still landing",
+        "State and ZIP map with small-count suppression and masking",
+        "Privacy guard in the workflow that fails on personal data",
+        "Optional ZIP-to-state fixer, dry run by default",
+        "One <code>config.yml</code> holds everything account-specific"
+      ],
+      "stack": ["Python", "Constant Contact API v3", "OAuth 2", "GitHub Actions", "GitHub Pages"],
+      "embeddable": false,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and create a Constant Contact developer app with the <code>contact_data</code> and <code>offline_access</code> scopes.",
+        "Copy <code>.env.example</code> to <code>.env</code>, fill in the client id and secret, and run <code>python authorize.py</code> once for a refresh token.",
+        "Edit <code>config.yml</code>: title, source systems and how to recognize them, public lists, and address fallback fields.",
+        "Add the three secrets to Actions, enable Pages from <code>main</code>, folder <code>/docs</code>, and replace <code>docs/CNAME</code>.",
+        "Run the workflow once by hand. Keep the dashboard out of search engines; the included <code>robots.txt</code> and meta tags do that."
+      ]
+    },
+    {
+      "slug": "tourism-data",
+      "repo": "TourismData",
+      "name": "Visitor Impact Dashboard",
+      "category": "Dashboard",
+      "tagline": "Thirty regional feeds — park visits, airports, highways, lodging taxes, jobs — in one daily-updated tourism dashboard.",
+      "description": [
+        "A dashboard that gathers the regional signals of visitation around the Library in one place: Library attendance and where ticket buyers come from, monthly visits to Theodore Roosevelt National Park and seven comparison parks, airport boardings, border crossings, interstate traffic counts near Medora, campground reservations, city sales and lodging tax payments, county tourism jobs, and visitor spending estimates.",
+        "Each feed has its own small fetcher, so when one public source is down the others still refresh, and a manifest records what was pulled when. Many of these sources were never meant to be scripted — scanned PDFs, rotated tables, WebForms pages, quarterly files of several hundred megabytes — and the repo documents how each one is read. Only aggregates are stored: no customer records, and survey respondent rows are discarded after weighting."
+      ],
+      "capabilities": [
+        "About thirty independent fetchers across federal, state, and park sources",
+        "Daily GitHub Actions refresh that commits changed data and redeploys the page",
+        "Library attendance and visitor origin by state, distance band, and feeder metro",
+        "Control-park comparison that flags and excludes parks with counter outages",
+        "Town-level sales and lodging tax payments, with guidance on reading payment lags",
+        "Aggregates only: ticket counts per ZIP, never customer records",
+        "Every series published as CSV in <code>data/</code>"
+      ],
+      "stack": ["Python", "GitHub Actions", "Static HTML dashboard", "Public data APIs and PDFs", "GitHub Pages"],
+      "demo": "https://tourismdata.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and edit <code>config/sources.json</code>: your parks and comparison parks, airports, border ports, traffic counters, counties, and towns.",
+        "Run <code>pip install -r requirements.txt</code>, then the fetchers you need and <code>python scripts/build.py</code>. Each fetcher stands alone, so drop any that don't apply.",
+        "Replace the ticketing fetcher with your own system's, or remove it. Store only counts, never customer records.",
+        "Add the secrets and variables your sources need, such as a ticketing API key and <code>BLS_CONTACT</code>, an address the BLS will accept in its user agent.",
+        "Set Pages to deploy from GitHub Actions and give workflows read and write permission. The first DB1B run downloads about 4 GB; later runs fetch only new quarters."
       ]
     }
   ]

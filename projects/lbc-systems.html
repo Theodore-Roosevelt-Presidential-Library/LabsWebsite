@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the Library Works — TRPL Labs</title>
+<meta name="description" content="A 3D cutaway of the building&#x27;s geothermal, water, and carbon systems, traced from the construction drawings.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/lbc-systems">
+<meta property="og:title" content="How the Library Works — TRPL Labs">
+<meta property="og:description" content="A 3D cutaway of the building&#x27;s geothermal, water, and carbon systems, traced from the construction drawings.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/lbc-systems">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../#projects">Projects</a>
+      <a href="../living-library">The Living Library</a>
+      <a href="../about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../">TRPL Labs</a> &nbsp;/&nbsp; Interactive Media</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Interactive Media</p>
+    <h1>How the Library Works</h1>
+    <p class="tag">A 3D cutaway of the building&#x27;s geothermal, water, and carbon systems, traced from the construction drawings.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBCSystems" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://lbcsystems.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBCSystems/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://lbcsystems.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      <p class="demo-note">Some tank and route positions are approximate, and equipment is drawn larger than built so it reads at site scale. Certification language follows precertification status.</p>
+
+      <h2>What it does</h2>
+      <p>An interactive 3D model of the Library's energy, water, and carbon systems, built to explain its pursuit of Living Building Challenge certification. The site is modeled as a cutaway block of the butte, and each stop opens the ground or the building: all 216 geothermal boreholes, the mechanical room, the wastewater treatment train and leach field, the prairie roof assembly, and the solar canopies.</p>
+<p>The geometry is not illustrative guesswork. Borehole positions, pipe routes, tanks, and equipment were vector-extracted from the conformed drawing set and registered to the campus model by matching building outlines, and terrain comes from USGS elevation data. Where a position is approximate or a part is drawn larger so it reads at site scale, the page says so.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Energy, water, and carbon layers with guided stops and animated flows</li>
+<li>Cutaways into the bore field, mechanical room, process tanks, and leach field</li>
+<li>Exploded samples of the roof assembly and radiant slab</li>
+<li>Geometry registered from construction drawings and USGS 3DEP terrain</li>
+<li>Deep links to any layer or stop, such as <code>/#energy/2</code></li>
+<li>Embed codes with layer, stop, lock, and panel options</li>
+<li>All visitor copy and figures in one file, <code>assets/content.js</code></li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/LBCSystems.git
+cd LBCSystems</div>
+      <ol class="steps">
+<li>Fork the repo. The site needs no build step; three.js is vendored and loaded with an import map.</li>
+<li>Replace <code>assets/models/campus.glb</code> with your own building model, in feet, and the terrain and roof height fields in <code>assets/data/</code>.</li>
+<li>Rebuild <code>systems.json</code> for your building with the scripts in <code>tools/</code>, which register drawing sheets to the model by outline.</li>
+<li>Rewrite every word and figure in <code>assets/content.js</code> from your own audit and certification documents.</li>
+<li>Enable Pages from <code>main</code> at the root, edit <code>CNAME</code>, and replace the trlibrary.com fonts.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBCSystems/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">three.js r160</span></li><li><span class="tech">glTF with meshopt</span></li><li><span class="tech">Vanilla JS</span></li><li><span class="tech">Python tooling</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBCSystems" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://lbcsystems.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>lbcsystems.labs.trlibrary.com</span></a>
+<a href="https://lbcsystems.labs.trlibrary.com/embed.html" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Embed codes<span>lbcsystems.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/LBCSystems/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="giving-tools">&larr; Previous<b>Giving Tools</b></a><a href="geology" style="text-align:right">Next &rarr;<b>Read the Rocks</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

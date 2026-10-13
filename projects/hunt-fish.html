@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunting and Fishing Guide — TRPL Labs</title>
+<meta name="description" content="Can I hunt here, what&#x27;s open today, and where to fish — from a phone, offline.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/hunt-fish">
+<meta property="og:title" content="Hunting and Fishing Guide — TRPL Labs">
+<meta property="og:description" content="Can I hunt here, what&#x27;s open today, and where to fish — from a phone, offline.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/hunt-fish">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../#projects">Projects</a>
+      <a href="../living-library">The Living Library</a>
+      <a href="../about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../">TRPL Labs</a> &nbsp;/&nbsp; Visitor Experience</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Visitor Experience</p>
+    <h1>Hunting and Fishing Guide</h1>
+    <p class="tag">Can I hunt here, what&#x27;s open today, and where to fish — from a phone, offline.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/HuntFish" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      <a class="btn" href="https://huntfish.labs.trlibrary.com/" target="_blank" rel="noopener">Open live demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg></a>
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/HuntFish/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      <div class="demo-frame" id="demoFrame">
+  
+  <div class="poster">
+    <h3>Try it right here</h3>
+    <p>This loads the live project from its own domain, exactly as a visitor would see it.</p>
+    <button class="btn" id="loadDemo" data-src="https://huntfish.labs.trlibrary.com/">Launch live demo</button>
+  </div>
+</div>
+      <p class="demo-note">Not legal advice. The current state proclamations and the land manager always have the final word.</p>
+
+      <h2>What it does</h2>
+      <p>A companion to the camping tool for hunters and anglers around Medora. One button reads the phone's location and says who manages the ground, whether it is open to hunting, which hunting units it falls in, and legal shooting hours for that exact spot that day. On private land it asks the state whether the parcel is electronically posted.</p>
+<p>Season dates are read from the state's proclamations every day, so next year's dates appear on their own; when a date changes or a season cannot be found, the workflow opens a GitHub issue. The regulation pages behind the written land rules are fingerprinted twice a week for the same reason. About 30 fishing waters are listed with species, ramps, recent stocking, and invasive-species notes.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Land check with hunting units for deer, elk, pronghorn, bighorn, turkey, and lion</li>
+<li>Shooting hours by spot and date using the NOAA solar method, with time-zone boundaries</li>
+<li>Daily season-date parsing from state proclamations, with issues opened on change</li>
+<li>Where-to-fish list filterable by species, with ramps, piers, and stocking history</li>
+<li>Map with public land, walk-in tracts, no-shooting rings, posted land, and unit lines</li>
+<li>Licenses, vendors, hunter education, and carcass rules in one view</li>
+<li>Offline map that keeps land records, units, and shooting hours working with no signal</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/HuntFish.git
+cd HuntFish</div>
+      <ol class="steps">
+<li>Fork the repo and replace the North Dakota Game and Fish services in <code>collector/build.py</code> with your state's PLOTS, units, and fishing-waters layers.</li>
+<li>Rewrite <code>build()</code> in <code>collector/seasons.py</code> for your state's proclamation pages, and the land rules in <code>CLASSES</code> in <code>docs/huntfish.js</code>.</li>
+<li>List your regulation pages in <code>collector/check_sources.py</code> so changes open an issue for a person to review.</li>
+<li>Request only the posted flag from any posted-land service. Owner names and contacts should never be read.</li>
+<li>Enable Pages from <code>main</code>, folder <code>/docs</code>, set your <code>CNAME</code>, enforce HTTPS, and give workflows read and write permission.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HuntFish/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Python standard library</span></li><li><span class="tech">Vanilla JS</span></li><li><span class="tech">Leaflet</span></li><li><span class="tech">State and federal GIS</span></li><li><span class="tech">GitHub Actions</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HuntFish" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://huntfish.labs.trlibrary.com/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 1v2h3.6L6.3 9.3l1.4 1.4L14 4.4V8h2V1H9z"/><path d="M13 13H3V3h4V1H1v14h14V9h-2v4z"/></svg> Open the live demo<span>huntfish.labs.trlibrary.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HuntFish/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="camping">&larr; Previous<b>Camping on Public Land</b></a><a href="lodging" style="text-align:right">Next &rarr;<b>Lodging Finder</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>

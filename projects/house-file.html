@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House File Stats — TRPL Labs</title>
+<meta name="description" content="A daily, privacy-safe dashboard of an email list&#x27;s size, completeness, and growth in Constant Contact.">
+<link rel="canonical" href="https://labs.trlibrary.com/projects/house-file">
+<meta property="og:title" content="House File Stats — TRPL Labs">
+<meta property="og:description" content="A daily, privacy-safe dashboard of an email list&#x27;s size, completeness, and growth in Constant Contact.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.trlibrary.com/projects/house-file">
+<meta property="og:site_name" content="TRPL Labs">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/labs.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="../">
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <span class="labs">Labs</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="../#projects">Projects</a>
+      <a href="../living-library">The Living Library</a>
+      <a href="../about">About</a>
+      <a href="https://www.trlibrary.com">trlibrary.com</a>
+      <a class="ghost" href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+
+<div class="shell">
+  <p class="crumbs"><a href="../">TRPL Labs</a> &nbsp;/&nbsp; Dashboard</p>
+</div>
+
+<header class="p-head">
+  <div class="shell">
+    <p class="cat">Dashboard</p>
+    <h1>House File Stats</h1>
+    <p class="tag">A daily, privacy-safe dashboard of an email list&#x27;s size, completeness, and growth in Constant Contact.</p>
+    <div class="p-actions">
+      <a class="btn solid" href="https://github.com/Theodore-Roosevelt-Presidential-Library/HouseFile" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View on GitHub</a>
+      
+      <a class="btn quiet" href="https://github.com/Theodore-Roosevelt-Presidential-Library/HouseFile/fork" target="_blank" rel="noopener">Fork this repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="p-layout">
+    <div class="prose" id="main">
+      
+      
+
+      <h2>What it does</h2>
+      <p>A dashboard of the email house file in Constant Contact: file size, how much of it is mailable, field completeness, per-source totals and sync freshness, public newsletter list sizes, a state and ZIP map, and growth over time. A collector pages through every contact each morning and keeps only counters.</p>
+<p>Privacy is the design, not an afterthought. Contacts are held only in memory; the output is counts and percentages. Small ZIP codes are folded into state totals, internal list names stay off the page, and the workflow fails the run if anything resembling an email, phone number, or record ID appears in the output. Another organization can reuse it by editing one config file.</p>
+
+      <h2>What it can do</h2>
+      <ul><li>Daily aggregate stats and a growth history committed as JSON</li>
+<li>Field completeness with address fallbacks to custom fields</li>
+<li>Per-source attribution, with "last record created" to show a sync is still landing</li>
+<li>State and ZIP map with small-count suppression and masking</li>
+<li>Privacy guard in the workflow that fails on personal data</li>
+<li>Optional ZIP-to-state fixer, dry run by default</li>
+<li>One <code>config.yml</code> holds everything account-specific</li></ul>
+
+      <h2>Make it your own</h2>
+      <p>Start by forking the repository into your own organization. Everything below assumes
+        you are working in your fork, not this one.</p>
+      <div class="codeblock"><button data-copy>Copy</button><span class="cm"># clone your fork</span>
+git clone https://github.com/YOUR-ORG/HouseFile.git
+cd HouseFile</div>
+      <ol class="steps">
+<li>Fork the repo and create a Constant Contact developer app with the <code>contact_data</code> and <code>offline_access</code> scopes.</li>
+<li>Copy <code>.env.example</code> to <code>.env</code>, fill in the client id and secret, and run <code>python authorize.py</code> once for a refresh token.</li>
+<li>Edit <code>config.yml</code>: title, source systems and how to recognize them, public lists, and address fallback fields.</li>
+<li>Add the three secrets to Actions, enable Pages from <code>main</code>, folder <code>/docs</code>, and replace <code>docs/CNAME</code>.</li>
+<li>Run the workflow once by hand. Keep the dashboard out of search engines; the included <code>robots.txt</code> and meta tags do that.</li>
+      </ol>
+      <p>Stuck on a step? Open an issue on
+        <a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HouseFile/issues" target="_blank" rel="noopener">the repository</a>.
+        Questions from people adapting these for their own institution are the most useful
+        feedback we get.</p>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h3>Built with</h3>
+        <ul><li><span class="tech">Python</span></li><li><span class="tech">Constant Contact API v3</span></li><li><span class="tech">OAuth 2</span></li><li><span class="tech">GitHub Actions</span></li><li><span class="tech">GitHub Pages</span></li></ul>
+      </section>
+      <section>
+        <h3>License</h3>
+        <p class="meta">MIT &mdash; free to use, change, and redistribute,
+          commercially, without attribution.</p>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="links"><a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HouseFile" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> View the repository<span>github.com</span></a>
+<a href="https://github.com/Theodore-Roosevelt-Presidential-Library/HouseFile/issues" target="_blank" rel="noopener">Report an issue<span>Issues</span></a></div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="nextprev"><a href="popup">&larr; Previous<b>Pop-ups</b></a><a href="tourism-data" style="text-align:right">Next &rarr;<b>Visitor Impact Dashboard</b></a></nav>
+  <p style="height:40px"></p>
+</div>
+<footer class="footer">
+  <div class="shell">
+    <div>
+      <img src="../assets/img/trpl-wordmark-white.svg" alt="Theodore Roosevelt Presidential Library">
+      <p style="margin-top:14px">Medora, North Dakota</p>
+      <p><a href="https://www.trlibrary.com">trlibrary.com</a> &nbsp;·&nbsp;
+         <a href="https://github.com/Theodore-Roosevelt-Presidential-Library">GitHub</a></p>
+    </div>
+    <div class="right">
+      <p>Every project here is released under the MIT license. Fork it, rename it,
+         and make it yours &mdash; no permission needed and no attribution required,
+         though we would love to hear what you build.</p>
+      <p style="margin:0"><a href="mailto:hello@trlibrary.com">hello@trlibrary.com</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/labs.js"></script>
+</body>
+</html>
