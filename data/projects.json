@@ -10,6 +10,8 @@
       "repo": "TRC-Widget",
       "name": "TRC Search Widget",
       "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-07-18",
       "tagline": "Instant autocomplete across 139,714 Theodore Roosevelt Center archival items, in one script tag.",
       "description": [
         "The Theodore Roosevelt Center's digital library indexes its holdings with a controlled Library of Congress vocabulary and no autocomplete, so a visitor who types “henry cabot lodge” gets nothing back. This widget fixes that from the outside.",
@@ -41,6 +43,8 @@
       "repo": "TRTimelineWidget",
       "name": "TR Timeline",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-08-05",
       "tagline": "A single-file timeline that sets one life against the history happening around it.",
       "description": [
         "Roosevelt's milestones run above a central date axis; American and world events run below it. A visitor reading about the Badlands years sees, in the same glance, that the Statue of Liberty went up while he was there.",
@@ -71,6 +75,8 @@
       "repo": "FamilyTree",
       "name": "Family Tree",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-07-19",
       "tagline": "Forty-six Roosevelts across six generations, every name opening a sourced biography.",
       "description": [
         "Parents, siblings, both wives, six children, their spouses, and all seventeen grandchildren — with two lines carried down to present-day Library Trustees. Every person is a button; every button opens a biography drawn from published works in the Library's collection.",
@@ -102,6 +108,8 @@
       "repo": "PhotoGallery",
       "name": "Photo Gallery",
       "category": "Embeddable Widget",
+      "weight": 3,
+      "added": "2026-07-09",
       "tagline": "Drop photos in a folder, run one script, embed a masonry gallery anywhere.",
       "description": [
         "A build-and-embed pipeline for event photography. Full-resolution originals go into a folder; a Python script generates thumbnails, web-optimized lightbox images, and a manifest, all served from GitHub Pages. The host page needs two lines of HTML.",
@@ -133,6 +141,8 @@
       "repo": "AcquiaDAM-Photo-Embed",
       "name": "DAM Portal Embed",
       "category": "Content Tool",
+      "weight": 1,
+      "added": "2026-07-23",
       "tagline": "Turns a locked-in press portal into native, auto-sizing gallery tiles on your own page.",
       "description": [
         "Acquia DAM (Widen) portals can only be embedded as a fixed-height iframe with its own interior scrollbar, and the portal's JSON API sends no CORS headers, so a browser cannot read it directly. Both problems are solved server-side.",
@@ -163,6 +173,8 @@
       "repo": "HoursEmbed",
       "name": "Hours Embed",
       "category": "Data & Automation",
+      "weight": 1,
+      "added": "2026-08-26",
       "tagline": "Republishes hours locked inside one CMS as a live embed on a completely different site.",
       "description": [
         "The Library's restaurant, Salt + Scoria, keeps its hours in Drupal on trlibrary.com, which blocks cross-origin requests. The restaurant's own Squarespace site therefore could not read them, and staff were updating two places by hand.",
@@ -194,6 +206,8 @@
       "repo": "TicketingWidgets",
       "name": "Ticketing Widgets",
       "category": "Dashboard",
+      "weight": 3,
+      "added": "2026-08-13",
       "tagline": "Live sell-out warnings and best-day-to-visit advice, refreshed every fifteen minutes.",
       "description": [
         "Six embeddable widgets that turn a ticketing system's reporting API into plain guidance for visitors: which timed-entry slots are gone, whether a day is likely to sell out, and which nearby days are a better bet.",
@@ -225,6 +239,8 @@
       "repo": "TripPlanner",
       "name": "Trip Planner",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-07-21",
       "tagline": "A wizard that turns a guest's interests into a routed, dated, printable itinerary.",
       "description": [
         "Ten questions about interests, dates, travel style, and lodging comfort produce an hour-by-hour itinerary the guest can print, share, or drop into a calendar. It is rule-based and deterministic — there is no model in the loop and nothing to hallucinate.",
@@ -257,6 +273,8 @@
       "repo": "MedoraWeather",
       "name": "Local Weather",
       "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-07-17",
       "tagline": "Live local weather as a one-line embed, plus auto-refreshing forecast images for email.",
       "description": [
         "A job pulls National Weather Service data and air-quality readings about every thirty minutes, normalizes them into a cached JSON file, and renders both a zero-dependency JavaScript widget and a set of static PNG and SVG forecast images.",
@@ -287,6 +305,8 @@
       "repo": "LBC-Dashboard",
       "name": "Living Building Dashboard",
       "category": "Dashboard",
+      "weight": 2,
+      "added": "2026-07-30",
       "tagline": "A lobby display turning building performance into a living Badlands panorama.",
       "description": [
         "A single self-contained HTML file built for a widescreen lobby screen, showing energy, water, and air-quality performance against the seven petals of Living Building Challenge 4.0. The backdrop is a vector Badlands scene with a real day-night cycle and live local weather rendered as clouds, rain, snow, fog, or lightning.",
@@ -318,6 +338,8 @@
       "repo": "SocialCalendar",
       "name": "Social Calendar",
       "category": "Content Tool",
+      "weight": 2,
+      "added": "2026-08-07",
       "tagline": "A shareable, read-only calendar of scheduled social posts, rebuilt twice a day.",
       "description": [
         "Pulls scheduled social messages from the Hootsuite API twice a day, writes a JSON snapshot plus downsized preview images, and publishes a dependency-free static site. One story going to six channels renders as a single row with per-network icons, not six near-identical duplicates.",
@@ -350,6 +372,8 @@
       "repo": "NewsletterBuilder",
       "name": "Newsletter Builder",
       "category": "Content Tool",
+      "weight": 3,
+      "added": "2026-08-26",
       "tagline": "A browser newsletter builder that exports paste-ready HTML for your email platform.",
       "description": [
         "A block-based email builder that runs entirely in the browser with no backend. Assemble blocks, edit each one in a side panel, and export HTML ready to paste into Constant Contact's code-your-own editor — or any platform that accepts raw HTML.",
@@ -381,6 +405,8 @@
       "repo": "LinkChecker",
       "name": "Link Checker",
       "category": "Data & Automation",
+      "weight": 2,
+      "added": "2026-05-25",
       "tagline": "A weekly crawl that finds every broken link and typo across an entire website.",
       "description": [
         "A scheduled job crawls a whole site from its sitemap, validates every internal and external link, spell-checks visible text against a dictionary plus an allow-list, and publishes an interactive report.",
@@ -411,6 +437,8 @@
       "repo": "Reviews",
       "name": "Reviews",
       "category": "Dashboard",
+      "weight": 2,
+      "added": "2026-08-12",
       "tagline": "Collects visitor reviews daily, classifies the themes, and triages what needs a reply.",
       "description": [
         "A daily job pulls reviews from Google, TripAdvisor, Yelp, and Facebook, merges them incrementally, classifies each one into a controlled theme vocabulary, and derives windows, deltas, theme movement, and a response queue for a static dashboard. There is no server and no database — every number on screen is also a line in git history.",
@@ -443,6 +471,8 @@
       "repo": "TRAnniversaries",
       "name": "Anniversaries",
       "category": "Content Tool",
+      "weight": 1,
+      "added": "2026-05-30",
       "tagline": "Shows which milestones hit a round anniversary this year and the next five.",
       "description": [
         "A small static page that reads a curated list of dated events and surfaces those whose anniversary in a given year lands on a multiple of five. Tabs cover the current year plus five ahead, each entry showing the original date, the anniversary number, and a sentence or two of context.",
@@ -473,6 +503,8 @@
       "repo": "CampusMap",
       "name": "Campus Map",
       "category": "Visitor Experience",
+      "weight": 3,
+      "added": "2026-08-04",
       "tagline": "A 3D model of the campus you can spin, zoom, and pin with story markers.",
       "description": [
         "A web viewer for a compressed 3D model of the Library campus. Visitors orbit and zoom the terrain and buildings, click a point of interest to open a panel with an image, text, and a call to action, and share the exact view they are looking at through a short link.",
@@ -503,6 +535,8 @@
       "repo": "StarGazer",
       "name": "StarGazer",
       "category": "Embeddable Widget",
+      "weight": 3,
+      "added": "2026-09-07",
       "tagline": "Hold your phone up to the sky and it names the stars above you.",
       "description": [
         "An embeddable night-sky explorer that uses phone motion sensors to identify constellations, planets, and bright stars overhead, with drag-to-look on a desktop. It is built for dark-sky places: a dim palette, an extra-dimming slider, and a red-light mode that preserves night vision.",
@@ -535,6 +569,8 @@
       "repo": "Quizes",
       "name": "Quiz Platform",
       "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-08-08",
       "tagline": "Drop a fifteen-question quiz into any page with two lines of HTML.",
       "description": [
         "A dependency-free quiz engine that embeds into existing CMS pages rather than living on a site of its own. Each question gives immediate feedback plus a paragraph of real history and a link out; finishing yields a score, an achievement tier, and a downloadable badge.",
@@ -567,6 +603,8 @@
       "repo": "TRRetroGame",
       "name": "Rough Rider",
       "category": "Interactive Media",
+      "weight": 1,
+      "added": "2026-05-31",
       "tagline": "A ten-chapter 8-bit platformer that plays an entire life, mini-games and all.",
       "description": [
         "Ten chapters carry Roosevelt from 1858 to 1919, each a platformer level over a painted backdrop, each ending in its own themed mini-game and then a study recap. Hidden treasure chests reveal forty real, sourced facts, and the recap tallies which the player found and which they missed.",
@@ -599,6 +637,8 @@
       "repo": "elkhorn-panos",
       "name": "Elkhorn Panoramas",
       "category": "Visitor Experience",
+      "weight": 1,
+      "added": "2025-07-07",
       "tagline": "Seven 360-degree panoramas that let anyone stand inside the Elkhorn Ranch ruins.",
       "description": [
         "The site of Roosevelt's Dakota ranch house, captured in seven equirectangular panoramas and served through a minimal drag-and-pinch viewer. The viewer libraries are vendored locally — no CDN, no build step, no API keys.",
@@ -628,6 +668,8 @@
       "repo": "DigitalInvite",
       "name": "Digital Invitation",
       "category": "Content Tool",
+      "weight": 3,
+      "added": "2026-08-15",
       "tagline": "Turns any invitation image into an envelope that opens, addressed by name.",
       "description": [
         "A reusable embed plus a no-code builder that wraps invitation artwork in an animated envelope: it rises addressed to the guest, turns in 3D to show a brand seal, the flap opens, the card slides out, and an RSVP button appears. The guest's name comes from a query-string parameter, so a mail merge gives every recipient a hand-addressed envelope.",
@@ -661,6 +703,8 @@
       "repo": "TRNPTripPlanner",
       "name": "Got Two Hours?",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Tell it how much time you have, and it builds a route through the national park.",
       "description": [
         "A visitor picks how much time they have and where they are starting — the Library, either unit of Theodore Roosevelt National Park, or the interstate — and the planner builds a route. By default it starts with the full Library visit, checks live timed-entry availability for the first open slot, then fills the remaining park time with stops drawn from the National Park Service's own \"things to do\" and places data.",
@@ -692,6 +736,8 @@
       "repo": "WildlifeWatch",
       "name": "Wildlife Watch",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "A field guide to the park's bison, wild horses, and twenty other animals, with recent sightings.",
       "description": [
         "A guide to watching wildlife in Theodore Roosevelt National Park: a field guide to 22 animals, a full section on the park's wild horses, a map of where to look, an outing planner with sunrise and dawn windows for any date, and a roll-up of recent public sightings from iNaturalist.",
@@ -723,6 +769,8 @@
       "repo": "ElkhornGuide",
       "name": "Elkhorn Ranch Walking Guide",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "A GPS and compass guide to Roosevelt's ranch site that keeps working with no signal.",
       "description": [
         "A mobile walking guide to the Elkhorn Ranch site in Theodore Roosevelt National Park. A live map and compass lead visitors to each of the eight National Park Service tour stops along the path, and arriving at a stop opens its story in the words of Roosevelt and his ranch partner Bill Sewall.",
@@ -755,6 +803,8 @@
       "repo": "Camping",
       "name": "Camping on Public Land",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Answers \"can I camp here?\" from a phone's location across a patchwork of public and private land.",
       "description": [
         "The land around Medora is a patchwork of national grassland, national park, state trust land, wildlife areas, and private ranches, often with no fence between them and different rules on each. This tool answers one question from a phone's location — who manages this ground, can I camp here, and can I have a fire today — without the location ever leaving the device.",
@@ -787,6 +837,8 @@
       "repo": "HuntFish",
       "name": "Hunting and Fishing Guide",
       "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Can I hunt here, what's open today, and where to fish — from a phone, offline.",
       "description": [
         "A companion to the camping tool for hunters and anglers around Medora. One button reads the phone's location and says who manages the ground, whether it is open to hunting, which hunting units it falls in, and legal shooting hours for that exact spot that day. On private land it asks the state whether the parcel is electronically posted.",
@@ -819,6 +871,8 @@
       "repo": "Lodging",
       "name": "Lodging Finder",
       "category": "Visitor Experience",
+      "weight": 1,
+      "added": "2026-10-05",
       "tagline": "Shows which hotels, cabins, rentals, and campgrounds near a small town are open for a visitor's dates.",
       "description": [
         "Medora has a short list of places to stay, and they fill. This widget gives every hotel, cabin, vacation rental, and campground nearby its own card — photo, a one-line description, and one button — grouped by whether it is open for the visitor's dates, needs a direct check, or is full. Tabs split Medora, vacation rentals, nearby towns, and Dickinson.",
@@ -850,6 +904,8 @@
       "repo": "BadlandsToday",
       "name": "Today in the Badlands",
       "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "One strip with today's park alerts, weather, river, air quality, and things to do.",
       "description": [
         "An embeddable strip with what a visitor needs to know this morning: park closures and road events, National Weather Service alerts, current weather, the Little Missouri River against its normal range, modeled air quality with smoke flagged, sunset and moon phase, and the park's activities filtered by how much time the visitor has.",
@@ -881,6 +937,8 @@
       "repo": "AuroraWatch",
       "name": "Northern Lights Watch",
       "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Tonight's aurora outlook, a year-ahead trip planner, and what records since 1932 say about when to come.",
       "description": [
         "An embeddable northern lights outlook for one place. For tonight and the next two nights it combines NOAA's space-weather forecast with cloud cover and moonlight after dark and gives a plain rating, from \"unlikely\" to \"strong.\" When it is dark and activity is up, it reads NOAA's 30-minute aurora model for the sky to the north and says so.",
@@ -912,6 +970,8 @@
       "repo": "PlannedGiving",
       "name": "Giving Tools",
       "category": "Embeddable Widget",
+      "weight": 3,
+      "added": "2026-09-16",
       "tagline": "Sixteen planned-giving calculators and guides, each one script tag, with nothing a donor types leaving the page.",
       "description": [
         "A set of self-contained embeds for planned and tax-smart giving: a six-question Giving Navigator that ranks options with reasons, an IRA charitable rollover calculator, a stock gift comparison, a bunching comparison, a state-by-state chart, bequest and beneficiary guides, an estate tax estimator, life-income illustrations, and more. Each tool ends with questions for the donor's own advisor.",
@@ -944,6 +1004,8 @@
       "repo": "LBCSystems",
       "name": "How the Library Works",
       "category": "Interactive Media",
+      "weight": 3,
+      "added": "2026-10-13",
       "tagline": "A 3D cutaway of the building's geothermal, water, and carbon systems, traced from the construction drawings.",
       "description": [
         "An interactive 3D model of the Library's energy, water, and carbon systems, built to explain its pursuit of Living Building Challenge certification. The site is modeled as a cutaway block of the butte, and each stop opens the ground or the building: all 216 geothermal boreholes, the mechanical room, the wastewater treatment train and leach field, the prairie roof assembly, and the solar canopies.",
@@ -980,6 +1042,8 @@
       "repo": "Geology",
       "name": "Read the Rocks",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Tap anywhere in the park to learn which rock layer you're standing on and how it formed.",
       "description": [
         "A geology explorer for Theodore Roosevelt National Park. Tap anywhere on the colored geologic map, or follow your own location, and a card names the rock layer, its age, a plain-language story, and what to look for. Outside the park map it falls back to the U.S. state bedrock map, so it answers anywhere in the country.",
@@ -1011,6 +1075,8 @@
       "repo": "LittleMo",
       "name": "The Little Missouri",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Today's river at Medora beside the river Roosevelt knew, with a century of gauge records.",
       "description": [
         "A river page in two halves. Today's River shows live flow and gauge height at Medora against every year on record for the date, paddling status from the park's own thresholds, flood stages, weather, alerts, and a 30-day chart against the normal range. Then &amp; Now sets Roosevelt's own words about the river beside what the gauges have measured since, in eight chapters from 1805 to today.",
@@ -1042,6 +1108,8 @@
       "repo": "BadlandsCowboy",
       "name": "The Bad Lands Cow Boy",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Every surviving issue of Medora's 1880s newspaper, transcribed and indexed day by day.",
       "description": [
         "<em>The Bad Lands Cow Boy</em> was Medora's newspaper from 1884 to 1886, the years Roosevelt ranched here. This site puts every surviving issue online, transcribed and indexed: what the paper reported for any calendar week, a timeline of more than 4,000 dated events, every item that names Roosevelt, full-text search of about half a million words, and a gallery of nearly 200 period ads and cattle brands.",
@@ -1074,6 +1142,8 @@
       "repo": "Homestead",
       "name": "Who Owned the Badlands?",
       "category": "Interactive Media",
+      "weight": 2,
+      "added": "2026-10-10",
       "tagline": "Watch land around Medora pass into private hands, patent by patent, from 1889 to 1957.",
       "description": [
         "A map of federal land patents in twelve townships around Medora, built from the General Land Office records. A year slider starting in 1883, the year Roosevelt first came to the Badlands, adds each parcel as its patent is granted, so a visitor can watch the homesteading boom and the federal buy-backs of the 1930s play out across the landscape.",
@@ -1105,6 +1175,8 @@
       "repo": "DaybyDay",
       "name": "Day by Day",
       "category": "Data & Automation",
+      "weight": 3,
+      "added": "2026-10-12",
       "tagline": "All 21,986 days of Roosevelt's life as an open dataset, a JSON API, and an explorer.",
       "description": [
         "Every day of Theodore Roosevelt's life, from his birth in 1858 to his death in 1919, as a structured dataset. Each day carries a headline and summary, where he was, the people and places involved, letters to and from him, related archive items, and life-period tags. There are more than 4,700 people and 2,800 places in linked registries, and more than 127,000 Theodore Roosevelt Center digital library items attached to the days they belong to.",
@@ -1140,6 +1212,8 @@
       "repo": "ExecutiveActions",
       "name": "Executive Orders and Proclamations",
       "category": "Data & Automation",
+      "weight": 3,
+      "added": "2026-10-12",
       "tagline": "Every executive order and proclamation Roosevelt signed, with texts, stories, and what each led to.",
       "description": [
         "Every executive order and proclamation Theodore Roosevelt signed as president — more than 1,500 documents — as an open dataset with a static JSON API, an explorer, and embeddable widgets. Each record has a plain-language summary, categories, places, states, citations to the Statutes at Large and the American Presidency Project, and a text where one exists.",
@@ -1175,6 +1249,8 @@
       "repo": "Popup",
       "name": "Pop-ups",
       "category": "Content Tool",
+      "weight": 3,
+      "added": "2026-10-01",
       "tagline": "A self-hosted replacement for OptinMonster: a brand-locked builder that publishes through Google Tag Manager.",
       "description": [
         "An in-house replacement for a pop-up subscription service. A five-step builder designs a banner, pop-up, slide-in, or full-window takeover in the brand system, previews it with the real runtime, and hands back code to paste into Google Tag Manager. One small runtime script decides which pop-up shows, where, and how often.",
@@ -1210,6 +1286,8 @@
       "repo": "HouseFile",
       "name": "House File Stats",
       "category": "Dashboard",
+      "weight": 1,
+      "added": "2026-10-01",
       "tagline": "A daily, privacy-safe dashboard of an email list's size, completeness, and growth in Constant Contact.",
       "description": [
         "A dashboard of the email house file in Constant Contact: file size, how much of it is mailable, field completeness, per-source totals and sync freshness, public newsletter list sizes, a state and ZIP map, and growth over time. A collector pages through every contact each morning and keeps only counters.",
@@ -1240,6 +1318,8 @@
       "repo": "TourismData",
       "name": "Visitor Impact Dashboard",
       "category": "Dashboard",
+      "weight": 2,
+      "added": "2026-09-16",
       "tagline": "Thirty regional feeds — park visits, airports, highways, lodging taxes, jobs — in one daily-updated tourism dashboard.",
       "description": [
         "A dashboard that gathers the regional signals of visitation around the Library in one place: Library attendance and where ticket buyers come from, monthly visits to Theodore Roosevelt National Park and seven comparison parks, airport boardings, border crossings, interstate traffic counts near Medora, campground reservations, city sales and lodging tax payments, county tourism jobs, and visitor spending estimates.",
@@ -1271,6 +1351,8 @@
       "repo": "DiaryExplorer",
       "name": "The 1884 Diary",
       "category": "Interactive Media",
+      "weight": 3,
+      "added": "2026-10-14",
       "tagline": "Turn the pages of Roosevelt's 1884 pocket diary, with a page-by-page transcription beside every scan.",
       "description": [
         "Theodore Roosevelt's pocket diary for 1884, from the Library of Congress, as a book you can page through. Every one of the 410 scans is here, cropped to the page edge, with a page-curl reader, a transcription panel beside each page, an 1884 timeline, search across the entries, and deep zoom into the handwriting.",
@@ -1297,6 +1379,45 @@
         "Run <code>python3 tools/build.py</code> to rebuild <code>data/diary.json</code> and the review file.",
         "Review every reading against the scans, mark records reviewed, approve curator's notes, then set <code>\"showDrafts\": false</code> in <code>data/config.json</code>.",
         "Enable Pages from <code>main</code> at the root and edit <code>CNAME</code>. Embed with <code>?embed</code>, or run it in a gallery with <code>?kiosk</code>."
+      ]
+    },
+    {
+      "slug": "trnp-audio-tour",
+      "repo": "TRNPAudioTour",
+      "name": "Scenic Loop Audio Tour",
+      "category": "Visitor Experience",
+      "weight": 2,
+      "added": "2026-10-10",
+      "status": "beta",
+      "tagline": "A free GPS-guided driving tour of the park's South Unit loop, narrated by two hosts, that works offline.",
+      "description": [
+        "A free driving audio tour of the South Unit Scenic Loop in Theodore Roosevelt National Park, hosted by two narrators, Nora and Wes. It starts at the visitor center in Medora, follows the drive around the loop in either direction, and plays each stop's clip early enough to finish as the car arrives. Stories fill the quiet stretches only when there is time to finish them before the next stop.",
+        "It is built for a phone on the dash with spotty service: it keeps the screen on, works fully offline once downloaded, and shows the next stop with its side of the road. Pull over and the side panel opens with on-foot details, quizzes, rock-layer diagrams, and real animal sounds. Crawl away from a bison jam and it asks what you are seeing and plays a short clip for that animal. A preview mode simulates the whole drive from home."
+      ],
+      "capabilities": [
+        "GPS-triggered two-host narration timed to finish on arrival",
+        "Works in either direction around the loop, with side roads, U-turn and off-route detection",
+        "Full offline mode and screen wake lock for a dash mount",
+        "Speed gauge against posted limits, with a few gentle spoken nudges",
+        "Pull-off panel with quizzes, diagrams, photos, and animal sounds, shown only when stopped",
+        "Wildlife slowdown prompt that plays a clip for the animal you are seeing",
+        "Preview the drive from home with a simulated run, plus a script review page with sources"
+      ],
+      "stack": ["Vanilla JS PWA", "Geolocation and Wake Lock", "Python build tools", "Playwright tests", "GitHub Actions", "GitHub Pages"],
+      "demo": "https://trnptour.labs.trlibrary.com/",
+      "demoAlt": {
+        "label": "Preview the drive",
+        "url": "https://trnptour.labs.trlibrary.com/?preview=1"
+      },
+      "embeddable": true,
+      "demoNote": "Beta. The tour is still being checked before public launch. Use preview mode to hear it away from the park.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and rewrite <code>script/tour-script.md</code>: <code>N:</code> and <code>W:</code> for each host, <code>Q:</code> for a verbatim quotation with its source, <code>src:</code> for citations that are never read aloud.",
+        "Run <code>python3 tools/lines.py</code> to list the lines that need audio, voice them with a text-to-speech service you hold a public-use license for, and save each under <code>audio-src/lines/</code>.",
+        "Run <code>python3 tools/assemble.py</code> to build the clips, then <code>tools/build_data.py</code> with your route, stops, speed limits, and photos.",
+        "Drive it virtually with <code>python3 tools/sim_test.py</code> in both directions before anyone drives it for real.",
+        "Set Pages to deploy from GitHub Actions, add your <code>CNAME</code>, and let the park know before launch."
       ]
     }
   ]

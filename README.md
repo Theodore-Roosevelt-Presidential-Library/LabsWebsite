@@ -34,6 +34,17 @@ git add -A && git commit -m "Add Foo to the catalog" && git push
 
 No dependencies. Python 3 standard library only.
 
+### Order and sorting
+
+The index lists projects in **Featured** order: by `weight` (3, then 2, then 1), newest
+first within a weight. The detail pages' previous and next links follow the same order.
+Visitors can switch to **Newest**, **Name A–Z**, or **By category** (grouped under
+headings, in `CATEGORY_ORDER`). The choice is kept in the URL as `?sort=`, alongside
+`?q=` and `?cat=`, so a sorted view can be shared.
+
+To move a project up or down, change its `weight`. Its position in `projects.json` only
+matters between projects with the same weight and `added` date.
+
 ### Fields in `projects.json`
 
 | Field | Notes |
@@ -42,6 +53,9 @@ No dependencies. Python 3 standard library only.
 | `repo` | Repository name in the org. Drives every GitHub link. |
 | `name` / `tagline` | What the card shows. Keep the tagline under about 18 words. |
 | `category` | Must match one of the categories in `CATEGORY_ORDER` in `tools/build.py`. |
+| `weight` | `3` flagship, `2` standard, `1` niche. Sets the default **Featured** order. |
+| `added` | `YYYY-MM-DD`, the repo's creation date. Drives **Newest**, and breaks ties within a weight. |
+| `status` | Optional. Any short word, such as `beta`, shown as a badge on the card and project page. |
 | `description` | Array of paragraphs for the detail page. |
 | `capabilities` | Array of bullets. Inline HTML (`<code>`) is allowed. |
 | `stack` | Array. The first four appear as chips on the card. |
@@ -80,7 +94,7 @@ Chromium, and commits the results to `assets/shots/`. It then reruns `tools/buil
 cards pick the images up.
 
 **Run this workflow once after the first deploy.** Until it does, every card falls back to a
-branded Night Sky tile with the project's name — correct, but monotonous across 21 cards.
+branded Night Sky tile with the project's name — correct, but monotonous across a full grid.
 
 Cards are screenshots only. Live demos are embedded on the project detail pages instead, one
 per page and loaded on click — several of these projects pull a 3D model or a star catalog on

@@ -19,6 +19,15 @@ import re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "data" / "projects.json").read_text(encoding="utf-8"))
 PROJECTS = DATA["projects"]
+
+# Featured order: weight first (3 flagship, 2 standard, 1 niche), newest first
+# within a weight. This is the default card order and the order the detail
+# pages' previous/next links follow. Ties keep their order in projects.json.
+for _p in PROJECTS:
+    assert _p.get("weight", 2) in (1, 2, 3), f'{_p["slug"]}: weight must be 1, 2, or 3'
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", _p.get("added", "")), f'{_p["slug"]}: added must be YYYY-MM-DD'
+PROJECTS = sorted(PROJECTS, key=lambda p: p["added"], reverse=True)
+PROJECTS = sorted(PROJECTS, key=lambda p: p.get("weight", 2), reverse=True)
 ORG_URL = DATA["meta"]["orgUrl"]
 SITE = "https://labs.trlibrary.com"
 
@@ -163,6 +172,12 @@ def footer(depth=0):
 
 # ---------------------------------------------------------------- index page
 
+def badge_html(p):
+    """Optional status marker, e.g. "status": "beta" in projects.json."""
+    st = p.get("status")
+    return f' <span class="badge">{esc(st)}</span>' if st else ""
+
+
 def card(p):
     slug = p["slug"]
     shot = shot_path(slug)
@@ -181,6 +196,7 @@ def card(p):
         )
 
     tech = "".join(f'<span class="tech">{esc(t)}</span>' for t in p["stack"][:4])
+    badge = badge_html(p)
 
     demo_link = ""
     if demo:
@@ -194,10 +210,11 @@ def card(p):
          re.sub(r"<[^>]+>", " ", " ".join(p["capabilities"]))]
     ).lower()
 
-    return f"""    <li class="card" data-cat="{esc(p['category'])}" data-search="{esc(haystack)}">
+    return f"""    <li class="card" data-cat="{esc(p['category'])}" data-weight="{p.get('weight', 2)}"
+        data-added="{esc(p['added'])}" data-name="{esc(p['name'].lower())}" data-search="{esc(haystack)}">
       <div class="preview">{media}</div>
       <div class="card-body">
-        <p class="cat">{esc(p['category'])}</p>
+        <p class="cat">{esc(p['category'])}{badge}</p>
         <h2><a href="projects/{slug}.html">{esc(p['name'])}</a></h2>
         <p class="tag">{esc(p['tagline'])}</p>
       </div>
@@ -286,13 +303,22 @@ def build_index():
       <button class="clear" id="clearQ" aria-label="Clear search">&times;</button>
     </div>
     <div class="filters" role="group" aria-label="Filter by category">{chips}</div>
+    <div class="sort">
+      <label for="sort">Sort</label>
+      <select id="sort">
+        <option value="featured">Featured</option>
+        <option value="newest">Newest</option>
+        <option value="name">Name A&ndash;Z</option>
+        <option value="category">By category</option>
+      </select>
+    </div>
     <p class="count" id="count" aria-live="polite">{len(PROJECTS)} projects</p>
   </div>
 </div>
 
 <main id="main">
   <div class="shell" id="projects">
-    <ul class="grid" id="grid">
+    <ul class="grid" id="grid" data-cat-order="{esc('|'.join(cats))}">
 {cards}
     </ul>
     <div class="empty" id="empty" hidden>
@@ -412,7 +438,7 @@ def build_project(p, prev, nxt):
 
 <header class="p-head">
   <div class="shell">
-    <p class="cat">{esc(p['category'])}</p>
+    <p class="cat">{esc(p['category'])}{badge_html(p)}</p>
     <h1>{esc(p['name'])}</h1>
     <p class="tag">{esc(p['tagline'])}</p>
     <div class="p-actions">
