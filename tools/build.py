@@ -298,7 +298,7 @@ def build_index():
             <li class="optional"><b>4</b><span><strong>Conversational interface</strong> Talk to TR</span><em>Optional</em></li>
             <li><b>3</b><span><strong>Retrieval and reasoning</strong> Campfire</span></li>
             <li><b>2</b><span><strong>AI-powered processing</strong> Archivist App</span></li>
-            <li><b>1</b><span><strong>Digitization and corpus</strong> Terentia</span></li>
+            <li><b>1</b><span><strong>Digitization and corpus</strong> Theodore Roosevelt Center &middot; Terentia</span></li>
           </ol>
         </div>
       </div>
@@ -793,10 +793,14 @@ def build_living_library():
             <h3>Digitization and corpus creation</h3>
             <p>Material moves into institution-controlled preservation storage with source
               identifiers and rights status preserved, so later stages never depend on a fragile
-              upstream path. At TRPL, <a href="{TERENTIA}" target="_blank" rel="noopener">Terentia</a>
-              provides the collections and digital asset management foundation for this governed
-              corpus, bringing together distributed historical materials and supporting the access
-              controls and metadata structures used by downstream research and AI experiences.</p>
+              upstream path. At TRPL, this layer rests on the
+              <a href="{TRC_URL}" target="_blank" rel="noopener">Theodore Roosevelt Center at Dickinson
+              State University</a>, which has gathered, catalogued, and digitized Roosevelt's scattered
+              record since 2007 &mdash; the corpus itself.
+              <a href="{TERENTIA}" target="_blank" rel="noopener">Terentia</a> provides the collections
+              and digital asset management foundation that governs it, bringing together distributed
+              historical materials and supporting the access controls and metadata structures used by
+              downstream research and AI experiences.</p>
           </div>
         </li>
         <li>
@@ -957,7 +961,8 @@ def build_living_library():
 
       <p><strong>Production deployment.</strong> The open-source repository is a reference
         implementation of the Living Library architecture. In TRPL&rsquo;s production environment,
-        the governed collections corpus is managed in Terentia, which provides the underlying
+        the governed collections corpus &mdash; built on the Theodore Roosevelt Center&rsquo;s
+        catalogued digital library &mdash; is managed in Terentia, which provides the underlying
         collections and digital asset management layer used to organize, control, and make
         collection content available to downstream applications.</p>
 
