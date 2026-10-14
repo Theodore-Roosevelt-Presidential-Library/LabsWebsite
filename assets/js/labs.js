@@ -120,6 +120,14 @@
 
   }
 
+  /* ------------------------------------------------------ reduced motion */
+  // Looping animations hold on their poster frame for visitors who ask for less motion.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      v.removeAttribute('autoplay'); v.pause(); v.controls = true;
+    });
+  }
+
   /* -------------------------------------------------------- detail page */
   var loadDemo = document.getElementById('loadDemo');
   if (loadDemo) {

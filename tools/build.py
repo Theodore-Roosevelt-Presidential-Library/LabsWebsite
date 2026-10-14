@@ -283,13 +283,32 @@ def build_index():
             Paper on arXiv {ICON_EXT}</a>
         </div>
       </div>
-      <ul class="feat-stats">
-        <li><b>4</b><span>Layers &mdash; only the last is an avatar</span></li>
-        <li><b>~300,000</b><span>Archival records, made askable</span></li>
-        <li><b>40+</b><span>Repositories reconciled</span></li>
-        <li><b>2.80s</b><span>Mean time to first spoken word</span></li>
-      </ul>
+      <div class="feat-visual">
+        <figure class="feat-media">
+          <video src="assets/media/ocr-transcription.mp4" poster="assets/media/ocr-transcription-poster.jpg"
+            autoplay loop muted playsinline preload="metadata" width="714" height="402"
+            aria-label="A handwritten Roosevelt letter is transcribed word by word, then mapped into a graph linking Theodore and Kermit Roosevelt"></video>
+          <figcaption>One letter, end to end: Roosevelt to his son Kermit, read by OCR, then
+            placed in the graph that makes the collection searchable.
+            <span>Animation: Microsoft AI for Good Lab</span></figcaption>
+        </figure>
+        <div class="feat-layers">
+          <p class="feat-layers-head">The four layers</p>
+          <ol>
+            <li class="optional"><b>4</b><span><strong>Conversational interface</strong> Talk to TR</span><em>Optional</em></li>
+            <li><b>3</b><span><strong>Retrieval and reasoning</strong> Campfire</span></li>
+            <li><b>2</b><span><strong>AI-powered processing</strong> Archivist App</span></li>
+            <li><b>1</b><span><strong>Digitization and corpus</strong> Terentia</span></li>
+          </ol>
+        </div>
+      </div>
     </div>
+    <ul class="feat-stats">
+      <li><b>4</b><span>Layers &mdash; only the last is an avatar</span></li>
+      <li><b>~300,000</b><span>Archival records, made askable</span></li>
+      <li><b>40+</b><span>Repositories reconciled</span></li>
+      <li><b>2.80s</b><span>Mean time to first spoken word</span></li>
+    </ul>
   </div>
 </section>
 
