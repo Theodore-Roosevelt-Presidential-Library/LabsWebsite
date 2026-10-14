@@ -2,7 +2,7 @@
   "meta": {
     "org": "Theodore-Roosevelt-Presidential-Library",
     "orgUrl": "https://github.com/Theodore-Roosevelt-Presidential-Library",
-    "updated": "2026-10-13"
+    "updated": "2026-10-14"
   },
   "projects": [
     {
@@ -1264,6 +1264,39 @@
         "Replace the ticketing fetcher with your own system's, or remove it. Store only counts, never customer records.",
         "Add the secrets and variables your sources need, such as a ticketing API key and <code>BLS_CONTACT</code>, an address the BLS will accept in its user agent.",
         "Set Pages to deploy from GitHub Actions and give workflows read and write permission. The first DB1B run downloads about 4 GB; later runs fetch only new quarters."
+      ]
+    },
+    {
+      "slug": "diary-explorer",
+      "repo": "DiaryExplorer",
+      "name": "The 1884 Diary",
+      "category": "Interactive Media",
+      "tagline": "Turn the pages of Roosevelt's 1884 pocket diary, with a page-by-page transcription beside every scan.",
+      "description": [
+        "Theodore Roosevelt's pocket diary for 1884, from the Library of Congress, as a book you can page through. Every one of the 410 scans is here, cropped to the page edge, with a page-curl reader, a transcription panel beside each page, an 1884 timeline, search across the entries, and deep zoom into the handwriting.",
+        "Each scan has one structured record, and every mark on the page is kept with whoever made it: the printer's dated headers and calendars, Roosevelt's own writing split into entries, tallies, tables, and lists, and later archival pencil marks kept separate. People, places, and animals are recorded as written, and any identification is marked uncertain unless the page settles it. A review workflow, curator's notes with draft and approved states, and a kiosk mode make it ready for a gallery as well as the web."
+      ],
+      "capabilities": [
+        "Page-curl book reader with the transcription alongside each page",
+        "Deep zoom into every scan with OpenSeadragon",
+        "1884 timeline and full-text search across entries",
+        "Structured page records separating printed text, Roosevelt's hand, and later archival marks",
+        "Review workflow with a flagged-readings review file and per-page review status",
+        "Curator's notes with draft and approved states, and featured highlight pages",
+        "Kiosk mode with large touch targets, no outbound links, and an idle reset",
+        "No CDN dependencies: libraries are kept in <code>vendor/</code>"
+      ],
+      "stack": ["Vanilla JS", "StPageFlip", "OpenSeadragon", "Python build script", "GitHub Pages"],
+      "demo": "https://diary.labs.trlibrary.com/",
+      "embeddable": true,
+      "demoNote": "The transcription is still in review. Check any reading against the page scan before quoting it.",
+      "license": "MIT",
+      "setup": [
+        "Fork the repo and replace <code>pages/</code> with your own diary or notebook scans, cropped and numbered in image order.",
+        "Write one record per scan in <code>transcription/pages/&lt;seq&gt;.json</code>, following <code>transcription/SCHEMA.md</code> and <code>CONVENTIONS.md</code>.",
+        "Run <code>python3 tools/build.py</code> to rebuild <code>data/diary.json</code> and the review file.",
+        "Review every reading against the scans, mark records reviewed, approve curator's notes, then set <code>\"showDrafts\": false</code> in <code>data/config.json</code>.",
+        "Enable Pages from <code>main</code> at the root and edit <code>CNAME</code>. Embed with <code>?embed</code>, or run it in a gallery with <code>?kiosk</code>."
       ]
     }
   ]
