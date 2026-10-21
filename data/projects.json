@@ -2,7 +2,7 @@
   "meta": {
     "org": "Theodore-Roosevelt-Presidential-Library",
     "orgUrl": "https://github.com/Theodore-Roosevelt-Presidential-Library",
-    "updated": "2026-10-14"
+    "updated": "2026-10-21"
   },
   "projects": [
     {
@@ -26,7 +26,15 @@
         "Every color exposed as a CSS custom property; three themes ship in the box",
         "Weekly GitHub Action harvest with sanity checks that gate the deploy"
       ],
-      "stack": ["Vanilla JS web components", "Node 18+", "esbuild", "d3-force", "WordPress REST API", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS web components",
+        "Node 18+",
+        "esbuild",
+        "d3-force",
+        "WordPress REST API",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://trc.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -58,7 +66,13 @@
         "Full-screen vertical timeline with chapter dividers",
         "Optional Explore buttons linking any point to a page on your own site"
       ],
-      "stack": ["Vanilla JS, zero dependencies", "Shadow DOM", "Plain JSON data", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS, zero dependencies",
+        "Shadow DOM",
+        "Plain JSON data",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://timeline.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -90,7 +104,12 @@
         "Shadow DOM isolation with graceful font fallbacks",
         "CI renders the whole tree headlessly and refuses to deploy if nodes overlap"
       ],
-      "stack": ["Single self-contained vanilla JS file", "Shadow DOM", "GitHub Actions with headless verification", "GitHub Pages"],
+      "stack": [
+        "Single self-contained vanilla JS file",
+        "Shadow DOM",
+        "GitHub Actions with headless verification",
+        "GitHub Pages"
+      ],
       "demo": "https://familytree.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -123,7 +142,12 @@
         "Configurable thumbnail width, maximum image side, and JPEG quality",
         "No server, no database, no image CDN bill"
       ],
-      "stack": ["Python 3", "Pillow", "Vanilla JS embed", "GitHub Pages"],
+      "stack": [
+        "Python 3",
+        "Pillow",
+        "Vanilla JS embed",
+        "GitHub Pages"
+      ],
       "demo": "https://photogallery.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -156,7 +180,13 @@
         "Works with any Acquia DAM portal — add it to <code>config.json</code>",
         "About twenty <code>data-*</code> styling options: accent, fonts, tile size, aspect ratio, badges"
       ],
-      "stack": ["Vanilla JS embed", "Node 18+", "Acquia DAM / Widen portal API", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS embed",
+        "Node 18+",
+        "Acquia DAM / Widen portal API",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://portalphotos.labs.trlibrary.com/demo.html",
       "embeddable": true,
       "license": "MIT",
@@ -188,7 +218,13 @@
         "Adopts the host page's own heading and body fonts",
         "Shadow DOM isolation from the host CMS's stylesheet"
       ],
-      "stack": ["Node ESM scraper", "schema.org JSON-LD", "Vanilla JS with Shadow DOM", "GitHub Actions cron", "GitHub Pages"],
+      "stack": [
+        "Node ESM scraper",
+        "schema.org JSON-LD",
+        "Vanilla JS with Shadow DOM",
+        "GitHub Actions cron",
+        "GitHub Pages"
+      ],
       "demo": "https://theodore-roosevelt-presidential-library.github.io/HoursEmbed/",
       "embeddable": true,
       "license": "MIT",
@@ -221,7 +257,14 @@
         "Hand-maintained closures file honored by every widget, with named reasons",
         "Staff-facing monitor page; mock mode runs the whole stack with no API key at all"
       ],
-      "stack": ["Python 3 standard library", "ACME Ticketing Reporting API", "Vanilla JS widgets", "GitHub Actions", "GitHub Pages", "Google Tag Manager (optional)"],
+      "stack": [
+        "Python 3 standard library",
+        "ACME Ticketing Reporting API",
+        "Vanilla JS widgets",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Google Tag Manager (optional)"
+      ],
       "demo": "https://ticketing.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -255,7 +298,14 @@
         "Two weekly jobs: a live event refresh and a link-rot watchdog that opens issues rather than editing data",
         "WCAG 2.1 AA verified with axe-core — zero violations"
       ],
-      "stack": ["Vanilla JS embed", "Curated JSON data files", "Node ESM scrapers with Playwright", "Python image caching", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS embed",
+        "Curated JSON data files",
+        "Node ESM scrapers with Playwright",
+        "Python image caching",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://trip.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -288,7 +338,15 @@
         "Feels-like, wind and gusts, humidity, sunrise and sunset, air quality, snowfall",
         "Stale-data fallback: serves the last good forecast and flags it rather than going blank"
       ],
-      "stack": ["Node.js ESM", "Vanilla JS widget", "SVG-to-PNG rendering", "api.weather.gov", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Node.js ESM",
+        "Vanilla JS widget",
+        "SVG-to-PNG rendering",
+        "api.weather.gov",
+        "Open-Meteo",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://weather.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -320,7 +378,13 @@
         "A single adapter block designed as the one place to swap demo data for live data",
         "Companion spreadsheet for the petals that are documented by hand"
       ],
-      "stack": ["Single-file HTML, CSS, vanilla JS", "Inline SVG", "Open-Meteo API", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Single-file HTML, CSS, vanilla JS",
+        "Inline SVG",
+        "Open-Meteo API",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://lbc.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -354,7 +418,14 @@
         "Timed reveal so scheduled posts appear on time without waiting for a rebuild",
         "OAuth refresh-token rotation written back to a repository secret automatically"
       ],
-      "stack": ["Python", "Hootsuite REST API and OAuth", "Image compositing", "Plain HTML/CSS/JS", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "Hootsuite REST API and OAuth",
+        "Image compositing",
+        "Plain HTML/CSS/JS",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://socialcalendar.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -388,7 +459,11 @@
         "Header Studio: photo upload, drag to reposition, plaque and wordmark color picking, PNG download",
         "Ships with <code>CLAUDE.md</code> and <code>llms.txt</code> so an AI assistant can build newsletters in it directly"
       ],
-      "stack": ["Static HTML, CSS, JavaScript", "No backend, no build step", "GitHub Pages"],
+      "stack": [
+        "Static HTML, CSS, JavaScript",
+        "No backend, no build step",
+        "GitHub Pages"
+      ],
       "demo": "https://newsletter.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -420,7 +495,12 @@
         "Per-browser Ignore that generates copy-ready lines for the shared ignore file",
         "Threaded crawling and validation, tuned by environment variables"
       ],
-      "stack": ["Python", "requests", "GitHub Actions weekly cron", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "requests",
+        "GitHub Actions weekly cron",
+        "GitHub Pages"
+      ],
       "demo": "https://links.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -453,7 +533,14 @@
         "Three-gate quote safety: verbatim match, regex screen, adversarial critic",
         "Pre-commit validator that refuses to ship unparseable data"
       ],
-      "stack": ["Python", "Apify actors", "Swappable LLM provider interface", "Static HTML/CSS/JS dashboard", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "Apify actors",
+        "Swappable LLM provider interface",
+        "Static HTML/CSS/JS dashboard",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://reviews.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -485,7 +572,13 @@
         "The whole dataset editable as one plain JSON file, no build step",
         "Deploys on every push to <code>main</code>"
       ],
-      "stack": ["Static HTML", "Vanilla JavaScript", "Plain JSON", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Static HTML",
+        "Vanilla JavaScript",
+        "Plain JSON",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://anniversaries.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -518,7 +611,14 @@
         "Visual editor — right-click to place pins, download the JSON",
         "One-line embed with per-embed custom marker sets"
       ],
-      "stack": ["Static HTML/CSS/JS, no build step", "Google model-viewer", "glTF/GLB with Draco compression", "Git LFS", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Static HTML/CSS/JS, no build step",
+        "Google model-viewer",
+        "glTF/GLB with Draco compression",
+        "Git LFS",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://campus.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -551,7 +651,15 @@
         "See-through mode showing the rear camera behind a transparent chart — never uploaded",
         "Tonight panel with sunset, full dark, moonrise, and eclipses, plus a live aurora estimate"
       ],
-      "stack": ["Vanilla JS built from source by a Python build step", "Shadow DOM", "d3-celestial data", "Stellarium sky-culture artwork", "numpy", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS built from source by a Python build step",
+        "Shadow DOM",
+        "d3-celestial data",
+        "Stellarium sky-culture artwork",
+        "numpy",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://stargazer.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -585,7 +693,14 @@
         "Gallery widget with search, difficulty and topic facets, and a daily reshuffle",
         "Keyword search index built from proper nouns and rare words inside the questions"
       ],
-      "stack": ["Static HTML/CSS/JS, no framework", "Shadow DOM", "Canvas badge generation", "PeerJS / WebRTC", "Python indexing helper", "GitHub Pages"],
+      "stack": [
+        "Static HTML/CSS/JS, no framework",
+        "Shadow DOM",
+        "Canvas badge generation",
+        "PeerJS / WebRTC",
+        "Python indexing helper",
+        "GitHub Pages"
+      ],
       "demo": "https://quiz.labs.trlibrary.com",
       "embeddable": true,
       "license": "MIT",
@@ -618,7 +733,13 @@
         "Touch controls that adapt per mini-game, with letterboxed fullscreen and add-to-home-screen",
         "Completion reward with a promo code, plus score and progress saved locally"
       ],
-      "stack": ["Plain ES, no framework or bundler", "HTML5 canvas", "Web Audio API", "Fullscreen and Screen Orientation APIs", "GitHub Pages"],
+      "stack": [
+        "Plain ES, no framework or bundler",
+        "HTML5 canvas",
+        "Web Audio API",
+        "Fullscreen and Screen Orientation APIs",
+        "GitHub Pages"
+      ],
       "demo": "http://trgame.labs.trlibrary.com/",
       "demoNote": "Served over HTTP only — the custom domain is still waiting on its certificate, so this one is a link out rather than a live embed.",
       "embeddable": false,
@@ -651,7 +772,13 @@
         "Custom domain on GitHub Pages with a working certificate",
         "Deliberately minimal — about fifteen lines of page code per panorama"
       ],
-      "stack": ["Static HTML", "three.js", "Panolens", "WebGL", "GitHub Pages"],
+      "stack": [
+        "Static HTML",
+        "three.js",
+        "Panolens",
+        "WebGL",
+        "GitHub Pages"
+      ],
       "demo": "https://elkhorn.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -684,9 +811,18 @@
         "Email template built from table cells so the guest's name stays live text when images are blocked",
         "Download-everything zip and a share link encoding the whole build in under 1 kB"
       ],
-      "stack": ["Single vanilla JS file, no dependencies", "Shadow DOM", "CSS 3D transforms", "prefers-reduced-motion", "GitHub Pages"],
+      "stack": [
+        "Single vanilla JS file, no dependencies",
+        "Shadow DOM",
+        "CSS 3D transforms",
+        "prefers-reduced-motion",
+        "GitHub Pages"
+      ],
       "demo": "https://rsvp.labs.trlibrary.com/demo/",
-      "demoAlt": {"label": "Open the builder", "url": "https://rsvp.labs.trlibrary.com/"},
+      "demoAlt": {
+        "label": "Open the builder",
+        "url": "https://rsvp.labs.trlibrary.com/"
+      },
       "embeddable": true,
       "license": "MIT",
       "setup": [
@@ -719,7 +855,14 @@
         "Shareable plan links, with UTM-tagged ticket links for GA4",
         "Renders straight into the host page, no iframe, with scoped <code>tp-</code> styles"
       ],
-      "stack": ["Vanilla JS", "Leaflet", "NPS Data API", "OSRM", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Leaflet",
+        "NPS Data API",
+        "OSRM",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://trnp-planner.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -752,7 +895,14 @@
         "Printable family checklist and the NPS 25-yard rule",
         "Seven embeddable views, each a self-sizing widget"
       ],
-      "stack": ["Vanilla JS", "Leaflet", "iNaturalist API", "USGS National Map", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Leaflet",
+        "iNaturalist API",
+        "USGS National Map",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://wildlife.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -785,7 +935,14 @@
         "Points to the trailhead and offers directions when the visitor is still far away",
         "Staff preview mode with <code>?sim=1</code> to walk the route from anywhere"
       ],
-      "stack": ["Vanilla JS PWA", "Leaflet", "Service worker", "Geolocation and DeviceOrientation", "USGS imagery", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS PWA",
+        "Leaflet",
+        "Service worker",
+        "Geolocation and DeviceOrientation",
+        "USGS imagery",
+        "GitHub Pages"
+      ],
       "demo": "https://elkhornguide.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "Location and compass need a phone on site. Add ?sim=1 to the address to tap the map and move your position from anywhere.",
@@ -819,7 +976,14 @@
         "Offline map that saves about five miles of topo around the map center",
         "Opens a GitHub issue when the posted Forest Service orders change"
       ],
-      "stack": ["Python standard library", "Vanilla JS", "Leaflet", "PAD-US and agency GIS", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python standard library",
+        "Vanilla JS",
+        "Leaflet",
+        "PAD-US and agency GIS",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://camping.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "Not legal advice. Land records are approximate; posted signs and the managing agency always have the final word.",
@@ -853,7 +1017,14 @@
         "Licenses, vendors, hunter education, and carcass rules in one view",
         "Offline map that keeps land records, units, and shooting hours working with no signal"
       ],
-      "stack": ["Python standard library", "Vanilla JS", "Leaflet", "State and federal GIS", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python standard library",
+        "Vanilla JS",
+        "Leaflet",
+        "State and federal GIS",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://huntfish.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "Not legal advice. The current state proclamations and the land manager always have the final word.",
@@ -887,7 +1058,14 @@
         "Staff monitor grid plus a CSV log of availability changes",
         "Shadow-DOM widget that measures the host page's fixed header"
       ],
-      "stack": ["Python", "Vanilla JS widget", "Shadow DOM", "SearchApi and Apify", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "Vanilla JS widget",
+        "Shadow DOM",
+        "SearchApi and Apify",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://lodging.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -920,7 +1098,15 @@
         "Self-sizing iframe with light and dark themes and per-visitor remembered choices",
         "Last-good fallback for every source, flagged in the status block"
       ],
-      "stack": ["Node.js", "Vanilla JS", "NPS Data API", "NWS and USGS APIs", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Node.js",
+        "Vanilla JS",
+        "NPS Data API",
+        "NWS and USGS APIs",
+        "Open-Meteo",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://badlandstoday.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -953,7 +1139,14 @@
         "Lodging links that pass check-in date and nights to a lodging finder",
         "Single-file, dependency-free, shadow-DOM widget"
       ],
-      "stack": ["Vanilla JS widget", "Python standard library", "NOAA SWPC", "Open-Meteo", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS widget",
+        "Python standard library",
+        "NOAA SWPC",
+        "Open-Meteo",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://aurora.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -986,7 +1179,13 @@
         "Staff tool for IRS-compliant gift acknowledgment letters",
         "Keyboard-navigable, 44px targets, works at phone width"
       ],
-      "stack": ["Vanilla JS", "Node build script", "pdf-lib", "Playwright tests", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Node build script",
+        "pdf-lib",
+        "Playwright tests",
+        "GitHub Pages"
+      ],
       "demo": "https://givingtools.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "Educational only, not tax or legal advice.",
@@ -1020,7 +1219,13 @@
         "Embed codes with layer, stop, lock, and panel options",
         "All visitor copy and figures in one file, <code>assets/content.js</code>"
       ],
-      "stack": ["three.js r160", "glTF with meshopt", "Vanilla JS", "Python tooling", "GitHub Pages"],
+      "stack": [
+        "three.js r160",
+        "glTF with meshopt",
+        "Vanilla JS",
+        "Python tooling",
+        "GitHub Pages"
+      ],
       "demo": "https://lbcsystems.labs.trlibrary.com/",
       "demoAlt": {
         "label": "Embed codes",
@@ -1058,7 +1263,14 @@
         "Share links to any point, stop, or layer",
         "Self-sizing embeds for map, layers, stops, story, or all"
       ],
-      "stack": ["Vanilla JS", "Leaflet", "TopoJSON", "Macrostrat API", "Python and GeoPandas", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Leaflet",
+        "TopoJSON",
+        "Macrostrat API",
+        "Python and GeoPandas",
+        "GitHub Pages"
+      ],
       "demo": "https://geology.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -1091,7 +1303,14 @@
         "Overlay any past year on this one, plus records and yearly peaks",
         "Self-sizing embeds, including a compact live card for a sidebar"
       ],
-      "stack": ["Vanilla JS", "Leaflet", "USGS Water Services", "NWS NWPS", "Python", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Leaflet",
+        "USGS Water Services",
+        "NWS NWPS",
+        "Python",
+        "GitHub Pages"
+      ],
       "demo": "https://littlemo.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -1124,7 +1343,13 @@
         "People index with fact-checked bios and highlighted mentions",
         "Events published as CSV and JSON"
       ],
-      "stack": ["Static HTML and JS", "Python build scripts", "Library of Congress Chronicling America", "IIIF tiles", "GitHub Pages"],
+      "stack": [
+        "Static HTML and JS",
+        "Python build scripts",
+        "Library of Congress Chronicling America",
+        "IIIF tiles",
+        "GitHub Pages"
+      ],
       "demo": "https://badlandscowboy.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "Transcriptions were made with AI from the page images. Check any quotation against the scan before publishing; every item links to it.",
@@ -1158,7 +1383,13 @@
         "Embeds render straight into the page, no iframe, with scoped styles",
         "Downloadable GeoJSON and CSV of parcels and patents"
       ],
-      "stack": ["Vanilla JS", "Leaflet", "Python and Shapely", "BLM GLO Records", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "Leaflet",
+        "Python and Shapely",
+        "BLM GLO Records",
+        "GitHub Pages"
+      ],
       "demo": "https://homestead.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -1191,7 +1422,13 @@
         "Copy-check that rejects six-word runs from the copyrighted source",
         "Data under CC BY 4.0 in JSONL and CSV"
       ],
-      "stack": ["Python standard library", "Static JSON API", "Vanilla JS", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python standard library",
+        "Static JSON API",
+        "Vanilla JS",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://daybyday.labs.trlibrary.com/",
       "demoAlt": {
         "label": "API index",
@@ -1228,7 +1465,14 @@
         "Verification status on every text, with page-image links",
         "Embeddable widgets and cross-links to Day by Day"
       ],
-      "stack": ["Python standard library", "Static JSON API", "Vanilla JS", "GovInfo USLM", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python standard library",
+        "Static JSON API",
+        "Vanilla JS",
+        "GovInfo USLM",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://executiveactions.labs.trlibrary.com/",
       "demoAlt": {
         "label": "Then and Now",
@@ -1265,7 +1509,14 @@
         "Debug, preview, and clear switches on any page URL",
         "One-time GTM import that creates the loader, template, and event tags"
       ],
-      "stack": ["Vanilla JS runtime", "Google Tag Manager", "GA4", "Constant Contact", "Playwright tests", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS runtime",
+        "Google Tag Manager",
+        "GA4",
+        "Constant Contact",
+        "Playwright tests",
+        "GitHub Pages"
+      ],
       "demo": "https://popup.labs.trlibrary.com/",
       "demoAlt": {
         "label": "Open the builder",
@@ -1302,7 +1553,13 @@
         "Optional ZIP-to-state fixer, dry run by default",
         "One <code>config.yml</code> holds everything account-specific"
       ],
-      "stack": ["Python", "Constant Contact API v3", "OAuth 2", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "Constant Contact API v3",
+        "OAuth 2",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "embeddable": false,
       "license": "MIT",
       "setup": [
@@ -1334,7 +1591,13 @@
         "Aggregates only: ticket counts per ZIP, never customer records",
         "Every series published as CSV in <code>data/</code>"
       ],
-      "stack": ["Python", "GitHub Actions", "Static HTML dashboard", "Public data APIs and PDFs", "GitHub Pages"],
+      "stack": [
+        "Python",
+        "GitHub Actions",
+        "Static HTML dashboard",
+        "Public data APIs and PDFs",
+        "GitHub Pages"
+      ],
       "demo": "https://tourismdata.labs.trlibrary.com/",
       "embeddable": true,
       "license": "MIT",
@@ -1368,7 +1631,13 @@
         "Kiosk mode with large touch targets, no outbound links, and an idle reset",
         "No CDN dependencies: libraries are kept in <code>vendor/</code>"
       ],
-      "stack": ["Vanilla JS", "StPageFlip", "OpenSeadragon", "Python build script", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS",
+        "StPageFlip",
+        "OpenSeadragon",
+        "Python build script",
+        "GitHub Pages"
+      ],
       "demo": "https://diary.labs.trlibrary.com/",
       "embeddable": true,
       "demoNote": "The transcription is still in review. Check any reading against the page scan before quoting it.",
@@ -1403,7 +1672,14 @@
         "Wildlife slowdown prompt that plays a clip for the animal you are seeing",
         "Preview the drive from home with a simulated run, plus a script review page with sources"
       ],
-      "stack": ["Vanilla JS PWA", "Geolocation and Wake Lock", "Python build tools", "Playwright tests", "GitHub Actions", "GitHub Pages"],
+      "stack": [
+        "Vanilla JS PWA",
+        "Geolocation and Wake Lock",
+        "Python build tools",
+        "Playwright tests",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
       "demo": "https://trnptour.labs.trlibrary.com/",
       "demoAlt": {
         "label": "Preview the drive",
@@ -1418,6 +1694,227 @@
         "Run <code>python3 tools/assemble.py</code> to build the clips, then <code>tools/build_data.py</code> with your route, stops, speed limits, and photos.",
         "Drive it virtually with <code>python3 tools/sim_test.py</code> in both directions before anyone drives it for real.",
         "Set Pages to deploy from GitHub Actions, add your <code>CNAME</code>, and let the park know before launch."
+      ]
+    },
+    {
+      "slug": "trs-medora",
+      "repo": "TRsMedora",
+      "name": "TR's Medora",
+      "category": "Interactive Media",
+      "weight": 3,
+      "added": "2026-10-16",
+      "status": "beta",
+      "tagline": "The two towns of Roosevelt's ranching years, rebuilt as a 3D model you can move through.",
+      "description": [
+        "Little Missouri stood on the west bank of the river. Medora, built by the Marquis de Morès, stood on the east. Between Roosevelt's arrival in September 1883 and the killing winter of 1886–87, both changed almost beyond recognition — and then largely vanished. This rebuilds them: lidar terrain, buildings at measured or estimated heights, across four dates.",
+        "The 3D view is the one to open first. It will put you where a photographer stood: the project solves the camera position for surviving period photographs and overlays the original plate on the model, so you can judge for yourself how closely the reconstruction matches the evidence. A companion 2D map covers the same ground with the 1883 plat fitted to today's survey and the river in its original channel.",
+        "It is marked beta on purpose. The README calls it an internal experiment, and a good deal of the town is inferred rather than documented — which the project is unusually honest about, and which is the reason to look at it."
+      ],
+      "capabilities": [
+        "Lidar terrain with buildings at measured or estimated heights, across four dates",
+        "Views from solved period-photo cameras, with the original photograph overlaid on the model",
+        "Separate A–D confidence grades for every building's <em>location</em> and its <em>form</em>",
+        "A gazetteer of every known structure with dates, evidence, sources and photographs",
+        "446 building mentions from the <em>Bad Lands Cow Boy</em>, 1884–86, OCR-checked",
+        "The 1883 plat fitted to today's map, with the river's original channel"
+      ],
+      "stack": [
+        "Python build tools",
+        "shapely",
+        "numpy",
+        "Lidar terrain",
+        "Camera solving and back-projection",
+        "Static HTML/JS viewers",
+        "GitHub Pages"
+      ],
+      "demo": "https://trsmedora.labs.trlibrary.com/map3d/",
+      "demoAlt": {
+        "label": "Open the 2D map",
+        "url": "https://trsmedora.labs.trlibrary.com/map/"
+      },
+      "demoNote": "An internal experiment, published as-is. Much of the town is inferred rather than documented — read the confidence grades before citing anything.",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. The two published views are <code>map3d/</code> and <code>map/</code>; everything else builds them.",
+        "Replace the historic record in <code>tools/build_features.py</code> &mdash; it is the single spec for every feature, and it writes both the gazetteer and the map data. Do not hand-edit <code>data/buildings.csv</code>.",
+        "Grade your own evidence. Each structure carries separate confidence grades for location and for form, A (documented) through D (conjectural). The grades are the honest part; keep them.",
+        "Swap the reference layers in <code>data/reference/</code> for your own lots, survey sections and plat, and refit the control points.",
+        "Run <code>pip install shapely numpy</code>, then <code>python3 tools/build_features.py</code> and <code>python3 tools/build_3d.py</code>.",
+        "Check image rights before publishing. The 3D photo gallery serves reduced period photographs under educational, non-commercial use; confirm terms with each archive for anything else."
+      ]
+    },
+    {
+      "slug": "medora-events",
+      "repo": "MedoraEvents",
+      "name": "Medora Events",
+      "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-10-18",
+      "tagline": "One deduplicated calendar of everything happening in Medora and the towns around it.",
+      "description": [
+        "Roughly nineteen partner calendars — the national park, the Medora Foundation, the chamber, saloons, churches, races, universities, state tourism — rebuilt daily into a single calendar.",
+        "The hard part is not collecting; it is that the same street dance is posted in five places with five different titles. A dedupe engine merges overlapping listings by date, start time within ninety minutes, and normalized title, and records which other sources also carried it. Every in-person event lands on a map, and the Mountain/Central time-zone line running through the region is handled per event rather than per feed."
+      ],
+      "capabilities": [
+        "Five embeddable widgets: upcoming, browse, month, week, and map",
+        "Deduplication across sources, with source priority set by list order",
+        "Automatic in-town or out-of-town tagging, with drive-time estimates",
+        "iCal feeds per scope and per source, plus a versioned JSON API",
+        "Correct per-event handling of the Mountain/Central time-zone boundary",
+        "Hand-checked venue pins, with geocoding as the fallback"
+      ],
+      "stack": [
+        "Python",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Leaflet",
+        "OpenStreetMap",
+        "NPS Data API",
+        "Firecrawl",
+        "Apify"
+      ],
+      "demo": "https://medoraevents.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork and rewrite <code>medevents/sources/</code> for your own partner calendars. List order is the dedupe priority, so put your most trustworthy source first.",
+        "Edit <code>medevents/places.py</code> for your towns, drive times and time zones, and <code>config/venues.yaml</code> for hand-checked map pins.",
+        "Add repository secrets for whichever sources you keep &mdash; <code>NPS_API_KEY</code>, <code>FIRECRAWL_API_KEY</code>, <code>APIFY_TOKEN</code>.",
+        "Settings &rarr; Pages &rarr; deploy from <code>main</code>, folder <code>/docs</code>, then set your custom domain.",
+        "Run <code>pip install -r requirements.txt</code> then <code>python -m medevents.build</code> to check it locally before the first scheduled run.",
+        "Use <code>config/overrides.yaml</code> for corrections and <code>config/manual_events.yaml</code> for venues that publish no calendar at all."
+      ]
+    },
+    {
+      "slug": "tr-events",
+      "repo": "TREvents",
+      "name": "TR Events",
+      "category": "Embeddable Widget",
+      "weight": 2,
+      "added": "2026-10-18",
+      "tagline": "Every Theodore Roosevelt event in the country, gathered daily into one calendar.",
+      "description": [
+        "Fifteen organizations — the Library, five National Park Service sites, the TR Association, the Theodore Roosevelt Center, Friends of Sagamore Hill — plus keyword-scanned national calendars at the Smithsonian, the Library of Congress and the National Archives.",
+        "Roosevelt organizations are ingested whole; general calendars are filtered by relevance, with uncertain matches routed to a human review file rather than published or silently dropped. Franklin and Eleanor events are excluded, which is less trivial than it sounds. When a source fails, the last good data stands for seven days and the error surfaces rather than the calendar quietly emptying."
+      ],
+      "capabilities": [
+        "Four embeddable widgets with an auto-sizing iframe loader",
+        "Relevance scoring that separates core, matched and possible events",
+        "Recurring events can be hidden, collapsed to one row, or shown in full",
+        "iCal feeds for special events, everything, virtual, free, and per source",
+        "Seven-day fallback to last-good data, with failures surfaced not hidden",
+        "A snippet builder on the home page for generating embed code"
+      ],
+      "stack": [
+        "Python",
+        "GitHub Actions",
+        "GitHub Pages",
+        "NPS Data API",
+        "Firecrawl",
+        "Trumba",
+        "loc.gov API",
+        "schema.org JSON-LD"
+      ],
+      "demo": "https://trevents.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork and replace the relevance terms in <code>trevents/model.py</code> with your own subject keywords.",
+        "Add source modules in <code>trevents/sources/</code> &mdash; each needs a <code>SOURCE</code> dict and a <code>fetch()</code> returning <code>Event</code> objects &mdash; and register them, list order first being dedupe priority.",
+        "Add repository secrets <code>NPS_API_KEY</code> and <code>FIRECRAWL_API_KEY</code>, the latter for sources that block GitHub runners.",
+        "Enable Pages from <code>main</code> / <code>/docs</code>, set <code>docs/CNAME</code> and add the DNS record.",
+        "Run <code>pip install -r requirements.txt</code> and <code>python -m trevents.build</code> locally, then trigger the update workflow.",
+        "Use <code>config/overrides.yaml</code> to exclude or correct events, and <code>config/manual_events.yaml</code> for organizations with no readable calendar."
+      ]
+    },
+    {
+      "slug": "sign-card",
+      "repo": "SignCard",
+      "name": "Sign the Card",
+      "category": "Visitor Experience",
+      "weight": 3,
+      "added": "2026-10-20",
+      "tagline": "A public greeting card visitors sign, moderated automatically, with a map of where signatures came from.",
+      "description": [
+        "An opening animation, a signature with a message, then featured messages and a map of where people signed from. The first campaign is a birthday card for Roosevelt on 27 October.",
+        "The privacy architecture is the reason to look at it. Browsers can <em>create</em> signature documents in the database and can never read them back. A scheduled job every ten minutes runs moderation and an AI review, then commits only non-identifying data to the published site: first name and last initial, city and state, approved messages, and a dot at the ZIP centroid. Emails, full surnames and exact ZIPs never leave the database.",
+        "That is a pattern worth copying for any institution collecting public submissions — the published artifact simply cannot leak what it never received."
+      ],
+      "capabilities": [
+        "Create-only database rules in the browser; nothing readable client-side",
+        "One signature per email per campaign, enforced by hashing campaign and email into the document id",
+        "Automated moderation plus an AI review for names, approval and a feature score",
+        "A visual builder that generates new campaign files without code",
+        "Hand moderation by hiding or pinning individual messages",
+        "Self-resizing embeddable iframe with an analytics event on signing"
+      ],
+      "stack": [
+        "Static HTML/CSS/JS",
+        "Firebase Firestore",
+        "Python",
+        "GitHub Actions",
+        "Workload Identity Federation",
+        "OpenAI API",
+        "GitHub Pages"
+      ],
+      "demo": "https://card.labs.trlibrary.com/",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Create a Firebase project and Firestore database, publish <code>firebase/firestore.rules</code>, and put your web app's <code>projectId</code> and <code>apiKey</code> into <code>assets/js/config.js</code>.",
+        "Run <code>firebase/setup-wif.sh</code> once in Google Cloud Shell to set up Workload Identity Federation for your repository. Service account keys are deliberately not supported.",
+        "Add the repository secret <code>OPENAI_KEY</code> for moderation and review.",
+        "Enable Pages with source GitHub Actions and point your custom domain at your org's github.io host.",
+        "Build your campaign in <code>/builder/</code>, commit the file to <code>campaigns/</code>, and set the default in <code>campaigns/index.json</code>.",
+        "Dry-run the processor locally before going live: <code>python3 scripts/process_signatures.py --dry-run</code>."
+      ]
+    },
+    {
+      "slug": "seo",
+      "repo": "SEO",
+      "name": "SEO &amp; AI Visibility",
+      "category": "Dashboard",
+      "weight": 2,
+      "added": "2026-10-16",
+      "tagline": "Tracks whether search engines rank you — and whether AI assistants mention you at all.",
+      "description": [
+        "An eight-tab dashboard over one nonprofit website: Search Console performance, live rankings, a full technical audit, and a weekly round of real travel and history questions put to ChatGPT, Gemini, Perplexity and Claude to see whether the Library is named and cited.",
+        "That second half is the part most institutions have no instrument for. People increasingly ask an assistant where to go and what to see, and if your collection is invisible in those answers you will not see it in your analytics either — there is no referrer for a conversation.",
+        "It also writes plain-text outputs so an AI assistant can read the whole picture in one fetch, and it manages its own tracking list, promoting promising keywords and retiring ones that are finished."
+      ],
+      "capabilities": [
+        "Striking-distance searches, high-ranking pages people skip, and title gaps",
+        "Weekly multi-model checks for mentions, rank against nearby attractions, and cited sources",
+        "Site audit of every sitemap URL: titles, canonicals, Open Graph, alt text, thin pages, redirects",
+        "Checks whether robots.txt actually allows the AI crawlers you think it does",
+        "Self-managing keyword and prompt tracking, with graduation, retirement and cooldown",
+        "Drafted titles and descriptions under editorial guardrails, length-checked and flagged for human verification",
+        "Every source degrades gracefully &mdash; a missing key skips a job and explains itself"
+      ],
+      "stack": [
+        "Python",
+        "pytest",
+        "GitHub Actions",
+        "GitHub Pages",
+        "Google Search Console API",
+        "Workload Identity Federation",
+        "DataForSEO",
+        "OpenAI",
+        "Gemini",
+        "Perplexity",
+        "Anthropic"
+      ],
+      "demo": "https://seo.labs.trlibrary.com",
+      "embeddable": false,
+      "license": "MIT",
+      "setup": [
+        "Fork, then move <code>setup/workflows/*.yml</code> into <code>.github/workflows/</code>.",
+        "Enable Pages from <code>main</code> / <code>/docs</code>, set <code>docs/CNAME</code>, and set Workflow permissions to Read and write.",
+        "Set up Search Console access: a no-role service account added as a Restricted user on your property, then Workload Identity Federation, then the <code>GCP_WIF_PROVIDER</code> and <code>GCP_SERVICE_ACCOUNT</code> Actions variables.",
+        "Set <code>gsc_property</code> in <code>config/site.yml</code> along with your brand names and the nearby attractions you want to be compared against.",
+        "Optionally add <code>DATAFORSEO_*</code> for live ranks, and any of the model API keys for the AI visibility checks. Without them those tabs simply sit out.",
+        "Replace <code>config/keywords.yml</code> and <code>config/ai_prompts.yml</code> with the searches and questions your own audience would actually type."
       ]
     }
   ]
