@@ -1916,6 +1916,47 @@
         "Optionally add <code>DATAFORSEO_*</code> for live ranks, and any of the model API keys for the AI visibility checks. Without them those tabs simply sit out.",
         "Replace <code>config/keywords.yml</code> and <code>config/ai_prompts.yml</code> with the searches and questions your own audience would actually type."
       ]
+    },
+    {
+      "slug": "public-lands",
+      "repo": "PresidentialPublicLands",
+      "name": "Roosevelt's Public Lands",
+      "category": "Interactive Media",
+      "weight": 3,
+      "added": "2026-07-19",
+      "tagline": "Two hundred and thirty million acres, added to the map one year at a time.",
+      "description": [
+        "Between September 1901 and March 1909, Roosevelt protected roughly 230 million acres — about a tenth of the country. A timeline slider starts with what was already protected when he took office, then adds each year of his presidency: 150 national forests, five national parks, eighteen monuments, 51 federal bird reservations, four game preserves and 24 reclamation projects.",
+        "The interesting problem here is honesty about shape. The 1909 outlines largely do not survive, so every boundary drawn is the place as it exists <em>today</em>, taken from current Forest Service, Park Service and Fish and Wildlife data — and the map says so, plainly, to the visitor. Forests are shaded by the reserve at their core: green where Roosevelt first protected them, tan where protection predated him, with a dashed green edge marking the year he enlarged one. Reserves that no longer exist appear as markers rather than being quietly dropped.",
+        "Every figure is traceable. A <code>research/</code> directory holds the verified source tables behind the data — Forest Service boundary histories, the 1912 Biological Survey circular for the bird reservations, presidential proclamations for the monuments — with notes on every correction and every open question."
+      ],
+      "capabilities": [
+        "Year-by-year slider across the presidency, with a play control",
+        "Boundaries for 109 modern forests descending from 1891–1909 reserves, plus markers for three that no longer exist",
+        "Filter by kind: forests, parks, monuments, bird reserves, game preserves, reclamation",
+        "A toggle for what was already protected before he took office",
+        "Shareable deep links to a year, a filter or a single place",
+        "Source tables in <code>research/</code> behind every count, with corrections recorded"
+      ],
+      "stack": [
+        "MapLibre GL JS",
+        "OpenFreeMap basemap",
+        "GeoJSON",
+        "Python build tools",
+        "mapshaper",
+        "GitHub Pages"
+      ],
+      "demo": "https://publiclands.labs.trlibrary.com",
+      "embeddable": true,
+      "license": "MIT",
+      "setup": [
+        "Fork the repo. The published site is <code>index.html</code>, <code>styles.css</code> and <code>app.js</code> &mdash; no build step.",
+        "Replace <code>data/sites.json</code>, one record per place: name, kind, era, date, acreage, note, what it is today, and sources. <code>data/lands.geojson</code> holds the boundaries, keyed by <code>sid</code>.",
+        "Rebuild geometry with the scripts in <code>tools/</code>, pulling boundaries from whichever authoritative service covers your subject.",
+        "When simplifying with mapshaper, do not add <code>-clean</code> &mdash; it removes overlapping features and will silently erase any place that sits inside another.",
+        "Keep the caveat text. Showing today's boundary for a historic designation is defensible only if you say so on the page.",
+        "Enable Pages from <code>main</code> at the root, set <code>CNAME</code> and the DNS record, then turn on Enforce HTTPS."
+      ]
     }
   ]
 }
